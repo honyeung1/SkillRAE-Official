@@ -1,0 +1,409 @@
+{
+  "task_id": "flink-query",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_f58daa0fa9dec28ad322",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "In `/app/workspace/src/main/java/clusterdata/query/LongestSessionPerJob.java`, implement a Flink job that will identify job stages based on its task activities, and find the stage with the most number of tasks once the job has finished.\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_587bf813d45877f10f49",
+      "requirement_type": "COMPLETION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "A stage is defined as a period of task SUBMIT events that occur close to each other in event time for a given job. A stage ends when there is an inactivity period of 10 minutes with no SUBMIT events for that job.  \n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_bbc6298914bf32f8df3e",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 15,
+        "line_end": 15,
+        "exact_text": "For each job, output a tuple in this specific format `(first_int,second_int)` where:\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_758e18e0e27e5ee08feb",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 16,
+        "line_end": 16,
+        "exact_text": "- First field: jobId\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_ba5b8b655fb03814efb3",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 17,
+        "line_end": 18,
+        "exact_text": "- Second field: the number of tasks in the longest stage\n\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6b4bea8375ce94dedd00",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 19,
+        "line_end": 19,
+        "exact_text": "The job should write output to a local file (one line per tuple).\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_6832a6712eea3de086cd",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 24,
+        "line_end": 24,
+        "exact_text": "- `task_input`: path to task event input data, which is a single gzipped task-event CSV file (e.g., `/app/workspace/data/task_events/part-00001-of-00500.csv.gz`)\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_0f0e8722d5967f88e2b7",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 25,
+        "line_end": 25,
+        "exact_text": "- `job_input`: path to job event input data, which is a single gzipped job-event CSV file (e.g., `/app/workspace/data/job_events/part-00001-of-00500.csv.gz`)\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_dc83d0255ab783c4a410",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 26,
+        "line_end": 28,
+        "exact_text": "- `output`:  path to output file. The flink job should write output to this file.  \n\n\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_bba5d18642c64b659389",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 31,
+        "line_end": 31,
+        "exact_text": "- `/app/workspace/src/main/java/clusterdata/query/LongestSessionPerJob.java`: the provided Flink job skeleton. Do not change the class name.\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_01ccdbe83e4de9ca2ebf",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 32,
+        "line_end": 32,
+        "exact_text": "- `clusterdata.utils.AppBase`: Base class (already extended by skeleton).\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_0e3fbe0b8cfe71632548",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 33,
+        "line_end": 35,
+        "exact_text": "- `pom.xml`: Define the job class name and jar file name. Do not change this file.\n\n\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_36e5cc56027f837a48f8",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 37,
+        "line_end": 37,
+        "exact_text": "- You need to implement task event and job event classes under `clusterdata.datatypes`, as mentioned in `clusterdata.utils.AppBase`\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_f63e5939befc79e3436e",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 38,
+        "line_end": 38,
+        "exact_text": "- The test will compile this job and run it on Flink. We will evaluate the output by comparing the count for each jobId. The order of lines are not required.\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_52f2ac12a8bf5cc8df4f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/flink-query/instruction.md",
+        "source_type": "instruction",
+        "line_start": 39,
+        "line_end": 39,
+        "exact_text": "- If the same task is submitted then failed/evicted and resubmitted again, these should be counted separately.\n",
+        "source_sha256": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "senior-data-engineer",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "workload-balancing",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "parallel-processing",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "glm-output",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "skillsbench",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "jax-skills",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "sqlite-map-parser",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "report-generator",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "csv-processing",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "senior-java",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "data_cleaning",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "unknown_task_artifact-evaluation",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "artifact-evaluation",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pddl-skills",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "geospatial-analysis",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_ce043a958b4ed7a7f623",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "artifact-evaluation"
+      ],
+      "path_id": "path_repair_2ccf9f4fb9777fad29b7",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_4fb3243ce184d4ce21f3",
+        "prov_7d9a56ef307e64435eb2",
+        "req_6b4bea8375ce94dedd00"
+      ],
+      "requirement_ids": [
+        "req_6b4bea8375ce94dedd00"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_3a95c9f54da4d29b3318",
+        "sui_a8e2c3f71bcd6e1e55f2"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/flink-query/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_2ccf9f4fb9777fad29b7",
+      "requirement": {
+        "requirement_id": "req_6b4bea8375ce94dedd00"
+      },
+      "capability_unit": {
+        "skill_id": "artifact-evaluation"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "0107f4efdd1887a0437c3e87d02b23a8e0ce51864e6b0830c7ecefc7751cea0d",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "7b48140e4198503de244e782199b16245542deb5602df2197525ea210303b01e"
+  }
+}

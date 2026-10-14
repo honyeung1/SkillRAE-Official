@@ -1,0 +1,24 @@
+{
+  "selected_skill_ids": [
+    "filler-word-processing",
+    "whisper-transcription",
+    "video-frame-extraction",
+    "video-filler-word-remover_ffmpeg-video-editing",
+    "video-processor"
+  ],
+  "selected_path_ids": [
+    "path_repair_c2687880dc13a3de18c3"
+  ],
+  "closed_requirement_ids": [
+    "req_0e6acb3185f96cef35ae",
+    "req_65731d2a548cc3f5eb0d",
+    "req_937295c85dc0381cf487",
+    "req_a685444f08e0c5c96c17",
+    "req_ac9dfa5e75dc6404524b",
+    "req_b466c9618495f96172c9",
+    "req_e0416d136421b0c13a58",
+    "req_ed30d15b55388e6c2ccf"
+  ],
+  "guide_sha256": "4996c8e172edcd3800d1755e07268087ab0342c86335a6deace67e1e28fb2093",
+  "guide_tokens": 115
+}

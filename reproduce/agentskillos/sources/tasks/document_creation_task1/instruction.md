@@ -1,0 +1,3 @@
+I am a legal operations manager, and I need to draft a technical service contract for an upcoming IT consulting engagement. Please generate it as contract.docx with 7 chapters as Heading 1: Party Information, Scope of Services, Service Duration, Fees and Payment, Confidentiality, Liability, Dispute Resolution. Each chapter should have at least 2 substantive paragraphs.
+
+Chapter 4 must include a fee breakdown table (at least 3 service items, 4 columns: Service Item, Unit Price, Quantity, Amount). Add tracked changes in Chapter 5 changing the confidentiality period from '2 years' to '3 years'. Include signature lines for both parties at the end.

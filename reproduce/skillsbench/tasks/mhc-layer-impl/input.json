@@ -1,0 +1,260 @@
+{
+  "task_id": "mhc-layer-impl",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_a12b74a3f79b5cd4b5b6",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/mhc-layer-impl/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "I want to improve stability of training nanoGPT (124M) model. Inspired by DeepSeek's paper (2025), I want to implement mHC layer during training process.\n",
+        "source_sha256": "fb31b6b3013a8765e5a7ca2d2a3b9a2d799beaff2a1715881c4a712644bb2907",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_ffb01679f34a07f0e1cb",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/mhc-layer-impl/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "The training using A100 GPU from modal(https://modal.com/) on Fineweb dataset, baseline model provided in /root/src (data, model, train.py). Your task is to implement the mHC layer during training process as described in the paper, then train both baseline and mHC model till validation loss < 4.5 or 5000 steps.\n",
+        "source_sha256": "fb31b6b3013a8765e5a7ca2d2a3b9a2d799beaff2a1715881c4a712644bb2907",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "mhc-algorithm",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "nanogpt-training",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "gpt-multimodal",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "modal-gpu",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "rdkit",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "jax-skills",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "parallel-processing",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "glm-basics",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "imc-tuning-rules",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "automatic-speech-recognition",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "glm-calibration",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "azure-bgp",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "lab-unit-harmonization",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pddl-skills",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_002"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_de8c10146e326026032f",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "nanogpt-training"
+      ],
+      "path_id": "path_repair_aa8f8d0e07b740ea03f3",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_2760353f077775587b1c",
+        "req_ffb01679f34a07f0e1cb"
+      ],
+      "requirement_ids": [
+        "req_ffb01679f34a07f0e1cb"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_b0bcd9be92c34dae5f81"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_68c53400925f82035d4f",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "modal-gpu"
+      ],
+      "path_id": "path_repair_cb1c127bac2daa7c47b2",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_792a6a0af8f80f3762ad",
+        "req_ffb01679f34a07f0e1cb"
+      ],
+      "requirement_ids": [
+        "req_ffb01679f34a07f0e1cb"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_5cce9cc7af2722723fb5"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/mhc-layer-impl/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_cb1c127bac2daa7c47b2",
+      "requirement": {
+        "requirement_id": "req_ffb01679f34a07f0e1cb"
+      },
+      "capability_unit": {
+        "skill_id": "modal-gpu"
+      }
+    },
+    {
+      "path_id": "path_repair_aa8f8d0e07b740ea03f3",
+      "requirement": {
+        "requirement_id": "req_ffb01679f34a07f0e1cb"
+      },
+      "capability_unit": {
+        "skill_id": "nanogpt-training"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "bac4ad5727ab83ef29ebed65f64dc29708824bd58638b243183ddc3c66c1bb3f",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "fb31b6b3013a8765e5a7ca2d2a3b9a2d799beaff2a1715881c4a712644bb2907"
+  }
+}

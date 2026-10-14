@@ -1,0 +1,29 @@
+{
+  "selected_skill_ids": [
+    "lab-unit-harmonization",
+    "powerlifting-coef-calc_xlsx",
+    "citation-management",
+    "pubchem-database",
+    "xlsx"
+  ],
+  "selected_path_ids": [
+    "path_repair_a04d18b40ce6e03b598c",
+    "path_repair_e788c30c951f668a3e89"
+  ],
+  "closed_requirement_ids": [
+    "req_224549b42c039c94c473",
+    "req_3b31c5776a6e0777f5bb",
+    "req_4a40c0e0d4e99abac98c",
+    "req_4e0ad0bac0394ac9cffd",
+    "req_667fa3e756df6d44ca40",
+    "req_8026ae548ad61fcd1c8c",
+    "req_95a146cd880ecd44215d",
+    "req_9ab28a129745f222ba0a",
+    "req_9bbf549a72d35a29a8db",
+    "req_dd2c2bb21a85d21e3f37",
+    "req_ee057c2bf26f02ee8f80",
+    "req_f89bcdf4f0c7e38b1446"
+  ],
+  "guide_sha256": "926aa22b90115984830583bcfdfff03f7c63ae7808cbcf024de4e43b61ff06b1",
+  "guide_tokens": 237
+}

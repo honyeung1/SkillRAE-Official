@@ -1,0 +1,322 @@
+{
+  "task_id": "lake-warming-attribution",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_d15df1235c6ec5aca7ff",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/lake-warming-attribution/instruction.md",
+        "source_type": "instruction",
+        "line_start": 2,
+        "line_end": 2,
+        "exact_text": "1. `water_temperature.csv`: Lake surface temperature (0-5m)\n",
+        "source_sha256": "5c9d251ad77db347e6260049060c18e80f0c5c42b89029e136a70b245d7c90e0",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_2590e5ce177dfafb2b02",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/lake-warming-attribution/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "2. `climate.csv`: Climate variables\n",
+        "source_sha256": "5c9d251ad77db347e6260049060c18e80f0c5c42b89029e136a70b245d7c90e0",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3a1f5b3041b29085f068",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/lake-warming-attribution/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "3. `land_cover.csv`: Land cover data\n",
+        "source_sha256": "5c9d251ad77db347e6260049060c18e80f0c5c42b89029e136a70b245d7c90e0",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_bdd71754314be1809dbc",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/lake-warming-attribution/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 6,
+        "exact_text": "4. `hydrology.csv`: Hydrology data\n\n",
+        "source_sha256": "5c9d251ad77db347e6260049060c18e80f0c5c42b89029e136a70b245d7c90e0",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_576b89e9277ca12ad0f5",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/lake-warming-attribution/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "First, I want to do a trend analysis to determine whether there is a long-term warming trend for the water temperature. You should output the 'trend_result.csv' in '/root/output/'. The file should have two columns: one is \"slope,\" and the other is \"p-value.\"\n",
+        "source_sha256": "5c9d251ad77db347e6260049060c18e80f0c5c42b89029e136a70b245d7c90e0",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_84db63232a2fdcbe7dfc",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/lake-warming-attribution/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 9,
+        "exact_text": "Second, I want to know the most important driving factor behind the water warming. To simplify, all driving factors listed in our data can be classified into Heat, Flow, Wind, and Human. Then, you can just tell me which category is the most important category, and what percentage of this category contributes to the water warming. You should output the 'dominant_factor.csv' in '/root/output/'. The file should have two columns: one is \"variable,\" and the other is \"contribution.\" You only need to output the most important variable.\n",
+        "source_sha256": "5c9d251ad77db347e6260049060c18e80f0c5c42b89029e136a70b245d7c90e0",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "glm-output",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "meteorology-driver-classification",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "trend-analysis",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "nws-flood-thresholds",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "flood-detection",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pca-decomposition",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "contribution-analysis",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "glm-basics",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "usgs-data-download",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "timeseries-detrending",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "glm-calibration",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "light-curve-preprocessing",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "power-flow-data",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "vulnerability-csv-reporting",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "reflow-profile-compliance-toolkit",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_403486859b00980d869d",
+      "community_ids": [
+        "l2_001"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "trend-analysis"
+      ],
+      "path_id": "path_repair_b8793ee9a95b0e0ab781",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_678217c6f28e5f2a3413",
+        "prov_90e7b595d9b0361ce353",
+        "prov_f3502b84d75935fe091c",
+        "req_576b89e9277ca12ad0f5"
+      ],
+      "requirement_ids": [
+        "req_576b89e9277ca12ad0f5"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_4e0a013b3d79f85bbffb",
+        "sui_cff926811e676a18fa5e",
+        "sui_d027a6178aad11c3b6d0"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_bd660e55b702188ec36a",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "glm-output"
+      ],
+      "path_id": "path_repair_caea5aaf4c66f55cc18d",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_7ea48fca9c58410a469b",
+        "prov_905e8752de5ececeee2c",
+        "req_2590e5ce177dfafb2b02"
+      ],
+      "requirement_ids": [
+        "req_2590e5ce177dfafb2b02"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_85237be06ffae63dffec",
+        "sui_a13585c1dda24229eebc"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/lake-warming-attribution/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_caea5aaf4c66f55cc18d",
+      "requirement": {
+        "requirement_id": "req_2590e5ce177dfafb2b02"
+      },
+      "capability_unit": {
+        "skill_id": "glm-output"
+      }
+    },
+    {
+      "path_id": "path_repair_b8793ee9a95b0e0ab781",
+      "requirement": {
+        "requirement_id": "req_576b89e9277ca12ad0f5"
+      },
+      "capability_unit": {
+        "skill_id": "trend-analysis"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "764692a14180c2efb2a9440be32f906136eccfe3fbf00804fab736a4bfa6c5b2",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "5c9d251ad77db347e6260049060c18e80f0c5c42b89029e136a70b245d7c90e0"
+  }
+}

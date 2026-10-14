@@ -1,0 +1,15 @@
+{
+  "selected_skill_ids": [
+    "python-scala-idioms",
+    "python-scala-functional",
+    "python-scala-oop",
+    "python-scala-syntax-mapping",
+    "python-scala-collections"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_f249783c10a7fbc60c2a"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

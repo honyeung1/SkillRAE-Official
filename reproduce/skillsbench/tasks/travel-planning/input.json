@@ -1,0 +1,525 @@
+{
+  "task_id": "travel-planning",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_b884130def90314463c8",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 2,
+        "line_end": 3,
+        "exact_text": "Build an itinerary for the user according to the following requirements:\n\"We require a 7-day travel itinerary for two leaving from Minneapolis and covering three cities in Ohio, starting from March 17th to March 23rd, 2022. Our budget is up to $5,100. We will be accompanied by our pets, so we need pet-friendly accommodations. Our meals should preferably include American, Mediterranean, Chinese, and Italian cuisines. Please note we prefer not to take any flights so our travel plan should not include them.\"\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_676b252d40dda54fdfed",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 6,
+        "line_end": 7,
+        "exact_text": "- You must utilize skills to search for real-world data in the database, do not use data/POIs from your memory.\n\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a3187cb5b196ee8cee1d",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "Produce a single JSON file to `/app/output/itinerary.json` with the following structure:\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_d8bd6a66107d7cee8b82",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 13,
+        "exact_text": "- `plan`: array of exactly 7 day objects (see below)\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_7f46b0f2d684e2f154bc",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 14,
+        "line_end": 15,
+        "exact_text": "- `tool_called`: array of strings listing all search skills used (e.g., `[\"search_cities\", \"search_accommodations\", ...]`)\n\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6c66e0949dcfbac3c010",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 16,
+        "line_end": 16,
+        "exact_text": "**Each day object in `plan` must contain:**\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_17d24610258225d1f5a4",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 17,
+        "line_end": 17,
+        "exact_text": "- `day`: integer day number (1–7)\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_8aa18016e7d80fcf1236",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 18,
+        "exact_text": "- `current_city`: string (city name, or `\"from A to B\"` when moving between cities)\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6df8effb838ddd3d59f5",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 19,
+        "line_end": 19,
+        "exact_text": "- `transportation`: string (e.g., `\"Self-driving: from A to B\"`; do not use flights)\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_19f416bb599931f86b02",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 20,
+        "line_end": 20,
+        "exact_text": "- `breakfast`, `lunch`, `dinner`: string; use `\"-\"` if intentionally skipped\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_f17222b7790a2cc453fd",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 21,
+        "line_end": 21,
+        "exact_text": "- `attraction`: string; list multiple attractions separated by `;` and end with `;` (e.g., `\"Rock & Roll Hall of Fame;West Side Market;\"`)\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_94cfda413f9046a79d28",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/travel-planning/instruction.md",
+        "source_type": "instruction",
+        "line_start": 22,
+        "line_end": 23,
+        "exact_text": "- `accommodation`: string; pet-friendly lodging\n\n",
+        "source_sha256": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "planning-with-files",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "search-cities",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "search-driving-distance",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "search-accommodations",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "azure-bgp",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "search-attractions",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "search-flights",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "search-restaurants",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "harbor",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pddl-skills",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "openai-tts",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "pareto-optimization",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "gemini-count-in-video",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "audiobook",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "syzkaller-build-loop",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_002"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_90d6daa757e2ae36cfa2",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pddl-skills"
+      ],
+      "path_id": "path_repair_5863bec86a753ace76c8",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1e6057fdec379eddef10",
+        "prov_486058a778b6c0a902a9",
+        "prov_5480282c4c8ddc174f27",
+        "prov_629b89be6593518d63dd",
+        "prov_779ccb3824752e9e310b",
+        "prov_8e11125f3e683b248eea",
+        "req_6c66e0949dcfbac3c010"
+      ],
+      "requirement_ids": [
+        "req_6c66e0949dcfbac3c010"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_2b39e5fca225c0ab2b11",
+        "sui_8e8452ddf666d36a209b",
+        "sui_b3cbcdf99bd757d83e5e",
+        "sui_bb8c286fb3b87738ec4a",
+        "sui_eb0ab7e9d4d878f3490e",
+        "sui_f0fcfcbfba36812086ef"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_32510c45f2598f9d3ff1",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "enterprise-artifact-search"
+      ],
+      "path_id": "path_repair_852ebeab4beb20dbd809",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_71fee50493d476105ab3",
+        "prov_d89a0fef21c7a61c0cfc",
+        "req_a3187cb5b196ee8cee1d"
+      ],
+      "requirement_ids": [
+        "req_a3187cb5b196ee8cee1d"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_0c68b20c1e0577c06d06",
+        "sui_3ff4611cc1860cbdb45c"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_4e06402abe224ed0eba0",
+      "community_ids": [
+        "l2_012"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "search-accommodations"
+      ],
+      "path_id": "path_repair_c59d958028d8b3f8a943",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_736239510435cd954760",
+        "req_676b252d40dda54fdfed"
+      ],
+      "requirement_ids": [
+        "req_676b252d40dda54fdfed"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_e0a8bf561ba13d8020b6"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_33e4a27d6d8ffe88f438",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pddl-skills"
+      ],
+      "path_id": "path_repair_cb6fa30931a36f68a475",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_36a8f88cfcda3a5e6951",
+        "prov_996670b2efedc2f04e3e",
+        "prov_a4f75674d29739ac77ec",
+        "prov_c2f53f72c7f82b74d551",
+        "prov_d1714f5ee92cfc53c1d7",
+        "req_d8bd6a66107d7cee8b82"
+      ],
+      "requirement_ids": [
+        "req_d8bd6a66107d7cee8b82"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_0fbc3afa76909384d04f",
+        "sui_166ca7942310a2a5baa6",
+        "sui_3e2b354cfaf83bf7ad7c",
+        "sui_432662c81365787a3421",
+        "sui_89905f20706f72a12a04"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_92d496db55b2c4595887",
+      "community_ids": [
+        "l2_012"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "search-driving-distance"
+      ],
+      "path_id": "path_repair_fb6238374e91b010fecb",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_7e261520ec2e74e4bb1a",
+        "req_6df8effb838ddd3d59f5"
+      ],
+      "requirement_ids": [
+        "req_6df8effb838ddd3d59f5"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_12f2896f27b27279d566"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/travel-planning/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_c59d958028d8b3f8a943",
+      "requirement": {
+        "requirement_id": "req_676b252d40dda54fdfed"
+      },
+      "capability_unit": {
+        "skill_id": "search-accommodations"
+      }
+    },
+    {
+      "path_id": "path_repair_852ebeab4beb20dbd809",
+      "requirement": {
+        "requirement_id": "req_a3187cb5b196ee8cee1d"
+      },
+      "capability_unit": {
+        "skill_id": "enterprise-artifact-search"
+      }
+    },
+    {
+      "path_id": "path_repair_cb6fa30931a36f68a475",
+      "requirement": {
+        "requirement_id": "req_d8bd6a66107d7cee8b82"
+      },
+      "capability_unit": {
+        "skill_id": "pddl-skills"
+      }
+    },
+    {
+      "path_id": "path_repair_5863bec86a753ace76c8",
+      "requirement": {
+        "requirement_id": "req_6c66e0949dcfbac3c010"
+      },
+      "capability_unit": {
+        "skill_id": "pddl-skills"
+      }
+    },
+    {
+      "path_id": "path_repair_fb6238374e91b010fecb",
+      "requirement": {
+        "requirement_id": "req_6df8effb838ddd3d59f5"
+      },
+      "capability_unit": {
+        "skill_id": "search-driving-distance"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "23a855701b944e8f934012e68655f375d6f0ff54624ec0c669447462cde263c2",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "c67d0b8304c30c1b584080f3572967595acdbede0cca51a7e7713f455b142661"
+  }
+}

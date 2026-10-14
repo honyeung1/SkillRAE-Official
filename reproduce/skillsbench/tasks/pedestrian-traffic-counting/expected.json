@@ -1,0 +1,20 @@
+{
+  "selected_skill_ids": [
+    "gemini-count-in-video",
+    "video-frame-extraction",
+    "sales-pivot-analysis_xlsx",
+    "multimodal-fusion",
+    "object_counter"
+  ],
+  "selected_path_ids": [
+    "path_repair_430730a8a50061c01cfc",
+    "path_repair_e1a517af30277de58ff4"
+  ],
+  "closed_requirement_ids": [
+    "req_686e333272b3f429ce64",
+    "req_980efb430304d301e015",
+    "req_ca0ce34f23b08407c35c"
+  ],
+  "guide_sha256": "9f0d79f88c5686679c2446ff917cddc9dda8cc6feba53d997e98b5ce7b0a00ca",
+  "guide_tokens": 217
+}

@@ -1,0 +1,30 @@
+{
+  "selected_skill_ids": [
+    "hierarchical-taxonomy-clustering",
+    "file-organizer",
+    "sales-pivot-analysis_xlsx",
+    "fuzzy-match",
+    "enterprise-artifact-search"
+  ],
+  "selected_path_ids": [
+    "path_repair_4bcd98e3493b83b98da8",
+    "path_repair_31ef1a23878e0ef7bb01"
+  ],
+  "closed_requirement_ids": [
+    "req_05ac68598122ff54068b",
+    "req_160d95ad91f9c7025545",
+    "req_362a7184a9f59193fff5",
+    "req_77e07d660fd3f5eb5b91",
+    "req_7e3dd7e3e9c1249ff238",
+    "req_833bee1490b8f6811f58",
+    "req_aada2c47dd979c898ca3",
+    "req_ad53ba0021584367660e",
+    "req_b4247020a630d398f860",
+    "req_d2c94e58b504ac96330e",
+    "req_ec2d61bf093da1a96050",
+    "req_f3ccb8855c5faadd16f8",
+    "req_ffeb39fb0eb9a07e45fd"
+  ],
+  "guide_sha256": "c8c1a0c07697b2dd1ca5a9eb4f881ccde433cf992f17307bca9f29f0dfe354a0",
+  "guide_tokens": 239
+}

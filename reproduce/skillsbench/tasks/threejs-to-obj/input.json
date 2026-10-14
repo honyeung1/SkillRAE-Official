@@ -1,0 +1,188 @@
+{
+  "task_id": "threejs-to-obj",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_0d1b8e99bb1041b89ff1",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/threejs-to-obj/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "You are a helpful 3D programmer who can write scripts to convert the Three.js code into simulation-ready 3D assets that can be imported by Blender.\n",
+        "source_sha256": "3ed65f8b545597cf93476deddc9958ce68c009d17aa0740d8a83a82cbd5d6bf4",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_dfeab255c568525dd866",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/threejs-to-obj/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 5,
+        "exact_text": "Your task is to write a javascript to export the defined 3D object to \".obj\" format (to `/root/output/object.obj`) and keep all the originally defined 3D positions. It's noted that output obj file must be in Blender Z-up space by applying a -90 degrees X-rotation.\n",
+        "source_sha256": "3ed65f8b545597cf93476deddc9958ce68c009d17aa0740d8a83a82cbd5d6bf4",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "obj-exporter",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "threejs-to-obj_obj-exporter",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_011"
+      ]
+    },
+    {
+      "skill_id": "d3-visualization",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "mesh-analysis",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_react-best-practices",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "powerlifting-coef-calc_xlsx",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "sales-pivot-analysis_xlsx",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "glm-output",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "modal-gpu",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "hex-grid-spatial",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "dyn-object-masks",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "react-best-practices",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "obspy-datacenter-client",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "pdf",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_009"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/threejs-to-obj/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "6d73776a58927daa045e7085327f25cfe96690759b6c217d9690a8d9801c5ca0",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "3ed65f8b545597cf93476deddc9958ce68c009d17aa0740d8a83a82cbd5d6bf4"
+  }
+}

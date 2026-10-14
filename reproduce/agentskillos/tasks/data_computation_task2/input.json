@@ -1,0 +1,188 @@
+{
+  "task_id": "data_computation_task2",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_46f4f78fb8f4f4cdb216",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/data_computation_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "I am a risk analyst at an investment firm, and I need to quantify the downside risk of a proposed portfolio for our risk committee. Please build a portfolio risk simulation model. Portfolio: Stock A with 40% weight, 12% return, and 25% vol; Stock B with 35% weight, 8% return, and 18% vol; Bond C with 25% weight, 4% return, and 6% vol. Correlations: A-B=0.6, A-C=-0.2, B-C=0.1. Initial investment: 10M.\n",
+        "source_sha256": "54756b0a154a9125a9b5bd6a72d8ab424eb273d841cecd8ce3a1ae490cf027a0",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_a618ea459fffac0c0177",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/data_computation_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Create portfolio_var.xlsx with a 'Simulation' sheet containing 10,000 simulated scenarios accounting for asset correlations, and a 'Risk Metrics' sheet showing expected return, volatility, 95% VaR, 99% VaR, and max drawdown.\n",
+        "source_sha256": "54756b0a154a9125a9b5bd6a72d8ab424eb273d841cecd8ce3a1ae490cf027a0",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "contribution-analysis",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "timeseries-detrending",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "powerlifting",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "box-least-squares",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "pca-decomposition",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "13f-analyzer",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "glm-calibration",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "qutip",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "data-storytelling",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "mesh-analysis",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "tuning-hyperparameters",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "casadi-ipopt-nlp",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "latex-posters",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/data_computation_task2/instruction.md",
+  "units_file": "capabilities/b62d14b1e5c9417b.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 252,
+  "relative_executor_mount": true,
+  "source_hashes": {
+    "support": "ff19304d02b6042862eaa88b07e0d73057283a172a8ce79d861e869e87e548b8",
+    "units": "161a0f13b468979e31e17b2fe1b24612042cf93b2b744883731054deac636c3b",
+    "instruction": "54756b0a154a9125a9b5bd6a72d8ab424eb273d841cecd8ce3a1ae490cf027a0"
+  }
+}

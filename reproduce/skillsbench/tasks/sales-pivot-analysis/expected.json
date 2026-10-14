@@ -1,0 +1,22 @@
+{
+  "selected_skill_ids": [
+    "sales-pivot-analysis_xlsx",
+    "xlsx",
+    "powerlifting-coef-calc_xlsx",
+    "sales-pivot-analysis_pdf",
+    "did_causal_analysis"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_13a169c41ffb0bf3774d",
+    "req_4a9a3ca42a4d2a4f48b5",
+    "req_647ae4e0be324ebd27c6",
+    "req_799070deb41fe7e67e64",
+    "req_7d6149c9631d9213875b",
+    "req_7efab14f1e18dff6a5aa",
+    "req_97b3e5d0f99ecb9fa9c5",
+    "req_afe4d595247630c3835e"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

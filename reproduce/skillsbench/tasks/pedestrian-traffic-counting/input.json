@@ -1,0 +1,340 @@
+{
+  "task_id": "pedestrian-traffic-counting",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_980efb430304d301e015",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/pedestrian-traffic-counting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "If a pedestrian appears in multiple frames of the video, you should only count it as one. \n",
+        "source_sha256": "238989f6c9e6573d552753af6098e4b51a5cdb8dd32ba125b4e942de3aff3856",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_ca501eaee1f017bec3c5",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/pedestrian-traffic-counting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 9,
+        "exact_text": "The output file should only contain one sheet called \"results\". It should have two columns:\n",
+        "source_sha256": "238989f6c9e6573d552753af6098e4b51a5cdb8dd32ba125b4e942de3aff3856",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_ecfe0e193d0e435c1e36",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/pedestrian-traffic-counting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "- `filename`: source filename (e.g., \"test1.mp4\").\n",
+        "source_sha256": "238989f6c9e6573d552753af6098e4b51a5cdb8dd32ba125b4e942de3aff3856",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_686e333272b3f429ce64",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/pedestrian-traffic-counting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 11,
+        "line_end": 12,
+        "exact_text": "- `number`: the number of pedestrians in the video. \n\n",
+        "source_sha256": "238989f6c9e6573d552753af6098e4b51a5cdb8dd32ba125b4e942de3aff3856",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_ca0ce34f23b08407c35c",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/pedestrian-traffic-counting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 17,
+        "line_end": 17,
+        "exact_text": "Hint: When solving this task, you should be careful that don't count the same person appearing in multiple frames as multiple people.",
+        "source_sha256": "238989f6c9e6573d552753af6098e4b51a5cdb8dd32ba125b4e942de3aff3856",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "gemini-count-in-video",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "video-frame-extraction",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "sales-pivot-analysis_xlsx",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "multimodal-fusion",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "object_counter",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-video-editing",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "segment-combiner",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "powerlifting-coef-calc_xlsx",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "file-organizer",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "silence-detector",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "video-processor",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "audio-extractor",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "marker",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "automatic-speech-recognition",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "docx",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "search-driving-distance",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "speaker-clustering",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_004"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_8a9d40d84ec1c47e6129",
+      "community_ids": [
+        "l2_004"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "gemini-count-in-video"
+      ],
+      "path_id": "path_repair_430730a8a50061c01cfc",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_bf1313c36bcf242c8bb5",
+        "req_686e333272b3f429ce64"
+      ],
+      "requirement_ids": [
+        "req_686e333272b3f429ce64"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7587248ec32af7fd8187"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_8a9d40d84ec1c47e6129",
+      "community_ids": [
+        "l2_004"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "gemini-count-in-video"
+      ],
+      "path_id": "path_repair_9f2b3605f6e516e0cfda",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_bf1313c36bcf242c8bb5",
+        "req_ca0ce34f23b08407c35c"
+      ],
+      "requirement_ids": [
+        "req_ca0ce34f23b08407c35c"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7587248ec32af7fd8187"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_8a9d40d84ec1c47e6129",
+      "community_ids": [
+        "l2_004"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "gemini-count-in-video"
+      ],
+      "path_id": "path_repair_e1a517af30277de58ff4",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_bf1313c36bcf242c8bb5",
+        "req_980efb430304d301e015"
+      ],
+      "requirement_ids": [
+        "req_980efb430304d301e015"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7587248ec32af7fd8187"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/pedestrian-traffic-counting/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [
+    "path_repair_430730a8a50061c01cfc",
+    "path_repair_e1a517af30277de58ff4"
+  ],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_e1a517af30277de58ff4",
+      "requirement": {
+        "requirement_id": "req_980efb430304d301e015"
+      },
+      "capability_unit": {
+        "skill_id": "gemini-count-in-video"
+      }
+    },
+    {
+      "path_id": "path_repair_430730a8a50061c01cfc",
+      "requirement": {
+        "requirement_id": "req_686e333272b3f429ce64"
+      },
+      "capability_unit": {
+        "skill_id": "gemini-count-in-video"
+      }
+    },
+    {
+      "path_id": "path_repair_9f2b3605f6e516e0cfda",
+      "requirement": {
+        "requirement_id": "req_ca0ce34f23b08407c35c"
+      },
+      "capability_unit": {
+        "skill_id": "gemini-count-in-video"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "bc1555bdb3dfe47bc3eaa22129d7246a49fa676ab17ce5982580e57b7b35780c",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "238989f6c9e6573d552753af6098e4b51a5cdb8dd32ba125b4e942de3aff3856"
+  }
+}

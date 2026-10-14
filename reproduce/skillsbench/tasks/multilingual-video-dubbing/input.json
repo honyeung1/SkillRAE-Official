@@ -1,0 +1,255 @@
+{
+  "task_id": "multilingual-video-dubbing",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_0834c1cef6ccc009c3f0",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/multilingual-video-dubbing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 2,
+        "line_end": 2,
+        "exact_text": "Give you a video with source audio /root/input.mp4, the precise time window where the speech must occur /root/segments.srt. The transcript for the original speaker /root/source_text.srt. The target language /root/target_language.txt. and the reference script /root/reference_target_text.srt. Help me to do the multilingual dubbing.\n",
+        "source_sha256": "b9196c63baa91a4f8335c87d34e810b8e44a064f9dffc0e87539c82cc6547119",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_96754f8a7d697c6572de",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/multilingual-video-dubbing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 5,
+        "exact_text": "1. An audio named /outputs/tts_segments/seg_0.wav. It should followed the ITU-R BS.1770-4 standard. Also, the sound should be in the human level (i.e. high quality).\n",
+        "source_sha256": "b9196c63baa91a4f8335c87d34e810b8e44a064f9dffc0e87539c82cc6547119",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6556df4608668608b5aa",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/multilingual-video-dubbing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 6,
+        "line_end": 6,
+        "exact_text": "2. A video named /outputs/dubbed.mp4. It should contain your audio and the original visual components. When you put your audio in the video, you need to ensure that the placed_start_sec must match window start second within 10ms and the end drift (drift_sec) must be within 0.2 seconds. and the final output should be in 48000 Hz, Mono.\n",
+        "source_sha256": "b9196c63baa91a4f8335c87d34e810b8e44a064f9dffc0e87539c82cc6547119",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_eca32e0759212304d0d8",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/multilingual-video-dubbing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 8,
+        "exact_text": "3. Generate a /outputs/report.json.\nJSON Report Format:\n",
+        "source_sha256": "b9196c63baa91a4f8335c87d34e810b8e44a064f9dffc0e87539c82cc6547119",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "audiobook",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "gtts",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "automatic-speech-recognition",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "audio-extractor",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "voice-activity-detection",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "speech-to-text",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-format-conversion",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "video-filler-word-remover_ffmpeg-video-editing",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "filler-word-processing",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "openai-tts",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "text-to-speech",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-media-info",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "video-processor",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "multimodal-fusion",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "report-generator",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-audio-processing",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-video-editing",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "silence-detector",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_9716712cf79dcc5ea979",
+      "community_ids": [
+        "l2_008"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "report-generator"
+      ],
+      "path_id": "path_repair_406939d55f19a2cad634",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_04c5fe492da934f300f9",
+        "prov_5adb302c42063ceabd27",
+        "req_eca32e0759212304d0d8"
+      ],
+      "requirement_ids": [
+        "req_eca32e0759212304d0d8"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_149ba06be00d9c1e6081",
+        "sui_c69d273a4d3216b5dbaa"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/multilingual-video-dubbing/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_406939d55f19a2cad634",
+      "requirement": {
+        "requirement_id": "req_eca32e0759212304d0d8"
+      },
+      "capability_unit": {
+        "skill_id": "report-generator"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "a5aaa0fb89b3bd704630f7c7a5da1b8c29113ec13347a4514025b4871931efb2",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "b9196c63baa91a4f8335c87d34e810b8e44a064f9dffc0e87539c82cc6547119"
+  }
+}

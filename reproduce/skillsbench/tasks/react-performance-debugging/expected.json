@@ -1,0 +1,18 @@
+{
+  "selected_skill_ids": [
+    "react-best-practices",
+    "fix-visual-stability_react-best-practices",
+    "browser-testing",
+    "fix-visual-stability_browser-testing",
+    "web-interface-guidelines"
+  ],
+  "selected_path_ids": [
+    "path_repair_bdc97b2e3119050b1309"
+  ],
+  "closed_requirement_ids": [
+    "req_8ac82e8f78b8195f1f1c",
+    "req_f5c000d5b18648094d42"
+  ],
+  "guide_sha256": "8fa6422a7fa70dc1674ae2f575c4ae54e70cea1e9ba84cd89181707f669ed73f",
+  "guide_tokens": 124
+}

@@ -1,0 +1,19 @@
+{
+  "selected_skill_ids": [
+    "13f-analyzer",
+    "timeseries-detrending",
+    "fuzzy-name-search",
+    "did_causal_analysis",
+    "reflow-profile-compliance-toolkit"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_098dbe5ba4d7f7d7fbf9",
+    "req_1c8474eccfeba3ec6726",
+    "req_3842d8043e30bd12ceeb",
+    "req_b4031c74dbee3140282a",
+    "req_d9404aa2601051ed29ef"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

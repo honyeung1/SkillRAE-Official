@@ -1,0 +1,13 @@
+{
+  "selected_skill_ids": [
+    "powerlifting-coef-calc_xlsx",
+    "xlsx",
+    "sales-pivot-analysis_xlsx",
+    "data_cleaning",
+    "marker"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

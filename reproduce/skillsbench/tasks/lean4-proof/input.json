@@ -1,0 +1,302 @@
+{
+  "task_id": "lean4-proof",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_80f51b365945b633df33",
+      "requirement_type": "VALIDATION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/lean4-proof/instruction.md",
+        "source_type": "instruction",
+        "line_start": 21,
+        "line_end": 21,
+        "exact_text": "- Do not change anything before line 15 in `solution.lean`, including the import libraries, provided definition of S and the theorem statement of `problemsolution`. The test will check the exact prefix (including a leading blank line) of `solution.lean`.\n",
+        "source_sha256": "04b18806c7402c543ebdcce4cecabcdfcf216ebb37d53f6d4e960cd059613943",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_64e65f72e947ed49fea3",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/lean4-proof/instruction.md",
+        "source_type": "instruction",
+        "line_start": 22,
+        "line_end": 22,
+        "exact_text": "- Do not change any files other than `solution.lean`.\n",
+        "source_sha256": "04b18806c7402c543ebdcce4cecabcdfcf216ebb37d53f6d4e960cd059613943",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a67094251f469b99f5f0",
+      "requirement_type": "VALIDATION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/lean4-proof/instruction.md",
+        "source_type": "instruction",
+        "line_start": 23,
+        "line_end": 23,
+        "exact_text": "- The file must type-check with no warnings (treat warnings as errors).\n",
+        "source_sha256": "04b18806c7402c543ebdcce4cecabcdfcf216ebb37d53f6d4e960cd059613943",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "powerlifting-coef-calc_xlsx",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pddl-skills",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "ac-branch-pi-model",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "hex-grid-spatial",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "reflow-profile-compliance-toolkit",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "casadi-ipopt-nlp",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "box-least-squares",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "manufacturing-failure-reason-codebook-normalization",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "marker",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "mhc-algorithm",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pareto-optimization",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "sympy",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "mesh-analysis",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_002"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_49edb40c9d9e11d66c39",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "lean4-theorem-proving"
+      ],
+      "path_id": "path_repair_109df3035f33ffd5151c",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_0097f49221c49d18d1ac",
+        "prov_50418bae77050d355aab",
+        "prov_572683ec1931ebd6ee98",
+        "prov_5a3e525e9d35a229de3b",
+        "prov_783ae11b63fcaf01b775",
+        "prov_bc5c62999bb813e16b93",
+        "prov_ea3c6b25af62caef7c2f",
+        "prov_eee2eefacb684a4e1f82",
+        "req_80f51b365945b633df33"
+      ],
+      "requirement_ids": [
+        "req_80f51b365945b633df33"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_18a82f42e43dc8c9a046",
+        "sui_5d3f5f913ba0e46473a0",
+        "sui_798a3d5d0a58a576864f",
+        "sui_9fb4cb041c1442b5ada0",
+        "sui_ab580adb72a02c261fbe",
+        "sui_aee4c030a368f0a12e9b",
+        "sui_c58d84cdc282a8475ef9",
+        "sui_f4e2ec99871d51a74471"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_49edb40c9d9e11d66c39",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "lean4-theorem-proving"
+      ],
+      "path_id": "path_repair_a37d3f34eacd411a62b4",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_0097f49221c49d18d1ac",
+        "prov_50418bae77050d355aab",
+        "prov_572683ec1931ebd6ee98",
+        "prov_5a3e525e9d35a229de3b",
+        "prov_783ae11b63fcaf01b775",
+        "prov_bc5c62999bb813e16b93",
+        "prov_ea3c6b25af62caef7c2f",
+        "prov_eee2eefacb684a4e1f82",
+        "req_a67094251f469b99f5f0"
+      ],
+      "requirement_ids": [
+        "req_a67094251f469b99f5f0"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_18a82f42e43dc8c9a046",
+        "sui_5d3f5f913ba0e46473a0",
+        "sui_798a3d5d0a58a576864f",
+        "sui_9fb4cb041c1442b5ada0",
+        "sui_ab580adb72a02c261fbe",
+        "sui_aee4c030a368f0a12e9b",
+        "sui_c58d84cdc282a8475ef9",
+        "sui_f4e2ec99871d51a74471"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/lean4-proof/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_109df3035f33ffd5151c",
+      "requirement": {
+        "requirement_id": "req_80f51b365945b633df33"
+      },
+      "capability_unit": {
+        "skill_id": "lean4-theorem-proving"
+      }
+    },
+    {
+      "path_id": "path_repair_a37d3f34eacd411a62b4",
+      "requirement": {
+        "requirement_id": "req_a67094251f469b99f5f0"
+      },
+      "capability_unit": {
+        "skill_id": "lean4-theorem-proving"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "5aadf87ebf05201802d600e8ef1eb408e72b4df472218673dcd46ee414ba1ea0",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "04b18806c7402c543ebdcce4cecabcdfcf216ebb37d53f6d4e960cd059613943"
+  }
+}

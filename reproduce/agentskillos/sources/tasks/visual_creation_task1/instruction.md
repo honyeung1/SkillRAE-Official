@@ -1,0 +1,3 @@
+I am a graduate researcher, and I need to create a conference poster for presenting my work on molecular property prediction using graph neural networks. Please create an A0 academic poster on "Graph Neural Network-Based Molecular Property Prediction". Generate 3 scientific figures: gnn_architecture.png showing the GNN architecture diagram, molecular_graph.png showing molecule-to-graph representation, and performance.png showing a performance comparison chart.
+
+Build a 3-column poster, output as poster.pdf, with blue-green academic theme, including sections: Abstract, Introduction, Method with architecture figure, Molecular Representation, Experimental Results with performance figure, Conclusions, and References with 3-5 citations.

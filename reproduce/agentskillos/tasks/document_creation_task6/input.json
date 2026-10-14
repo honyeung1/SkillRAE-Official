@@ -1,0 +1,188 @@
+{
+  "task_id": "document_creation_task6",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_e2b4a05814bb2e7ddd86",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/document_creation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "I am a university lecturer, and I'm preparing teaching materials on \"Quantum Computing Fundamentals\" for my undergraduate class. Please generate 3 illustrations: qubit.png showing a Bloch sphere visualization, gates.png showing Hadamard & CNOT gate operations, and circuit.png showing a simple quantum circuit diagram.\n",
+        "source_sha256": "f0467aaa94884654f85c5e1ee0b8aec7173a6fb2038e92b3358c9376a52b0161",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_ed86b4eae6c73e09471f",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/document_creation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Create presentation.pdf with at least 8 pages covering: title page, classical vs quantum computing, qubits & superposition, quantum gates, quantum circuits, entanglement, applications, and summary with key takeaways.",
+        "source_sha256": "f0467aaa94884654f85c5e1ee0b8aec7173a6fb2038e92b3358c9376a52b0161",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "qutip",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "diagramming",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pymatgen",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "latex-posters",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scientific-slides",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "box-least-squares",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "syzlang-ioctl-basics",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_014"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "mobile-android-design",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "modal-gpu",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "excitation-signal-design",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "manim",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "scientific-visualization",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "threejs",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "react-best-practices",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/document_creation_task6/instruction.md",
+  "units_file": "capabilities/b62d14b1e5c9417b.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 252,
+  "relative_executor_mount": true,
+  "source_hashes": {
+    "support": "bcf686004473eccf33aa84ee401d866715c38ee1a600f502647e7f6c6cf1b36d",
+    "units": "161a0f13b468979e31e17b2fe1b24612042cf93b2b744883731054deac636c3b",
+    "instruction": "f0467aaa94884654f85c5e1ee0b8aec7173a6fb2038e92b3358c9376a52b0161"
+  }
+}

@@ -1,0 +1,3 @@
+I am a business operations manager, and I need to prepare our Q3 2024 quarterly performance report for the executive team. Please create it as quarterly_report.pptx with at least 8 slides. Include: cover slide, table of contents, revenue overview with July $12.0M / Aug $13.5M / Sep $15.0M, KPIs showing Revenue Growth 25% YoY, Customers 1500, NPS 72, and Satisfaction 85%, product performance table, market trends, Q4 plan, and closing slide.
+
+Use consistent color scheme and page numbers throughout.

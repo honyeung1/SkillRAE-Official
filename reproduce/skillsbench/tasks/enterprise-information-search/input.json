@@ -1,0 +1,174 @@
+{
+  "task_id": "enterprise-information-search",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_335c6411e1eeffb5e00c",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/enterprise-information-search/instruction.md",
+        "source_type": "instruction",
+        "line_start": 6,
+        "line_end": 15,
+        "exact_text": "Write your answer of all questions to '/root/answer.json' in a dict format so I can read it by python code directly.\nIf answer include multiple names/items/ids, store them in list.\nIf the answer only include one name/item/id, also store them in a list with length 1.\nAfter finishing all the step, please also log the consumed tokens in the json file.\nThe content of the output file should be in the following format:\n{\n    \"q1\": {\"answer\": \"xxx\", \"tokens\": \"xxx\"}, \n    \"q2\": {\"answer\": \"xxx\", \"tokens\": \"xxx\"}, \n    \"q3\": {\"answer\": \"xxx\", \"tokens\": \"xxx\"}, \n}\n",
+        "source_sha256": "97869fdd07f3dfe05d26bd2f33a0be86776df6f6df6917e064e640aa0ea1b32c",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "sqlite-map-parser",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "audiobook",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "nodemedic-demo_artifact-evaluation",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "python-scala-libraries",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_011"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "vulnerability-csv-reporting",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "pdf-reading",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "offer-letter-generator_docx",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "fuzzy-match",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "suricata-offline-evejson",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pubchem-database",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "obspy-datacenter-client",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "sales-pivot-analysis_pdf",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "python-scala-collections",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_011"
+      ]
+    },
+    {
+      "skill_id": "docs-to-skill",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "erlang-distribution",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "report-generator",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "file-organizer",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_007"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/enterprise-information-search/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "ba8207e8c74085fe8c3c41803ee843cf211cafe051a9db16eea406d97c9c3264",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "97869fdd07f3dfe05d26bd2f33a0be86776df6f6df6917e064e640aa0ea1b32c"
+  }
+}

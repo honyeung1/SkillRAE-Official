@@ -1,0 +1,244 @@
+{
+  "task_id": "data_computation_task4",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_535ce1da82f256306a38",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/data_computation_task4/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "I am a data scientist, and I have a breast cancer classification project in ml_project/. The baseline model in train_baseline.py uses an SVM with suboptimal hyperparameters — no feature scaling, linear kernel, C=0.001 — achieving only about 90% accuracy on the Wisconsin Breast Cancer dataset with 569 samples and 30 features.\n",
+        "source_sha256": "19bf66a53cb9dbd5d85f91c64bafd8f9a92c69dbc3c7f8eeb2df1e573d05f5a9",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_1a82fd99d84541db0327",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/data_computation_task4/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 6,
+        "exact_text": "1. First, run train_baseline.py to confirm baseline performance.\n\n",
+        "source_sha256": "19bf66a53cb9dbd5d85f91c64bafd8f9a92c69dbc3c7f8eeb2df1e573d05f5a9",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_64738c23210a5dcdcd64",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/data_computation_task4/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 8,
+        "exact_text": "2. Try at least two different hyperparameter optimization approaches, such as exhaustive search and a smarter search method, over SVM hyperparameters including kernel, C, and gamma. Use proper feature scaling and cross-validation.\n\n",
+        "source_sha256": "19bf66a53cb9dbd5d85f91c64bafd8f9a92c69dbc3c7f8eeb2df1e573d05f5a9",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_e57c1277c56eddee25ae",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/data_computation_task4/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 10,
+        "exact_text": "3. Compare the approaches and identify which one works better.\n\n",
+        "source_sha256": "19bf66a53cb9dbd5d85f91c64bafd8f9a92c69dbc3c7f8eeb2df1e573d05f5a9",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_bc2a73f4eb26d1c3636f",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/data_computation_task4/instruction.md",
+        "source_type": "instruction",
+        "line_start": 11,
+        "line_end": 12,
+        "exact_text": "4. Train the final best model and save it as best_model.pkl.\n\n",
+        "source_sha256": "19bf66a53cb9dbd5d85f91c64bafd8f9a92c69dbc3c7f8eeb2df1e573d05f5a9",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_df189c49dae06fd8cfcf",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/data_computation_task4/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 13,
+        "exact_text": "5. Generate comparison.json containing: baseline_accuracy, results from both optimization methods including best_params, best_cv_score, and search_time_seconds, as well as best_method, best_params, final_test_accuracy, final_test_f1, and improvement_over_baseline.",
+        "source_sha256": "19bf66a53cb9dbd5d85f91c64bafd8f9a92c69dbc3c7f8eeb2df1e573d05f5a9",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "tuning-hyperparameters",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "scipy-curve-fit",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "box-least-squares",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pareto-optimization",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "mhc-algorithm",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "senior-data-engineer",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "nanogpt-training",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "senior-data-scientist",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "memory-optimization",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "rdkit",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "feature_engineering",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "glm-calibration",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "fuzzy-match",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "time_series_anomaly_detection",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "sql-optimization-patterns",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/data_computation_task4/instruction.md",
+  "units_file": "capabilities/b62d14b1e5c9417b.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 252,
+  "relative_executor_mount": true,
+  "source_hashes": {
+    "support": "dbb01eb1621328cb7e2bef57958e02df1dcce390cfbdd72735bb421d27950b6e",
+    "units": "161a0f13b468979e31e17b2fe1b24612042cf93b2b744883731054deac636c3b",
+    "instruction": "19bf66a53cb9dbd5d85f91c64bafd8f9a92c69dbc3c7f8eeb2df1e573d05f5a9"
+  }
+}

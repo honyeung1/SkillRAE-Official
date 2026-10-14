@@ -1,0 +1,26 @@
+{
+  "selected_skill_ids": [
+    "pcap-analysis",
+    "pcap-triage-tshark",
+    "power-flow-data",
+    "threat-detection",
+    "azure-bgp"
+  ],
+  "selected_path_ids": [
+    "path_repair_1af9ccbadb67f368c086",
+    "path_repair_d29785b0291f90e288ae"
+  ],
+  "closed_requirement_ids": [
+    "req_136aebfcc27079148a9a",
+    "req_50d2e0d52152820c812d",
+    "req_5976d8202dd10e77eafe",
+    "req_6e949a1182e177d065bf",
+    "req_732e88873b35cb039463",
+    "req_80f4f11e6cf508049600",
+    "req_93ce1cbc5edd7762daca",
+    "req_b10c3f0365d08db5bb9a",
+    "req_d030a66c0781e5583544"
+  ],
+  "guide_sha256": "971c17eb371e894da2dc36c721a494f805f2496f444c7a56f806b59260f53286",
+  "guide_tokens": 215
+}

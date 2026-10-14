@@ -1,0 +1,7 @@
+# Dependency constraints for local snapshot replay; Python 3.13.12 tested.
+markdown-it-py==4.0.0
+numpy==2.4.4
+scikit-learn==1.8.0
+openai==2.24.0
+httpx==0.28.1
+tiktoken==0.12.0

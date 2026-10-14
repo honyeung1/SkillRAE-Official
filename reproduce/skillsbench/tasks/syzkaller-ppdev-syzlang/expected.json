@@ -1,0 +1,19 @@
+{
+  "selected_skill_ids": [
+    "syzlang-ioctl-basics",
+    "syzkaller-build-loop",
+    "syz-extract-constants",
+    "pptx",
+    "fuzzing-python"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_4a034eda7354566dec22",
+    "req_5c5966d74990f847eb00",
+    "req_a8382679813623e54e75",
+    "req_b0d3a8eb365c43a6e501",
+    "req_fca7c2b1c568512f2e8a"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

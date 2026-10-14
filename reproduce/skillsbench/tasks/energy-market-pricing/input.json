@@ -1,0 +1,743 @@
+{
+  "task_id": "energy-market-pricing",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_893c0c682e8352ff81bd",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "1. Power balance at each bus for DC\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_ba518f15dee9a3933694",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "2. Temperature limits of generators and transmitting lines\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a59cb80a0e123f334f8d",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 10,
+        "exact_text": "3. Spinning Reserve Requirements with Standard Capacity Coupling\n\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_c0f683d6494d45f1c432",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 11,
+        "line_end": 11,
+        "exact_text": "Perform an analysis. Finally, create `report.json` with the following structure:\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_610342cfa4a7b775a94f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 51,
+        "line_end": 56,
+        "exact_text": "- base case & counterfactual: contains market-clearing results for the corresponding cases\n  - total_cost_dollars_per_hour: indicates the total system cost\n  - lmp_by_bus: tracks the local marginal price for each bus\n  - reserve_mcp_dollars_per_MWh: is the system-wide reserve clearing price\n  - binding_lines: tracks transmission lines that are at or near thermal capacity (loading level >= 99%)\n\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_f38905c4427bfbce09aa",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 52,
+        "line_end": 52,
+        "exact_text": "  - total_cost_dollars_per_hour: indicates the total system cost\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_ceb7f7ed4f742fe4a1e0",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 53,
+        "line_end": 53,
+        "exact_text": "  - lmp_by_bus: tracks the local marginal price for each bus\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_1cdc39a9bffbdfde1a27",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 54,
+        "line_end": 54,
+        "exact_text": "  - reserve_mcp_dollars_per_MWh: is the system-wide reserve clearing price\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_d6160a6ceea0bdaa3153",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 55,
+        "line_end": 56,
+        "exact_text": "  - binding_lines: tracks transmission lines that are at or near thermal capacity (loading level >= 99%)\n\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_18f058f606b1edf554e9",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 57,
+        "line_end": 60,
+        "exact_text": "- impact_analysis: monitors the comparison between scenarios\n  - cost_reduction_dollars_per_hour: reflects the difference in cost between the base and counterfactual scenarios\n  - buses_with_largest_lmp_drop: list contains the three buses that have shown the highest reduction\n  - congestion_relieved: a flag indicating if the adjusted transmission line is binding in the counterfactual scenario (true indicates not binding)\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_fd86606d0222c620f5ac",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 58,
+        "line_end": 58,
+        "exact_text": "  - cost_reduction_dollars_per_hour: reflects the difference in cost between the base and counterfactual scenarios\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_d3aafdd4c37fb92e6bdc",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 59,
+        "line_end": 59,
+        "exact_text": "  - buses_with_largest_lmp_drop: list contains the three buses that have shown the highest reduction\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_ec8ec889bd066e0715db",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/energy-market-pricing/instruction.md",
+        "source_type": "instruction",
+        "line_start": 60,
+        "line_end": 60,
+        "exact_text": "  - congestion_relieved: a flag indicating if the adjusted transmission line is binding in the counterfactual scenario (true indicates not binding)\n",
+        "source_sha256": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "dc-power-flow",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "economic-dispatch",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "ac-branch-pi-model",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "reflow-profile-compliance-toolkit",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "power-flow-data",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "timeseries-detrending",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "reflow_machine_maintenance_guidance",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "casadi-ipopt-nlp",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pcap-analysis",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "glm-calibration",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "imc-tuning-rules",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "excitation-signal-design",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "trend-analysis",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "workload-balancing",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "finite-horizon-lqr",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "meteorology-driver-classification",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pareto-optimization",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_3b62600d8401e492602e",
+      "community_ids": [
+        "l2_001"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "dc-power-flow"
+      ],
+      "path_id": "path_repair_33d16f9d1a8708003fb3",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_0561505e076416c7f851",
+        "prov_258fbb86e81bed175db2",
+        "prov_99524b5e524a21bc061d",
+        "prov_a0b604afc945a7ae3d7e",
+        "req_893c0c682e8352ff81bd"
+      ],
+      "requirement_ids": [
+        "req_893c0c682e8352ff81bd"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_4d4475a91d0161652a53",
+        "sui_690308e390f6b5fa73b6",
+        "sui_ac8933ed2407a5f10b08",
+        "sui_e248e75d708f61f546fd"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_bbed702c84a332b4d1cb",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "locational-marginal-prices"
+      ],
+      "path_id": "path_repair_3ed0764bb301b93f9841",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_9488c470c2b6bf5145c6",
+        "prov_c4025a9b10ccef3de112",
+        "req_ec8ec889bd066e0715db"
+      ],
+      "requirement_ids": [
+        "req_ec8ec889bd066e0715db"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_952c78e2e4609d3bb36a",
+        "sui_cf926c3f8fcd09d26d54"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_bbed702c84a332b4d1cb",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "locational-marginal-prices"
+      ],
+      "path_id": "path_repair_4f39dce74b4f216ac69e",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_9488c470c2b6bf5145c6",
+        "prov_c4025a9b10ccef3de112",
+        "req_d6160a6ceea0bdaa3153"
+      ],
+      "requirement_ids": [
+        "req_d6160a6ceea0bdaa3153"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_952c78e2e4609d3bb36a",
+        "sui_cf926c3f8fcd09d26d54"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_bb0de3b491b0ef206777",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "locational-marginal-prices"
+      ],
+      "path_id": "path_repair_51cd093b52f3dc15f832",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_2a118e2fbbba06effcd3",
+        "prov_3fc59b38ee33e6c1f33e",
+        "prov_7012636519bbc6f09aae",
+        "prov_8a6d218b7b82ee00d626",
+        "prov_bd9bd81a3c9fe6d6edfe",
+        "prov_c4025a9b10ccef3de112",
+        "req_ba518f15dee9a3933694"
+      ],
+      "requirement_ids": [
+        "req_ba518f15dee9a3933694"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_4188c48e4d60b198d882",
+        "sui_a4a7087562d232ac974c",
+        "sui_c329c5bdac28f9b46dcd",
+        "sui_cf926c3f8fcd09d26d54",
+        "sui_cfbe0667ded0e6ade54f",
+        "sui_ea7060fda15d147483fa"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_27981da1b128a39afdba",
+      "community_ids": [
+        "l2_007"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "economic-dispatch"
+      ],
+      "path_id": "path_repair_689f0a286b7aafb15e23",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_a6c40d6a0157f84b2f10",
+        "prov_fcfac5b5769379e05b47",
+        "req_a59cb80a0e123f334f8d"
+      ],
+      "requirement_ids": [
+        "req_a59cb80a0e123f334f8d"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_c84a648af2be6a0b82ac",
+        "sui_f7bbd34e3ce0a1f944c7"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_05e411a36e6d993e6e5a",
+      "community_ids": [
+        "l2_007"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "economic-dispatch"
+      ],
+      "path_id": "path_repair_78734b206307d9458457",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_5092bc390071fcd6d226",
+        "prov_8376c9ac6a9330e7352d",
+        "prov_a6c40d6a0157f84b2f10",
+        "req_a59cb80a0e123f334f8d"
+      ],
+      "requirement_ids": [
+        "req_a59cb80a0e123f334f8d"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_563eb899c58ed21eb02a",
+        "sui_7fb3c8d5285301b543d9",
+        "sui_f7bbd34e3ce0a1f944c7"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_bbed702c84a332b4d1cb",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "locational-marginal-prices"
+      ],
+      "path_id": "path_repair_becf0c59fccdb94ade64",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_9488c470c2b6bf5145c6",
+        "prov_c4025a9b10ccef3de112",
+        "req_18f058f606b1edf554e9"
+      ],
+      "requirement_ids": [
+        "req_18f058f606b1edf554e9"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_952c78e2e4609d3bb36a",
+        "sui_cf926c3f8fcd09d26d54"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_bb0de3b491b0ef206777",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "locational-marginal-prices"
+      ],
+      "path_id": "path_repair_c9c3c623e7bdede29519",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_2a118e2fbbba06effcd3",
+        "prov_3fc59b38ee33e6c1f33e",
+        "prov_7012636519bbc6f09aae",
+        "prov_8a6d218b7b82ee00d626",
+        "prov_bd9bd81a3c9fe6d6edfe",
+        "prov_c4025a9b10ccef3de112",
+        "req_1cdc39a9bffbdfde1a27"
+      ],
+      "requirement_ids": [
+        "req_1cdc39a9bffbdfde1a27"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_4188c48e4d60b198d882",
+        "sui_a4a7087562d232ac974c",
+        "sui_c329c5bdac28f9b46dcd",
+        "sui_cf926c3f8fcd09d26d54",
+        "sui_cfbe0667ded0e6ade54f",
+        "sui_ea7060fda15d147483fa"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3503d8c2ab2d2994bbdb",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "locational-marginal-prices"
+      ],
+      "path_id": "path_repair_c9f11004357431470297",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_338251cc059f44903095",
+        "prov_41a34572edd0548fd535",
+        "prov_fb9d067e24cf731f638d",
+        "req_ceb7f7ed4f742fe4a1e0"
+      ],
+      "requirement_ids": [
+        "req_ceb7f7ed4f742fe4a1e0"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_3126cf4eda0de72d6cd0",
+        "sui_785a33b74336d671abf7",
+        "sui_d5d3dd1d472000029620"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_6631c8ac74f34a477cc5",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "locational-marginal-prices"
+      ],
+      "path_id": "path_repair_d82dde733558caba8daf",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_41a34572edd0548fd535",
+        "prov_cee6e241b4933040315a",
+        "prov_db1bb1a44f28b4229920",
+        "req_a59cb80a0e123f334f8d"
+      ],
+      "requirement_ids": [
+        "req_a59cb80a0e123f334f8d"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_982d9ad0a9637a31a4b7",
+        "sui_d5d3dd1d472000029620",
+        "sui_ff6f4a65536df657ce95"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/energy-market-pricing/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [
+    "path_repair_689f0a286b7aafb15e23",
+    "path_repair_c9f11004357431470297"
+  ],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_33d16f9d1a8708003fb3",
+      "requirement": {
+        "requirement_id": "req_893c0c682e8352ff81bd"
+      },
+      "capability_unit": {
+        "skill_id": "dc-power-flow"
+      }
+    },
+    {
+      "path_id": "path_repair_51cd093b52f3dc15f832",
+      "requirement": {
+        "requirement_id": "req_ba518f15dee9a3933694"
+      },
+      "capability_unit": {
+        "skill_id": "locational-marginal-prices"
+      }
+    },
+    {
+      "path_id": "path_repair_689f0a286b7aafb15e23",
+      "requirement": {
+        "requirement_id": "req_a59cb80a0e123f334f8d"
+      },
+      "capability_unit": {
+        "skill_id": "economic-dispatch"
+      }
+    },
+    {
+      "path_id": "path_repair_d82dde733558caba8daf",
+      "requirement": {
+        "requirement_id": "req_a59cb80a0e123f334f8d"
+      },
+      "capability_unit": {
+        "skill_id": "locational-marginal-prices"
+      }
+    },
+    {
+      "path_id": "path_repair_78734b206307d9458457",
+      "requirement": {
+        "requirement_id": "req_a59cb80a0e123f334f8d"
+      },
+      "capability_unit": {
+        "skill_id": "economic-dispatch"
+      }
+    },
+    {
+      "path_id": "path_repair_c9f11004357431470297",
+      "requirement": {
+        "requirement_id": "req_ceb7f7ed4f742fe4a1e0"
+      },
+      "capability_unit": {
+        "skill_id": "locational-marginal-prices"
+      }
+    },
+    {
+      "path_id": "path_repair_c9c3c623e7bdede29519",
+      "requirement": {
+        "requirement_id": "req_1cdc39a9bffbdfde1a27"
+      },
+      "capability_unit": {
+        "skill_id": "locational-marginal-prices"
+      }
+    },
+    {
+      "path_id": "path_repair_4f39dce74b4f216ac69e",
+      "requirement": {
+        "requirement_id": "req_d6160a6ceea0bdaa3153"
+      },
+      "capability_unit": {
+        "skill_id": "locational-marginal-prices"
+      }
+    },
+    {
+      "path_id": "path_repair_becf0c59fccdb94ade64",
+      "requirement": {
+        "requirement_id": "req_18f058f606b1edf554e9"
+      },
+      "capability_unit": {
+        "skill_id": "locational-marginal-prices"
+      }
+    },
+    {
+      "path_id": "path_repair_3ed0764bb301b93f9841",
+      "requirement": {
+        "requirement_id": "req_ec8ec889bd066e0715db"
+      },
+      "capability_unit": {
+        "skill_id": "locational-marginal-prices"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "bb8f64a94947db49b2d6316f947c2bb1430a63511ed254c44bb9aab61357b60b",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "4e591875587572580e6d1d44b929f8908ad389e748c916c7cfea6d8a434123fa"
+  }
+}

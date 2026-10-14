@@ -1,0 +1,271 @@
+{
+  "task_id": "fix-druid-loophole-cve",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_7717c47b3faa04419ed9",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/fix-druid-loophole-cve/instruction.md",
+        "source_type": "instruction",
+        "line_start": 28,
+        "line_end": 28,
+        "exact_text": "1. Write patch files that can address this vulnerability in `/root/patches/`\n",
+        "source_sha256": "58d905d251495b905a7c1779b4d0b89eeaa06d7df50e61981ce4d8306f1d24b0",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_9c780e53983f71564425",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/fix-druid-loophole-cve/instruction.md",
+        "source_type": "instruction",
+        "line_start": 29,
+        "line_end": 29,
+        "exact_text": "2. Apply your patches to the Druid source code (a git repository) at `/root/druid/`\n",
+        "source_sha256": "58d905d251495b905a7c1779b4d0b89eeaa06d7df50e61981ce4d8306f1d24b0",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6e59e3327b955c5e75b2",
+      "requirement_type": "VALIDATION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/fix-druid-loophole-cve/instruction.md",
+        "source_type": "instruction",
+        "line_start": 30,
+        "line_end": 35,
+        "exact_text": "3. Rebuild Druid with the fixes using Maven (skip web-console to avoid OOM error, skip code quality checks for patched files):\n   ```bash\n   cd /root/druid\n   mvn clean package -DskipTests -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Dspotbugs.skip=true -Danimal.sniffer.skip=true -Denforcer.skip=true -Djacoco.skip=true -Ddependency-check.skip=true -pl '!web-console' -pl indexing-service -am\n   ```\n\n",
+        "source_sha256": "58d905d251495b905a7c1779b4d0b89eeaa06d7df50e61981ce4d8306f1d24b0",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_7d3ac64a141237232c39",
+      "requirement_type": "VALIDATION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/fix-druid-loophole-cve/instruction.md",
+        "source_type": "instruction",
+        "line_start": 36,
+        "line_end": 36,
+        "exact_text": "The verifier will deploy the patched JAR to `/opt/druid/lib/` and restart the Druid server before running tests. Tests will verify that all exploit requests are blocked while legitimate requests still work.\n",
+        "source_sha256": "58d905d251495b905a7c1779b4d0b89eeaa06d7df50e61981ce4d8306f1d24b0",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_f16623fe7d81332e49cf",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/fix-druid-loophole-cve/instruction.md",
+        "source_type": "instruction",
+        "line_start": 38,
+        "line_end": 38,
+        "exact_text": "You must work with Apache Druid version 0.20.0.\n",
+        "source_sha256": "58d905d251495b905a7c1779b4d0b89eeaa06d7df50e61981ce4d8306f1d24b0",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "jackson-security",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "vulnerability-csv-reporting",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "trivy-offline-vulnerability-scanning",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "maven-plugin-configuration",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "nodemedic-demo_artifact-evaluation",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "spring-security-6",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "find-bugs",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "unknown_task_artifact-evaluation",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_react-best-practices",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "mhc-algorithm",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "jax-skills",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "rdkit",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "azure-bgp",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "artifact-evaluation",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pubchem-database",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "maven-dependency-management",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "react-best-practices",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_002"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_37efec1061f497fec73d",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "artifact-evaluation"
+      ],
+      "path_id": "path_repair_7710b5c6fbb19848ccc4",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_4fb3243ce184d4ce21f3",
+        "prov_c966f6d43a19b800d1b6",
+        "prov_fcbdc2e28426f50d8c7f",
+        "req_7d3ac64a141237232c39"
+      ],
+      "requirement_ids": [
+        "req_7d3ac64a141237232c39"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_318dd091791164ef91ca",
+        "sui_a8e2c3f71bcd6e1e55f2",
+        "sui_cee92bb6d5a975532913"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/fix-druid-loophole-cve/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_7710b5c6fbb19848ccc4",
+      "requirement": {
+        "requirement_id": "req_7d3ac64a141237232c39"
+      },
+      "capability_unit": {
+        "skill_id": "artifact-evaluation"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "efff5aa73a1708dc30d956a5dfde66e0628fb2c2dd55d234249d8ae3c392af8f",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "58d905d251495b905a7c1779b4d0b89eeaa06d7df50e61981ce4d8306f1d24b0"
+  }
+}

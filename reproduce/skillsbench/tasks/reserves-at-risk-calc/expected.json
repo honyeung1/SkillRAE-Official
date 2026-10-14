@@ -1,0 +1,17 @@
+{
+  "selected_skill_ids": [
+    "timeseries-detrending",
+    "13f-analyzer",
+    "contribution-analysis",
+    "locational-marginal-prices",
+    "powerlifting-coef-calc_xlsx"
+  ],
+  "selected_path_ids": [
+    "path_repair_f16b2be782d549111e08"
+  ],
+  "closed_requirement_ids": [
+    "req_8b2756c1c028d01f8cc7"
+  ],
+  "guide_sha256": "5743e5469442b2a857e75e792994eba08e2964c708ef34c65402327b9d4ff1a7",
+  "guide_tokens": 122
+}

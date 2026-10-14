@@ -1,0 +1,227 @@
+{
+  "task_id": "fix-visual-stability",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_585680eaab38df2a6154",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/fix-visual-stability/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "- Don't break existing functionality\n",
+        "source_sha256": "8e4cdc8b90661bf00b8204ee69dbc817ebebd6240820c1b0d08891525f403edb",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3e654aeb5ae6d21f1aac",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/fix-visual-stability/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "- Don't change existing class names, ids or data-testid on any of the components as tests rely on them\n",
+        "source_sha256": "8e4cdc8b90661bf00b8204ee69dbc817ebebd6240820c1b0d08891525f403edb",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "fix-visual-stability_react-best-practices",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "react-best-practices",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_browser-testing",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "web-interface-guidelines",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "browser-testing",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "erlang-distribution",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "find-bugs",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "syzkaller-build-loop",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "trivy-offline-vulnerability-scanning",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "pddl-skills",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "reflow-profile-compliance-toolkit",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "jax-skills",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "output-validation",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "jackson-security",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "nodemedic-demo_artifact-evaluation",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_002"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_4d6661fbf9ec49c3e572",
+      "community_ids": [
+        "l2_013"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "browser-testing"
+      ],
+      "path_id": "path_repair_39287e20eb7fd9974fc5",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_12e43fc5b4bb61bdb365",
+        "prov_6c80c116de396dd92071",
+        "req_3e654aeb5ae6d21f1aac"
+      ],
+      "requirement_ids": [
+        "req_3e654aeb5ae6d21f1aac"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_5a1b9e7ad04cffe32b7f",
+        "sui_5db59d83732a4ece7b3e"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/fix-visual-stability/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_39287e20eb7fd9974fc5",
+      "requirement": {
+        "requirement_id": "req_3e654aeb5ae6d21f1aac"
+      },
+      "capability_unit": {
+        "skill_id": "browser-testing"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "41a566771eb3f5865f3dbe8e6a064e11fc0d39e25e80a45d404626eed8f0604e",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "8e4cdc8b90661bf00b8204ee69dbc817ebebd6240820c1b0d08891525f403edb"
+  }
+}

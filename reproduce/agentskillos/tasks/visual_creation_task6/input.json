@@ -1,0 +1,188 @@
+{
+  "task_id": "visual_creation_task6",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_502cd15994d96ab91533",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/visual_creation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "I am a science museum curator, and I want to build an immersive online exhibit for our \"History of Human Space Exploration\" display. Please create a scrolling web page with 5 illustrated chapters. Generate illustrations for each milestone: chapter_1.png for Sputnik 1957, chapter_2.png for Apollo moon landing 1969, chapter_3.png for the Space Shuttle era, chapter_4.png for the ISS, and chapter_5.png for a Mars colonization concept.\n",
+        "source_sha256": "a046b6b408d9e460c1720c8d903cabb45f2b7cc20d3c46df5d01914146c5eabf",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_f85c75f15c2a4cff042f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/visual_creation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Create index.html with full-screen sections for each chapter, smooth scrolling with layered depth effects, text animations that reveal content as you scroll, a progress indicator bar, and responsive design for different screen sizes.",
+        "source_sha256": "a046b6b408d9e460c1720c8d903cabb45f2b7cc20d3c46df5d01914146c5eabf",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "latex-posters",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scientific-slides",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scroll-experience",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "remotion",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "meme-factory",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scientific-visualization",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "frontend-design",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "web-interface-guidelines",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "mobile-android-design",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "data-storytelling",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "generate-image",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "dialogue_graph",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "planning-with-files",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "manim",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "diagramming",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "dev-browser",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/visual_creation_task6/instruction.md",
+  "units_file": "capabilities/b62d14b1e5c9417b.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 252,
+  "relative_executor_mount": true,
+  "source_hashes": {
+    "support": "887e3902cab6301c2b5600dd7b31e046bedefd1937c100dfc513e49d839b6456",
+    "units": "161a0f13b468979e31e17b2fe1b24612042cf93b2b744883731054deac636c3b",
+    "instruction": "a046b6b408d9e460c1720c8d903cabb45f2b7cc20d3c46df5d01914146c5eabf"
+  }
+}

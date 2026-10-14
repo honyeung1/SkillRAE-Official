@@ -1,0 +1,15 @@
+{
+  "selected_skill_ids": [
+    "audiobook",
+    "elevenlabs-tts",
+    "openai-tts",
+    "whisper-transcription",
+    "audio-extractor"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_8a743773de4c5c636179"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

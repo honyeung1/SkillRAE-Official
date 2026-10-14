@@ -1,0 +1,216 @@
+{
+  "task_id": "pptx-reference-formatting",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_58ab1d41787bbc203654",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/pptx-reference-formatting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 2,
+        "line_end": 2,
+        "exact_text": "- change the font type to Arial, font size to 16, font color to #989596, and disable bold if any\n",
+        "source_sha256": "72371e707a36efc20f1ac3286960f934fc390b0ecac4dc536a2a5e4e85560a89",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_ff19b161999bbd931c8e",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/pptx-reference-formatting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "- adjust the box width, so that each title in displayed in one line\n",
+        "source_sha256": "72371e707a36efc20f1ac3286960f934fc390b0ecac4dc536a2a5e4e85560a89",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6fdaaf3bd29ad2340e78",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/pptx-reference-formatting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "- put the title at the bottom center of each page\n",
+        "source_sha256": "72371e707a36efc20f1ac3286960f934fc390b0ecac4dc536a2a5e4e85560a89",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_7505d1d4b763a1054fbd",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/pptx-reference-formatting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 6,
+        "exact_text": "- create a new slide at the end, put \"Reference\" as the slide title, and put all the paper titles within the body with auto-numbered bullet points (don't forget to remove duplicate papers)\n\n",
+        "source_sha256": "72371e707a36efc20f1ac3286960f934fc390b0ecac4dc536a2a5e4e85560a89",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "pptx",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "offer-letter-generator_docx",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "docx",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "marker",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "powerlifting-coef-calc_xlsx",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "sales-pivot-analysis_xlsx",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_react-best-practices",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "pdf",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "sales-pivot-analysis_pdf",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "file-organizer",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pdf-reading",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "citation-management",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "academic-pdf-redaction",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "find-topk-similiar-chemicals_pdf",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "filler-word-processing",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "nlp-research-repo-package-installment",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "manufacturing-failure-reason-codebook-normalization",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_browser-testing",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "pddl-skills",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_002"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/pptx-reference-formatting/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "2b2bbe03c694ec1d2f1d4e266938b760cdd8afdeddb64ac0dd976a54ea065fab",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "72371e707a36efc20f1ac3286960f934fc390b0ecac4dc536a2a5e4e85560a89"
+  }
+}

@@ -1,0 +1,346 @@
+{
+  "task_id": "earthquake-plate-calculation",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_83bf705c3462cd5cdf48",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/earthquake-plate-calculation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "You are a geospatial analyst with expertise in plate tectonics and earthquake analysis. I want to find the earthquake that occurred furthest from the Pacific plate boundary within the Pacific plate itself. Use GeoPandas projections. Output the result to `/root/answer.json` as a JSON file with the following fields:\n",
+        "source_sha256": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_e623ce045498a1626e81",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/earthquake-plate-calculation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "- `id`: The earthquake ID\n",
+        "source_sha256": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_62a1776d45e518df9edb",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/earthquake-plate-calculation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "- `place`: The earthquake location description\n",
+        "source_sha256": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_e980aad43c01aa683992",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/earthquake-plate-calculation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 5,
+        "exact_text": "- `time`: The earthquake time in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)\n",
+        "source_sha256": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_eb6ae34978cc200af326",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/earthquake-plate-calculation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 6,
+        "line_end": 6,
+        "exact_text": "- `magnitude`: The earthquake magnitude\n",
+        "source_sha256": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_f0ec3143dc2c910049ad",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/earthquake-plate-calculation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "- `latitude`: The earthquake latitude\n",
+        "source_sha256": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_49ca5d77b670273947fd",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/earthquake-plate-calculation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "- `longitude`: The earthquake longitude\n",
+        "source_sha256": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_e047209198dffac762c8",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/earthquake-plate-calculation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 10,
+        "exact_text": "- `distance_km`: Largest distance to the Pacific plate boundary in kilometers (rounded to 2 decimal places)\n\n",
+        "source_sha256": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "geospatial-analysis",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "seismic-picker-selection",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "obspy-datacenter-client",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "nws-flood-thresholds",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "hex-grid-spatial",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "time_series_anomaly_detection",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "matched-filtering",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lomb-scargle-periodogram",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "usgs-data-download",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "light-curve-preprocessing",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "conditioning",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "glm-output",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "timeseries-detrending",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "search-driving-distance",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_012"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_102078ff7eb06a8e6d49",
+      "community_ids": [
+        "l2_001"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "geospatial-analysis"
+      ],
+      "path_id": "path_repair_2c1329baf0fa278cc4bb",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_87ca97b2bb9355f68243",
+        "req_e047209198dffac762c8"
+      ],
+      "requirement_ids": [
+        "req_e047209198dffac762c8"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_e0ac89e9af65f3e0ad18"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_4717a91316c1f180708b",
+      "community_ids": [
+        "l2_001"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "geospatial-analysis"
+      ],
+      "path_id": "path_repair_a44691e9996550a67e89",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_2fa6a83d955d547b9c1c",
+        "prov_907a2bdc99e138a31677",
+        "req_e047209198dffac762c8"
+      ],
+      "requirement_ids": [
+        "req_e047209198dffac762c8"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_b50ef96a93123c8fc6e9",
+        "sui_bfcbb410c1517b972973"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/earthquake-plate-calculation/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_a44691e9996550a67e89",
+      "requirement": {
+        "requirement_id": "req_e047209198dffac762c8"
+      },
+      "capability_unit": {
+        "skill_id": "geospatial-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_2c1329baf0fa278cc4bb",
+      "requirement": {
+        "requirement_id": "req_e047209198dffac762c8"
+      },
+      "capability_unit": {
+        "skill_id": "geospatial-analysis"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "0ebb97d763d9f4cd19d1f69075ae99290ad03a8441507cbebbd5243dd6dd5a9c",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "3e91e8fe6ae254a9aa858241c74c8a59bb7ba0b0ece0b644c73531007a2ed269"
+  }
+}

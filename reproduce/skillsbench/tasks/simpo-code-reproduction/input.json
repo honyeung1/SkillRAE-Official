@@ -1,0 +1,188 @@
+{
+  "task_id": "simpo-code-reproduction",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_12e8858777aba6a2a02c",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/simpo-code-reproduction/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Implement the `simpo_loss` function of `SimPOTrainer` class in '/root/SimPO/scripts/simpo_trainer.py' based on the SimPO loss described in the paper located at /root/SimPO/paper.pdf. \n",
+        "source_sha256": "00e0b33e23519b8a1e6a4b44f9218833306bb5c6dad391f76b6a95d2c2f7d60a",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_6add6d05495194dcc905",
+      "requirement_type": "VALIDATION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/simpo-code-reproduction/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 6,
+        "exact_text": "After you finished the code, please run the testing code located at '/root/SimPO/unit_test/unit_test_1.py' to generate loss for evaluation with fixed input tensors (In this way, we could verify the results and ensure the reproductivity.). I have provided fixed input matrix for the loss function, you are supposed to give me a correct answer (matrix).\nThe value should be saved into '/root/loss.npz' and the key should be 'losses'. \n",
+        "source_sha256": "00e0b33e23519b8a1e6a4b44f9218833306bb5c6dad391f76b6a95d2c2f7d60a",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "casadi-ipopt-nlp",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "qutip",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "temporal-python-testing",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "reflow-profile-compliance-toolkit",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "automatic-speech-recognition",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "scipy-curve-fit",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "manufacturing-failure-reason-codebook-normalization",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "nanogpt-training",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "modal-gpu",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "sympy",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "nlp-research-repo-package-installment",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "matched-filtering",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "contribution-analysis",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "testing-python",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "conditioning",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/simpo-code-reproduction/instruction.md",
+  "units_file": "capabilities/b3e3b0ae73fbd01f.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "6fc99eb677bdf0940956e9ce05c83b4fdfb5a778e1c65c16d0449f93aae6e2a6",
+    "units": "76ee766641df300b787a2eaa320d3f7f6416d3fca3d5e8433b1fa86848693646",
+    "instruction": "00e0b33e23519b8a1e6a4b44f9218833306bb5c6dad391f76b6a95d2c2f7d60a"
+  }
+}

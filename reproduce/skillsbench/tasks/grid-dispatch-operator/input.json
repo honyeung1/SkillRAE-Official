@@ -1,0 +1,430 @@
+{
+  "task_id": "grid-dispatch-operator",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_44ef620f51b053c3d687",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/grid-dispatch-operator/instruction.md",
+        "source_type": "instruction",
+        "line_start": 2,
+        "line_end": 2,
+        "exact_text": "1. DC power balance at each bus\n",
+        "source_sha256": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3c411d071c70ca14a87f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/grid-dispatch-operator/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "2. Generator and transmission limits\n",
+        "source_sha256": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_8a3ceac63c55a0f9137e",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/grid-dispatch-operator/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 5,
+        "exact_text": "3. Spinning reserve requirements with standard capacity coupling\n\n",
+        "source_sha256": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_d57e6501e150dfb8823f",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/grid-dispatch-operator/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "Do the analysis and generate `report.json` containing:\n",
+        "source_sha256": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_36a9155d16922b50c54d",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/grid-dispatch-operator/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "- Active dispatch and reserve allocation per generator\n",
+        "source_sha256": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a4e5176928588c09755f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/grid-dispatch-operator/instruction.md",
+        "source_type": "instruction",
+        "line_start": 11,
+        "line_end": 11,
+        "exact_text": "- Total cost, load, generation, and reserves\n",
+        "source_sha256": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_8a2dd53e47cabb29da61",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/grid-dispatch-operator/instruction.md",
+        "source_type": "instruction",
+        "line_start": 12,
+        "line_end": 12,
+        "exact_text": "- Top three most heavily loaded transmission lines\n",
+        "source_sha256": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_29626e156491c60d0fa3",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/grid-dispatch-operator/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 14,
+        "exact_text": "- Remaining operating margin (uncommitted capacity beyond energy and reserves)\n\n",
+        "source_sha256": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "economic-dispatch",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "power-flow-data",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "dc-power-flow",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "ac-branch-pi-model",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "excitation-signal-design",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "reflow-profile-compliance-toolkit",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "imc-tuning-rules",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "workload-balancing",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "azure-bgp",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pcap-analysis",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "casadi-ipopt-nlp",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "report-generator",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "hex-grid-spatial",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "timeseries-detrending",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "modal-gpu",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "nws-flood-thresholds",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_bbed702c84a332b4d1cb",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "locational-marginal-prices"
+      ],
+      "path_id": "path_repair_96e0b834e6c7e07d8fbf",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_9488c470c2b6bf5145c6",
+        "prov_c4025a9b10ccef3de112",
+        "req_8a2dd53e47cabb29da61"
+      ],
+      "requirement_ids": [
+        "req_8a2dd53e47cabb29da61"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_952c78e2e4609d3bb36a",
+        "sui_cf926c3f8fcd09d26d54"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3b62600d8401e492602e",
+      "community_ids": [
+        "l2_001"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "dc-power-flow"
+      ],
+      "path_id": "path_repair_989fa264d8fb46b252de",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_0561505e076416c7f851",
+        "prov_258fbb86e81bed175db2",
+        "prov_99524b5e524a21bc061d",
+        "prov_a0b604afc945a7ae3d7e",
+        "req_44ef620f51b053c3d687"
+      ],
+      "requirement_ids": [
+        "req_44ef620f51b053c3d687"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_4d4475a91d0161652a53",
+        "sui_690308e390f6b5fa73b6",
+        "sui_ac8933ed2407a5f10b08",
+        "sui_e248e75d708f61f546fd"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_27981da1b128a39afdba",
+      "community_ids": [
+        "l2_007"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "economic-dispatch"
+      ],
+      "path_id": "path_repair_dc4f576ea1e956dad3cb",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_a6c40d6a0157f84b2f10",
+        "prov_fcfac5b5769379e05b47",
+        "req_8a3ceac63c55a0f9137e"
+      ],
+      "requirement_ids": [
+        "req_8a3ceac63c55a0f9137e"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_c84a648af2be6a0b82ac",
+        "sui_f7bbd34e3ce0a1f944c7"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_05e411a36e6d993e6e5a",
+      "community_ids": [
+        "l2_007"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "economic-dispatch"
+      ],
+      "path_id": "path_repair_f5f6d0fbcdd185089ada",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_5092bc390071fcd6d226",
+        "prov_8376c9ac6a9330e7352d",
+        "prov_a6c40d6a0157f84b2f10",
+        "req_8a3ceac63c55a0f9137e"
+      ],
+      "requirement_ids": [
+        "req_8a3ceac63c55a0f9137e"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_563eb899c58ed21eb02a",
+        "sui_7fb3c8d5285301b543d9",
+        "sui_f7bbd34e3ce0a1f944c7"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/grid-dispatch-operator/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [
+    "path_repair_dc4f576ea1e956dad3cb"
+  ],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_989fa264d8fb46b252de",
+      "requirement": {
+        "requirement_id": "req_44ef620f51b053c3d687"
+      },
+      "capability_unit": {
+        "skill_id": "dc-power-flow"
+      }
+    },
+    {
+      "path_id": "path_repair_dc4f576ea1e956dad3cb",
+      "requirement": {
+        "requirement_id": "req_8a3ceac63c55a0f9137e"
+      },
+      "capability_unit": {
+        "skill_id": "economic-dispatch"
+      }
+    },
+    {
+      "path_id": "path_repair_f5f6d0fbcdd185089ada",
+      "requirement": {
+        "requirement_id": "req_8a3ceac63c55a0f9137e"
+      },
+      "capability_unit": {
+        "skill_id": "economic-dispatch"
+      }
+    },
+    {
+      "path_id": "path_repair_96e0b834e6c7e07d8fbf",
+      "requirement": {
+        "requirement_id": "req_8a2dd53e47cabb29da61"
+      },
+      "capability_unit": {
+        "skill_id": "locational-marginal-prices"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "0d88ccb2e3e59e3339f7b9faae404ddb6b66d50ab3ac10645f44d8bb068ca4aa",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "736ee9a4ff10c4457c28a82837e67c1248bec48d701156cf9ddfab63187355e2"
+  }
+}

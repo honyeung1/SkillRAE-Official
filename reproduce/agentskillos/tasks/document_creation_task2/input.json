@@ -1,0 +1,216 @@
+{
+  "task_id": "document_creation_task2",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_0b9c5357b611e3831764",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/document_creation_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "I am an AI researcher and I want to maximize the impact of my latest paper. The paper source files are in paper_src/. Please create three outputs to help me disseminate my work:\n",
+        "source_sha256": "9d9c8db9300e46e38cf04af1281fbc4c72480c678d93ce524d1a2e8d8e9b9217",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_1508e2c9ef6c5f7909e8",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/document_creation_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "1. Interactive HTML website as index.html with navigation and styling for online browsing.\n",
+        "source_sha256": "9d9c8db9300e46e38cf04af1281fbc4c72480c678d93ce524d1a2e8d8e9b9217",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a81d460850dfa5e7b49a",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/document_creation_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "2. Conference talk slides as talk.pptx with at least 10 slides: cover, motivation, related work, methodology across 3+ slides, experiments across 2+ slides with data tables, and conclusion.\n",
+        "source_sha256": "9d9c8db9300e46e38cf04af1281fbc4c72480c678d93ce524d1a2e8d8e9b9217",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_cfbf3ce0b2dc4675bf28",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/document_creation_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 5,
+        "exact_text": "3. Word summary as summary.docx with title as Heading 1, authors, abstract, key contributions as 3-5 bullets, methodology overview, and experimental findings as sections with Heading 2.",
+        "source_sha256": "9d9c8db9300e46e38cf04af1281fbc4c72480c678d93ce524d1a2e8d8e9b9217",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "scientific-slides",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "latex-posters",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "citation-management",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "docx",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "dialogue_graph",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "planning-with-files",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scientific-visualization",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "data-storytelling",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "frontend-design",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "treatment-plans",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "jax-skills",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "nlp-research-repo-package-installment",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_014"
+      ]
+    },
+    {
+      "skill_id": "marker",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_003"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/document_creation_task2/instruction.md",
+  "units_file": "capabilities/b62d14b1e5c9417b.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 252,
+  "relative_executor_mount": true,
+  "source_hashes": {
+    "support": "b07f85a1517c3430ab6fbdb44a761c82269449fba9aa4aa38e08f39719e0e474",
+    "units": "161a0f13b468979e31e17b2fe1b24612042cf93b2b744883731054deac636c3b",
+    "instruction": "9d9c8db9300e46e38cf04af1281fbc4c72480c678d93ce524d1a2e8d8e9b9217"
+  }
+}

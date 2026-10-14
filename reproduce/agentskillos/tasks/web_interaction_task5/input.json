@@ -1,0 +1,356 @@
+{
+  "task_id": "web_interaction_task5",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_53e3a90870e00245f25d",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "You are a Python technical documentation engineer responsible for maintaining your team's internal knowledge base. You need to build an automated pipeline to collect Python built-in function information from the official documentation and generate standardized reports.\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_98c93bc9e34cba0cc129",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 6,
+        "exact_text": "1. Visit the Python official documentation's built-in functions page (https://docs.python.org/3/library/functions.html) and extract the name and description (first sentence of the docstring) of every built-in function listed on the page.\n\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_d9a76a0b0accb1f5e87e",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 11,
+        "exact_text": "2. Generate builtin_functions.json as a JSON object with the following fields:\n   - \"source\": the URL of the page you scraped (string)\n   - \"total_count\": the total number of functions collected (integer)\n   - \"functions\": an array of objects, each containing \"name\" (function name) and \"description\" (brief description), sorted alphabetically by name\n\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_61ec50fd4a32b3d0c3af",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "   - \"source\": the URL of the page you scraped (string)\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_611f6741e48f581c30f1",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 9,
+        "exact_text": "   - \"total_count\": the total number of functions collected (integer)\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_7caf7429089db2192a6c",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 11,
+        "exact_text": "   - \"functions\": an array of objects, each containing \"name\" (function name) and \"description\" (brief description), sorted alphabetically by name\n\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_08aeee93dfbe49235bb2",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 12,
+        "line_end": 15,
+        "exact_text": "3. Generate functions_catalog.xlsx with two worksheets:\n   - Sheet 1 \"Function Catalog\": three columns (No., Function Name, Description), sorted alphabetically, with bold header row and colored background\n   - Sheet 2 \"Category Statistics\": group functions by functional category (e.g., Type Conversion, Math Operations, Sequence Operations, I/O, Object & Class Inspection, Iterator Tools, etc.), showing function count per category and listing all function names under each category\n\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_e6f804d67ac7380c8df3",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 13,
+        "exact_text": "   - Sheet 1 \"Function Catalog\": three columns (No., Function Name, Description), sorted alphabetically, with bold header row and colored background\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_60a8b96952a0da84257b",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 14,
+        "line_end": 15,
+        "exact_text": "   - Sheet 2 \"Category Statistics\": group functions by functional category (e.g., Type Conversion, Math Operations, Sequence Operations, I/O, Object & Class Inspection, Iterator Tools, etc.), showing function count per category and listing all function names under each category\n\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_cf6c0ab2f28695138093",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 16,
+        "line_end": 20,
+        "exact_text": "4. Generate catalog_report.docx containing:\n   - A report title\n   - An overview paragraph (stating the data source and total number of functions collected)\n   - Detailed sections by functional category (each category as a Heading 2, listing functions with brief explanations)\n   - A summary paragraph (overall assessment of Python's built-in function ecosystem and usage recommendations)",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_671fe76dddaca00d45eb",
+      "requirement_type": "ARTIFACT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 17,
+        "line_end": 17,
+        "exact_text": "   - A report title\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a2888f5c3d93869cba09",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 18,
+        "exact_text": "   - An overview paragraph (stating the data source and total number of functions collected)\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_66aa54c5bca5a9b1befe",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 19,
+        "line_end": 19,
+        "exact_text": "   - Detailed sections by functional category (each category as a Heading 2, listing functions with brief explanations)\n",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_bcf4207d4b63bf7e5510",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task5/instruction.md",
+        "source_type": "instruction",
+        "line_start": 20,
+        "line_end": 20,
+        "exact_text": "   - A summary paragraph (overall assessment of Python's built-in function ecosystem and usage recommendations)",
+        "source_sha256": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "discover-important-function",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "python-scala-functional",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "docx",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "vulnerability-csv-reporting",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "syzkaller-build-loop",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_014"
+      ]
+    },
+    {
+      "skill_id": "python-parallelization",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "fuzzing-python",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "temporal-python-testing",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "memory-optimization",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "python-scala-collections",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "pymatgen",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "scientific-visualization",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "planning-with-files",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "latex-posters",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "python-scala-syntax-mapping",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "modal-gpu",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "testing-python",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_012"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/web_interaction_task5/instruction.md",
+  "units_file": "capabilities/b62d14b1e5c9417b.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 252,
+  "relative_executor_mount": true,
+  "source_hashes": {
+    "support": "828182efac6009e0dbfa0270d1ec2a42ba69090060abce4b0835fa3465ca79e3",
+    "units": "161a0f13b468979e31e17b2fe1b24612042cf93b2b744883731054deac636c3b",
+    "instruction": "a90947cb47c605fd96fbf43ebd7e788fe13b796966c46a482fd9f1a861aea8e2"
+  }
+}

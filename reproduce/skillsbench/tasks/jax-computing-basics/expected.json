@@ -1,0 +1,20 @@
+{
+  "selected_skill_ids": [
+    "jax-skills",
+    "react-best-practices",
+    "maven-build-lifecycle",
+    "nodemedic-demo_artifact-evaluation",
+    "docs-to-skill"
+  ],
+  "selected_path_ids": [
+    "path_repair_4d618296252bba864f83",
+    "path_repair_c614198c958c8625a061"
+  ],
+  "closed_requirement_ids": [
+    "req_10586577f4b1fc481e91",
+    "req_2786c8b73ac69ad62ec7",
+    "req_b33020d9f6ee1a7231f4"
+  ],
+  "guide_sha256": "a47e2927080e95af26fe6bbbbe98200e1ac9f276d55a756a5683b9d24c7f49ab",
+  "guide_tokens": 231
+}

@@ -1,0 +1,272 @@
+{
+  "task_id": "data_computation_task6",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_26d1faeb84a2473e5215",
+      "requirement_type": "COMPLETION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/data_computation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "I am a numerical analysis student, and I need to complete a coursework project comparing numerical integration methods. Please compute the symbolic and numerical solutions for the following 4 definite integrals, and generate visualizations:\n",
+        "source_sha256": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_65be5909829f2a55a6c5",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/data_computation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "1. $\\int_0^{\\pi} \\sin(x)\\,dx$\n",
+        "source_sha256": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_1f9bb13cd5d87c724b3e",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/data_computation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "2. $\\int_0^{1} e^{-x^2}\\,dx$\n",
+        "source_sha256": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_30e092d26dd40ad28ffa",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/data_computation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 5,
+        "exact_text": "3. $\\int_1^{e} \\ln(x)\\,dx$\n",
+        "source_sha256": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_890bf94b718cfde54748",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/data_computation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 6,
+        "line_end": 7,
+        "exact_text": "4. $\\int_0^{\\pi/2} \\sqrt{\\sin(x)}\\,dx$\n\n",
+        "source_sha256": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_fb9e8c784df826f895ac",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/data_computation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "For each integral, apply 3 numerical methods (Trapezoidal rule N=100, Simpson's rule N=100, Gaussian quadrature) and compute the numerical approximation and error.\n",
+        "source_sha256": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_b531c63e645ce6a7a8ef",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/data_computation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "Output integrals.json as a JSON object with an \"integrals\" key containing an array of 4 objects, i.e. {\"integrals\": [...]}, each object containing integral_id, integrand, bounds, exact_numeric, trapezoidal, simpson, gaussian_quadrature, and the error for each method.\n",
+        "source_sha256": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_af5a6e60e1737e42da3d",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/data_computation_task6/instruction.md",
+        "source_type": "instruction",
+        "line_start": 12,
+        "line_end": 12,
+        "exact_text": "Generate 5 figures: integral_1.png through integral_4.png (function curve with shaded area and exact value annotation) and error_comparison.png (a grouped bar chart comparing errors of the 3 methods across all 4 integrals on a logarithmic scale). All figures should be publication quality with LaTeX labels.",
+        "source_sha256": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "sympy",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "qutip",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "geospatial-analysis",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "jax-skills",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "mesh-analysis",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "latex-posters",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "glm-calibration",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "box-least-squares",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "ac-branch-pi-model",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "scientific-visualization",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "light-curve-preprocessing",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "glm-output",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "hex-grid-spatial",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "timeseries-detrending",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "syz-extract-constants",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_014"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/data_computation_task6/instruction.md",
+  "units_file": "capabilities/b62d14b1e5c9417b.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 252,
+  "relative_executor_mount": true,
+  "source_hashes": {
+    "support": "0b973858ffaf8e59be10f66d526dd2725b106a14b2e35d59254598ff40289b4c",
+    "units": "161a0f13b468979e31e17b2fe1b24612042cf93b2b744883731054deac636c3b",
+    "instruction": "0af00699e3d7bb12d30352e0a7ba782c494cdaed8a4a3ba7a839dcb3459573ec"
+  }
+}

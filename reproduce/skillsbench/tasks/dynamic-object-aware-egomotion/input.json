@@ -1,0 +1,282 @@
+{
+  "task_id": "dynamic-object-aware-egomotion",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_c976945a87170a7e50d2",
+      "requirement_type": "ARTIFACT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/dynamic-object-aware-egomotion/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "Given a video file /root/input.mp4, help me to analyze the camera motion (egomotion) and detect dynamic objects in this video. You need to give me 2 files: \n",
+        "source_sha256": "b07a0726a27cb1549acb0c6cd750a3f909d3a1c4c0f6138eb6bb38270c4dee53",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_78d1f73c0327f7ad063b",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dynamic-object-aware-egomotion/instruction.md",
+        "source_type": "instruction",
+        "line_start": 2,
+        "line_end": 9,
+        "exact_text": "1. A json file named /root/pred_instructions.json, it should record the mapping frame intervals to motion labels (valid labels: Stay, Dolly In, Dolly Out, Pan Left, Pan Right, Tilt Up, Tilt Down, Roll Left, Roll Right). The format is \n{\n  \"0->1\": [\n    \"Pan Right\"\n  ],\n  ...\n}\nin json file 0 stands for the start sample index, and 1 is the end sample index.\n",
+        "source_sha256": "b07a0726a27cb1549acb0c6cd750a3f909d3a1c4c0f6138eb6bb38270c4dee53",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_cc88ebf913a257360269",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dynamic-object-aware-egomotion/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 11,
+        "exact_text": "2. A file stores a binary mask for each sampled frame, called /root/pred_dyn_masks.npz. The mask resolution is stored under the key \"shape\" as [H, W]. For each frame i, we store the binary mask in CSR sparse format using three keys: f_{i}_data, f_{i}_indices, and f_{i}_indptr. This CSR representation records the locations of True pixels (i.e., which columns are True in each row) instead of saving the full H×W dense mask.\n\n",
+        "source_sha256": "b07a0726a27cb1549acb0c6cd750a3f909d3a1c4c0f6138eb6bb38270c4dee53",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "video-frame-extraction",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "dyn-object-masks",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "multimodal-fusion",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "gemini-count-in-video",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "egomotion-estimation",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-media-info",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "sampling-and-indexing",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "silence-detector",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-video-filters",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-video-editing",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "gemini-video-understanding",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "video-processor",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "voice-activity-detection",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "pause-detector",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "audio-extractor",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "automatic-speech-recognition",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-format-conversion",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "video-filler-word-remover_ffmpeg-video-editing",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "mesh-analysis",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_578e9c8da188bb2626d4",
+      "community_ids": [
+        "l2_004"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "egomotion-estimation"
+      ],
+      "path_id": "path_repair_bca9d4c5160490ef672c",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_cb470fcde7bee6d5527e",
+        "req_78d1f73c0327f7ad063b"
+      ],
+      "requirement_ids": [
+        "req_78d1f73c0327f7ad063b"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_b1abe533db5c2cb7d0fa"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_12e01f3037630caa69a3",
+      "community_ids": [
+        "l2_004"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "dyn-object-masks"
+      ],
+      "path_id": "path_repair_f35de3db86392ed373bb",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_17e075f76e5ea332243b",
+        "prov_7af4e4a96c57a58bde05",
+        "prov_887bb4751d532b8ce457",
+        "prov_99530b709c475abe9d6f",
+        "prov_bbef4f20dcdfd655b70d",
+        "req_cc88ebf913a257360269"
+      ],
+      "requirement_ids": [
+        "req_cc88ebf913a257360269"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_02bb0d7921b4362ce7f8",
+        "sui_2c58771e5927f102f95d",
+        "sui_7ee0373be1cae6754b43",
+        "sui_b783adddc3f234796f4e",
+        "sui_c72c06a3c8a9c765c2a3"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/dynamic-object-aware-egomotion/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_bca9d4c5160490ef672c",
+      "requirement": {
+        "requirement_id": "req_78d1f73c0327f7ad063b"
+      },
+      "capability_unit": {
+        "skill_id": "egomotion-estimation"
+      }
+    },
+    {
+      "path_id": "path_repair_f35de3db86392ed373bb",
+      "requirement": {
+        "requirement_id": "req_cc88ebf913a257360269"
+      },
+      "capability_unit": {
+        "skill_id": "dyn-object-masks"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "5263e4b1429a08342431572fe92f83200725e8f5c6b77952763d7ce35d3dd756",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "b07a0726a27cb1549acb0c6cd750a3f909d3a1c4c0f6138eb6bb38270c4dee53"
+  }
+}

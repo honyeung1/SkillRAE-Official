@@ -1,0 +1,427 @@
+{
+  "task_id": "protein-expression-analysis",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_0df78da6de64bc94b584",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 17,
+        "line_end": 17,
+        "exact_text": "Row 9 shows which samples are \"Control\" vs \"Treated\" (highlighted in blue). For each protein, calculate:\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_9b5389ab5a239053770f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 18,
+        "exact_text": "- Mean and standard deviation for control samples\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3f4d9cb4940b5a23c24b",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 19,
+        "line_end": 20,
+        "exact_text": "- Mean and standard deviation for treated samples\n\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_d6b4b12f9f7a555862ba",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 28,
+        "line_end": 28,
+        "exact_text": "- Log2 Fold Change = Treated Mean - Control Mean\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_c2252f9ad72466d3b768",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 29,
+        "line_end": 30,
+        "exact_text": "- Fold Change = 2^(Log2 Fold Change)\n\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_fc1fffa789142ee2964c",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 31,
+        "line_end": 31,
+        "exact_text": "Fill in columns C and D, rows 32-41 (yellow cells).\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_306e7536b5c956e9e212",
+      "requirement_type": "FORMAT",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 35,
+        "line_end": 35,
+        "exact_text": "- Don't mess with the file format, colors, or fonts\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_1d4ff4197f9c060516d7",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 36,
+        "line_end": 36,
+        "exact_text": "- No macros or VBA code\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_8e513a197984bf9d6b83",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 37,
+        "line_end": 37,
+        "exact_text": "- Use formulas, not hard-coded numbers\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_ecd99d72161f24e0f0ca",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/protein-expression-analysis/instruction.md",
+        "source_type": "instruction",
+        "line_start": 38,
+        "line_end": 38,
+        "exact_text": "- Sample names in the Data sheet have prefixes like \"MDAMB468_BREAST_TenPx01\"\n",
+        "source_sha256": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "powerlifting-coef-calc_xlsx",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "pubchem-database",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "rdkit",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "sales-pivot-analysis_xlsx",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "lab-unit-harmonization",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "fuzzy-match",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "data_cleaning",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "parallel-processing",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "jax-skills",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "contribution-analysis",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "did_causal_analysis",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "speaker-clustering",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "scipy-curve-fit",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "sqlite-map-parser",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "citation-management",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "marker",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_009"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_e9b1a6ddd8102dd2ec33",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_05602569aa615ec49e32",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_10199e779ab7bc68ad8c",
+        "prov_271bc793541ee4e36026",
+        "prov_73481332fdde21655064",
+        "prov_a598493946bc16762093",
+        "prov_bdb194e7eefa6204dd24",
+        "req_8e513a197984bf9d6b83"
+      ],
+      "requirement_ids": [
+        "req_8e513a197984bf9d6b83"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_10ce219723b43545bb20",
+        "sui_5b6e8eecad93e50949d4",
+        "sui_839be6661a569a2bf02e",
+        "sui_a485f71a3af048b94309",
+        "sui_c0cfc73d7795ca266451"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_ad3abadd4ae55f7368ff",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_8d652c54cf3f213dab7e",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_4f9b39bd78a2645ca79d",
+        "prov_8a64812aed250bbd71b0",
+        "prov_b52d662b7039cb936744",
+        "prov_be1def9f845aee2bb988",
+        "req_8e513a197984bf9d6b83"
+      ],
+      "requirement_ids": [
+        "req_8e513a197984bf9d6b83"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_6aa45f464921371d9f26",
+        "sui_b477f09d502108d810e8",
+        "sui_bbfc9fe79c7f18b05d5c",
+        "sui_ec0e4a43cab59923da5f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_cf93fb811f50fd6017c6",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "jax-skills"
+      ],
+      "path_id": "path_repair_ecbea77d39bd0a4099a8",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_0c273b46169610bb6c68",
+        "prov_230dddac640439cd8595",
+        "prov_75f2ce6f63a8796ffdce",
+        "prov_f09cae47d19cca3a8989",
+        "req_d6b4b12f9f7a555862ba"
+      ],
+      "requirement_ids": [
+        "req_d6b4b12f9f7a555862ba"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_37f6c368e912a82f2262",
+        "sui_3ae8e24fd19dc0f4d680",
+        "sui_8ab3dd5b143b33149774",
+        "sui_930582140f190108a132"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/protein-expression-analysis/instruction.md",
+  "units_file": "capabilities/b3e3b0ae73fbd01f.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_ecbea77d39bd0a4099a8",
+      "requirement": {
+        "requirement_id": "req_d6b4b12f9f7a555862ba"
+      },
+      "capability_unit": {
+        "skill_id": "jax-skills"
+      }
+    },
+    {
+      "path_id": "path_repair_8d652c54cf3f213dab7e",
+      "requirement": {
+        "requirement_id": "req_8e513a197984bf9d6b83"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_05602569aa615ec49e32",
+      "requirement": {
+        "requirement_id": "req_8e513a197984bf9d6b83"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "50e114414c30a4a6fb3036921d785eda8cc275b202ee3e25dd6597f227bcfa7f",
+    "units": "76ee766641df300b787a2eaa320d3f7f6416d3fca3d5e8433b1fa86848693646",
+    "instruction": "ce106fc332022af29a5eb358cf31949baa8d1d76c9dd608306c8034e6910a907"
+  }
+}

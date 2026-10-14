@@ -1,0 +1,15 @@
+{
+  "selected_skill_ids": [
+    "matched-filtering",
+    "conditioning",
+    "exoplanet-workflows",
+    "gamma-phase-associator",
+    "box-least-squares"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_4f7985091a9c744ea13c"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

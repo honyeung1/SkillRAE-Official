@@ -1,0 +1,1002 @@
+{
+  "task_id": "civ6-adjacency-optimizer",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_9bf45c6f4a0730dbd88f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 8,
+        "exact_text": "Imagining you are acting as an optimizer for adjacency bonus in Sid Meier's Civilization 6.\nGiven a map scenario, place city center(s) and districts to maximize total adjacency bonuses.\nYou are responsible of understanding the spatial relationships of tiles on the map. Deciding which and how many districts you can place.\nAt the end, come up with placement solution that achieves the highest adjacency bonus and accurately calculate the bonus.\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_2112ae69212895df615b",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 14,
+        "exact_text": "- `/data/scenario_3/scenario.json`\n\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3abeaf8366f897894bbe",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 18,
+        "exact_text": "- `map_file`: Path to .Civ6Map file\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_c50c7e08d406dca6dda5",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 19,
+        "line_end": 19,
+        "exact_text": "- `num_cities`: Number of cities to place\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_b2a205415b2f67069438",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 20,
+        "line_end": 20,
+        "exact_text": "- `population`: Population level per city\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_972c0acdd7a2b151c987",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 21,
+        "line_end": 22,
+        "exact_text": "- `civilization`: The civilization you are acting as\n\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_bb6666e25e1850d53679",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 24,
+        "line_end": 24,
+        "exact_text": "- Where to place city center(s)\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_b1520c20e87bd1e31f0c",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 25,
+        "line_end": 25,
+        "exact_text": "- Which districts to build\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a16e3eaa1aefba85653d",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 26,
+        "line_end": 27,
+        "exact_text": "- Where to place each district\n\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_8d9fe689db33f5bb12a8",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 31,
+        "line_end": 32,
+        "exact_text": "- `/output/scenario_3.json`\n\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_2b7efe6e937aae704e38",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 65,
+        "line_end": 65,
+        "exact_text": "1) The sum of `adjacency_bonuses` must equal `total_adjacency`\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_70d8a11077a6c29bb88e",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 66,
+        "line_end": 66,
+        "exact_text": "2) The adjacency calculation must be accurate.\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_cf60dccd4dcd926af2aa",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 67,
+        "line_end": 67,
+        "exact_text": "3) All placements must be valid (correct terrain, within city range, no overlapping placement, same amount of city center as specified etc.)\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_22bb3fc581eb40140aa8",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 68,
+        "line_end": 70,
+        "exact_text": "4) Output format must be valid JSON with required fields\n\n\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_c23e6aa44a9bc994a964",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 73,
+        "line_end": 73,
+        "exact_text": "- Invalid placement or format = 0 points\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_df023e9d4d50a00bddcc",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/civ6-adjacency-optimizer/instruction.md",
+        "source_type": "instruction",
+        "line_start": 74,
+        "line_end": 74,
+        "exact_text": "- Valid = your_adjacency / optimal_adjacency (capped at 1.0)\n",
+        "source_sha256": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "civ6lib",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "hex-grid-spatial",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "economic-dispatch",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "pareto-optimization",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "planning-with-files",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "modal-gpu",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "search-attractions",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "geospatial-analysis",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pddl-skills",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "finite-horizon-lqr",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "nodemedic-demo_artifact-evaluation",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "artifact-evaluation",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "search-cities",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "search-driving-distance",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "seismic-picker-selection",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_4a8124ad25a770afdc84",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_21a1b640886b3e5072d1",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_06bcaf209481695572e3",
+        "prov_0bfe2cb67d3ec0f000e4",
+        "prov_7e08401b50c8cb7490c9",
+        "prov_95b68b0559615211c7a0",
+        "prov_9d0a5ec21e5e8c1423c1",
+        "prov_d30000914dad92eccd59",
+        "prov_f758808e64f4f86c88b1",
+        "req_cf60dccd4dcd926af2aa"
+      ],
+      "requirement_ids": [
+        "req_cf60dccd4dcd926af2aa"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_06a97657f164312ddb50",
+        "sui_06fa679335907d8c15b7",
+        "sui_23c84287a04269e57c2a",
+        "sui_961add355867a7b3102f",
+        "sui_a455f0a1525827c5396e",
+        "sui_b55e72f5f7d534aa78c9",
+        "sui_d76a020fc85c8f86ce1b"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3519cb73dba57c012fd1",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_467f7421e875562f76e5",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_70c2f52081c0a77c126c",
+        "req_cf60dccd4dcd926af2aa"
+      ],
+      "requirement_ids": [
+        "req_cf60dccd4dcd926af2aa"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7d4bd64c88ec5f5d854f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_97af1d8a4a80598db389",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "map-optimization-strategy"
+      ],
+      "path_id": "path_repair_48ce919525dc829f3b18",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_00cb983cec29cab6eddb",
+        "prov_14a60100381fbee93cff",
+        "prov_35fe48587b6176543b02",
+        "prov_5e666ece24434a9b3601",
+        "prov_b469f246d0b3e7faa186",
+        "req_df023e9d4d50a00bddcc"
+      ],
+      "requirement_ids": [
+        "req_df023e9d4d50a00bddcc"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_6146ab43289d9e004d66",
+        "sui_65d64d4ee76219db8896",
+        "sui_f7c9f34e682f1fcb31ff",
+        "sui_f9e7ad3abe9354766619",
+        "sui_fcfe398579cc5c187d95"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_4a8124ad25a770afdc84",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_6c2d90548b6e37e8646c",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_06bcaf209481695572e3",
+        "prov_0bfe2cb67d3ec0f000e4",
+        "prov_7e08401b50c8cb7490c9",
+        "prov_95b68b0559615211c7a0",
+        "prov_9d0a5ec21e5e8c1423c1",
+        "prov_d30000914dad92eccd59",
+        "prov_f758808e64f4f86c88b1",
+        "req_a16e3eaa1aefba85653d"
+      ],
+      "requirement_ids": [
+        "req_a16e3eaa1aefba85653d"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_06a97657f164312ddb50",
+        "sui_06fa679335907d8c15b7",
+        "sui_23c84287a04269e57c2a",
+        "sui_961add355867a7b3102f",
+        "sui_a455f0a1525827c5396e",
+        "sui_b55e72f5f7d534aa78c9",
+        "sui_d76a020fc85c8f86ce1b"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3519cb73dba57c012fd1",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_70dfffedffab72407d53",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_70c2f52081c0a77c126c",
+        "req_b2a205415b2f67069438"
+      ],
+      "requirement_ids": [
+        "req_b2a205415b2f67069438"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7d4bd64c88ec5f5d854f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_90d6daa757e2ae36cfa2",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pddl-skills"
+      ],
+      "path_id": "path_repair_b14f192d02dcc7674913",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1e6057fdec379eddef10",
+        "prov_486058a778b6c0a902a9",
+        "prov_5480282c4c8ddc174f27",
+        "prov_629b89be6593518d63dd",
+        "prov_779ccb3824752e9e310b",
+        "prov_8e11125f3e683b248eea",
+        "req_df023e9d4d50a00bddcc"
+      ],
+      "requirement_ids": [
+        "req_df023e9d4d50a00bddcc"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_2b39e5fca225c0ab2b11",
+        "sui_8e8452ddf666d36a209b",
+        "sui_b3cbcdf99bd757d83e5e",
+        "sui_bb8c286fb3b87738ec4a",
+        "sui_eb0ab7e9d4d878f3490e",
+        "sui_f0fcfcbfba36812086ef"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_37c884732cc7a4449c91",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "enterprise-artifact-search"
+      ],
+      "path_id": "path_repair_b4add876a53a31d52140",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_0b0703bc98769b0d46b8",
+        "prov_5f643c5eed8a8e98269d",
+        "req_2112ae69212895df615b"
+      ],
+      "requirement_ids": [
+        "req_2112ae69212895df615b"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_5fd3e34b87b4d0cd2c87",
+        "sui_f942175702e055af8329"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3519cb73dba57c012fd1",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_b5aace9a9fe7368fcb84",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_70c2f52081c0a77c126c",
+        "req_70d8a11077a6c29bb88e"
+      ],
+      "requirement_ids": [
+        "req_70d8a11077a6c29bb88e"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7d4bd64c88ec5f5d854f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_653b415d5ff04a7bec3a",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "nodemedic-demo_artifact-evaluation"
+      ],
+      "path_id": "path_repair_b6427313bded4801fc46",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_ac58c3e83871da8a588e",
+        "prov_acb3bed318cbf7aa2266",
+        "req_2112ae69212895df615b"
+      ],
+      "requirement_ids": [
+        "req_2112ae69212895df615b"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_9a7898852f4f21c8ea0c",
+        "sui_ac0ab6fd534d650dcc40"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_d272792bd171b9c25344",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_b91973ae01df01f7ed64",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_cdb8ac80b5023052e190",
+        "req_972c0acdd7a2b151c987"
+      ],
+      "requirement_ids": [
+        "req_972c0acdd7a2b151c987"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_358b488a40d3b663eb26"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3519cb73dba57c012fd1",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_c6254bc1952cd6a70e04",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_70c2f52081c0a77c126c",
+        "req_9bf45c6f4a0730dbd88f"
+      ],
+      "requirement_ids": [
+        "req_9bf45c6f4a0730dbd88f"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7d4bd64c88ec5f5d854f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_37efec1061f497fec73d",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "artifact-evaluation"
+      ],
+      "path_id": "path_repair_cb7d80b501877222c484",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_4fb3243ce184d4ce21f3",
+        "prov_c966f6d43a19b800d1b6",
+        "prov_fcbdc2e28426f50d8c7f",
+        "req_2112ae69212895df615b"
+      ],
+      "requirement_ids": [
+        "req_2112ae69212895df615b"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_318dd091791164ef91ca",
+        "sui_a8e2c3f71bcd6e1e55f2",
+        "sui_cee92bb6d5a975532913"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3519cb73dba57c012fd1",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_d2e0a890efa1f845670b",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_70c2f52081c0a77c126c",
+        "req_df023e9d4d50a00bddcc"
+      ],
+      "requirement_ids": [
+        "req_df023e9d4d50a00bddcc"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7d4bd64c88ec5f5d854f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_d272792bd171b9c25344",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_de783d7a698222403882",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_cdb8ac80b5023052e190",
+        "req_b1520c20e87bd1e31f0c"
+      ],
+      "requirement_ids": [
+        "req_b1520c20e87bd1e31f0c"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_358b488a40d3b663eb26"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_d272792bd171b9c25344",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "civ6lib"
+      ],
+      "path_id": "path_repair_f2011184531ba9efa527",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_cdb8ac80b5023052e190",
+        "req_b2a205415b2f67069438"
+      ],
+      "requirement_ids": [
+        "req_b2a205415b2f67069438"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_358b488a40d3b663eb26"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_178d90662c2040499eff",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "artifact-evaluation"
+      ],
+      "path_id": "path_repair_f91f0df8fb4f44a5f1ae",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_43f143b1c24027f9566d",
+        "prov_b6f5e0a941f5e26dc7b0",
+        "prov_ec07f5264ecdfb4b5bb7",
+        "req_2112ae69212895df615b"
+      ],
+      "requirement_ids": [
+        "req_2112ae69212895df615b"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_07fa5cbd7216a143384d",
+        "sui_3ee3b8c462624d562932",
+        "sui_a94e1a7ed89c002ba427"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/civ6-adjacency-optimizer/instruction.md",
+  "units_file": "capabilities/b3e3b0ae73fbd01f.json",
+  "baseline_path_ids": [
+    "path_repair_b5aace9a9fe7368fcb84"
+  ],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_c6254bc1952cd6a70e04",
+      "requirement": {
+        "requirement_id": "req_9bf45c6f4a0730dbd88f"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_cb7d80b501877222c484",
+      "requirement": {
+        "requirement_id": "req_2112ae69212895df615b"
+      },
+      "capability_unit": {
+        "skill_id": "artifact-evaluation"
+      }
+    },
+    {
+      "path_id": "path_repair_b4add876a53a31d52140",
+      "requirement": {
+        "requirement_id": "req_2112ae69212895df615b"
+      },
+      "capability_unit": {
+        "skill_id": "enterprise-artifact-search"
+      }
+    },
+    {
+      "path_id": "path_repair_f91f0df8fb4f44a5f1ae",
+      "requirement": {
+        "requirement_id": "req_2112ae69212895df615b"
+      },
+      "capability_unit": {
+        "skill_id": "artifact-evaluation"
+      }
+    },
+    {
+      "path_id": "path_repair_b6427313bded4801fc46",
+      "requirement": {
+        "requirement_id": "req_2112ae69212895df615b"
+      },
+      "capability_unit": {
+        "skill_id": "nodemedic-demo_artifact-evaluation"
+      }
+    },
+    {
+      "path_id": "path_repair_f2011184531ba9efa527",
+      "requirement": {
+        "requirement_id": "req_b2a205415b2f67069438"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_70dfffedffab72407d53",
+      "requirement": {
+        "requirement_id": "req_b2a205415b2f67069438"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_b91973ae01df01f7ed64",
+      "requirement": {
+        "requirement_id": "req_972c0acdd7a2b151c987"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_de783d7a698222403882",
+      "requirement": {
+        "requirement_id": "req_b1520c20e87bd1e31f0c"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_6c2d90548b6e37e8646c",
+      "requirement": {
+        "requirement_id": "req_a16e3eaa1aefba85653d"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_b5aace9a9fe7368fcb84",
+      "requirement": {
+        "requirement_id": "req_70d8a11077a6c29bb88e"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_21a1b640886b3e5072d1",
+      "requirement": {
+        "requirement_id": "req_cf60dccd4dcd926af2aa"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_467f7421e875562f76e5",
+      "requirement": {
+        "requirement_id": "req_cf60dccd4dcd926af2aa"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_d2e0a890efa1f845670b",
+      "requirement": {
+        "requirement_id": "req_df023e9d4d50a00bddcc"
+      },
+      "capability_unit": {
+        "skill_id": "civ6lib"
+      }
+    },
+    {
+      "path_id": "path_repair_b14f192d02dcc7674913",
+      "requirement": {
+        "requirement_id": "req_df023e9d4d50a00bddcc"
+      },
+      "capability_unit": {
+        "skill_id": "pddl-skills"
+      }
+    },
+    {
+      "path_id": "path_repair_48ce919525dc829f3b18",
+      "requirement": {
+        "requirement_id": "req_df023e9d4d50a00bddcc"
+      },
+      "capability_unit": {
+        "skill_id": "map-optimization-strategy"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "7c78e22621bc3fc762f0373c60bb28029956707c968a5fe8591371a0efc07832",
+    "units": "76ee766641df300b787a2eaa320d3f7f6416d3fca3d5e8433b1fa86848693646",
+    "instruction": "ba15e441239d66d31005e10e17d01749ad3a77af129afcb46dca800475cb910b"
+  }
+}

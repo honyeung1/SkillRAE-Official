@@ -1,0 +1,399 @@
+{
+  "task_id": "react-performance-debugging",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_8bcf1369211d28c8ebfe",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "- Adding items to cart is slow\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_f5c000d5b18648094d42",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "- Compare page is extremely slow on load time\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_8ac82e8f78b8195f1f1c",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 6,
+        "exact_text": "- api responses are slower than expected\n\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_2991d761f0b47199549e",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "The app must work properly:\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_d95418088e7f19500ffd",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 12,
+        "line_end": 12,
+        "exact_text": "- Homepage must show product data\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_92dcfb530f7c5790b262",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 13,
+        "exact_text": "- Adding products to cart should work\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_1b06d53a980d3f49005b",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 14,
+        "line_end": 15,
+        "exact_text": "- Compare page advanced tab must render properly (don't remove `data-testid=\"advanced-content\"`)\n\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_039b009f53f48375f710",
+      "requirement_type": "PRESERVATION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 18,
+        "exact_text": "- Do not modify `data-testid` attributes or remove any component using them\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_603883dcc51a9689719f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/react-performance-debugging/instruction.md",
+        "source_type": "instruction",
+        "line_start": 19,
+        "line_end": 19,
+        "exact_text": "- Do not remove `performance.mark()` calls from ProductCard\n",
+        "source_sha256": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "react-best-practices",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_react-best-practices",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "browser-testing",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_browser-testing",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "web-interface-guidelines",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "memory-optimization",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "nodemedic-demo_artifact-evaluation",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "workload-balancing",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "erlang-distribution",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "modal-gpu",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "mpc-horizon-tuning",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "temporal-python-testing",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "skillsbench",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "syzkaller-build-loop",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "docs-to-skill",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "hierarchical-taxonomy-clustering",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "jax-skills",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_002"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_3645c835b53095fe3402",
+      "community_ids": [
+        "l2_013"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "browser-testing"
+      ],
+      "path_id": "path_repair_6ae3b992dbee7cbe0858",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_ebae1b51056d7dab8b41",
+        "req_f5c000d5b18648094d42"
+      ],
+      "requirement_ids": [
+        "req_f5c000d5b18648094d42"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_329a72676102cad99967"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_4b72f3558f7f562cb4ae",
+      "community_ids": [
+        "l2_013"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "react-best-practices"
+      ],
+      "path_id": "path_repair_79402d9b34e49fb6a4c1",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_0b45b6e40942068d90c5",
+        "prov_9bb81370235006567daf",
+        "req_8ac82e8f78b8195f1f1c"
+      ],
+      "requirement_ids": [
+        "req_8ac82e8f78b8195f1f1c"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_090eba41fe8dbc9db429",
+        "sui_d6becb92ee511451d0b6"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_1df60b925016790e47be",
+      "community_ids": [
+        "l2_013"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "fix-visual-stability_browser-testing"
+      ],
+      "path_id": "path_repair_bdc97b2e3119050b1309",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_7d0a84381ca7d332f238",
+        "prov_f9f91cb561793234783a",
+        "req_8ac82e8f78b8195f1f1c"
+      ],
+      "requirement_ids": [
+        "req_8ac82e8f78b8195f1f1c"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_72c7389cb40690adae49",
+        "sui_7aced478730bb1ab4a39"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/react-performance-debugging/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [
+    "path_repair_bdc97b2e3119050b1309"
+  ],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_6ae3b992dbee7cbe0858",
+      "requirement": {
+        "requirement_id": "req_f5c000d5b18648094d42"
+      },
+      "capability_unit": {
+        "skill_id": "browser-testing"
+      }
+    },
+    {
+      "path_id": "path_repair_79402d9b34e49fb6a4c1",
+      "requirement": {
+        "requirement_id": "req_8ac82e8f78b8195f1f1c"
+      },
+      "capability_unit": {
+        "skill_id": "react-best-practices"
+      }
+    },
+    {
+      "path_id": "path_repair_bdc97b2e3119050b1309",
+      "requirement": {
+        "requirement_id": "req_8ac82e8f78b8195f1f1c"
+      },
+      "capability_unit": {
+        "skill_id": "fix-visual-stability_browser-testing"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "34c013fbaf2c1dd30e1258c91e0277d5a6d89099ad83a5a683096d5e6a7b7ecd",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "e7dfd6709fafebe8efa431a44a70db27094be26fc9af3713d5cb12c56ec5f001"
+  }
+}

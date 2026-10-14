@@ -1,0 +1,257 @@
+{
+  "task_id": "gravitational-wave-detection",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_1775193918033e79abc6",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/gravitational-wave-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "The data is located in `/root/data/PyCBC_T2_2.gwf` in the channel `H1:TEST-STRAIN`. Condition the raw detector data and then perform matched filtering to find the template that matches best from the approximants \"SEOBNRv4_opt\", \"IMRPhenomD\", and \"TaylorT4\" with a grid search over the mass parameters mass1 and mass2 from 10 to 40 solar masses in integer steps. For each approximant, extract the strongest signal (highest SNR) and report its approximant, peak SNR, and total mass. Write your results under `/root/detection_results.csv` in the following format:\n",
+        "source_sha256": "877b3f96b92a020d5f189713b1c0611a0122cc4041a65b3f1519b6149f118b5c",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_c7d46fb48a44138b5e09",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gravitational-wave-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "- `approximant`: Name of the template (\"SEOBNRv4_opt\", \"IMRPhenomD\", or \"TaylorT4\")\n",
+        "source_sha256": "877b3f96b92a020d5f189713b1c0611a0122cc4041a65b3f1519b6149f118b5c",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_175e6ecefcbc9acabe6f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gravitational-wave-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 11,
+        "line_end": 11,
+        "exact_text": "- `snr`: Signal-to-noise ratio of the detection\n",
+        "source_sha256": "877b3f96b92a020d5f189713b1c0611a0122cc4041a65b3f1519b6149f118b5c",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_4f7985091a9c744ea13c",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gravitational-wave-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 12,
+        "line_end": 12,
+        "exact_text": "- `total_mass`: Total mass of the binary system (in solar masses)\n",
+        "source_sha256": "877b3f96b92a020d5f189713b1c0611a0122cc4041a65b3f1519b6149f118b5c",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "matched-filtering",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "conditioning",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "box-least-squares",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "silence-detector",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "seismic-picker-selection",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scipy-curve-fit",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "transit-least-squares",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lomb-scargle-periodogram",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pause-detector",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "light-curve-preprocessing",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "excitation-signal-design",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "gemini-video-understanding",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "gemini-count-in-video",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "nanogpt-training",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "automatic-speech-recognition",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_004"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_441c706c8d77486b14c5",
+      "community_ids": [
+        "l2_001"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "matched-filtering"
+      ],
+      "path_id": "path_repair_3c83dc59a9ca217d3e02",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_3b756ad484d2942dcfdb",
+        "prov_77fb4890d7763a74cc15",
+        "prov_fb579baf822457279632",
+        "req_4f7985091a9c744ea13c"
+      ],
+      "requirement_ids": [
+        "req_4f7985091a9c744ea13c"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_6e37d3c86a2cca6967cf",
+        "sui_91922aa08879dbe194d9",
+        "sui_a74bfb9397e226976eaa"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/gravitational-wave-detection/instruction.md",
+  "units_file": "capabilities/b3e3b0ae73fbd01f.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_3c83dc59a9ca217d3e02",
+      "requirement": {
+        "requirement_id": "req_4f7985091a9c744ea13c"
+      },
+      "capability_unit": {
+        "skill_id": "matched-filtering"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "a5d9347cd3855ff7a953d451dd5a060707cc5337148eff923c3f4188c6725b07",
+    "units": "76ee766641df300b787a2eaa320d3f7f6416d3fca3d5e8433b1fa86848693646",
+    "instruction": "877b3f96b92a020d5f189713b1c0611a0122cc4041a65b3f1519b6149f118b5c"
+  }
+}

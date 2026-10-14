@@ -1,0 +1,912 @@
+{
+  "task_id": "dapt-intrusion-detection",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_ab41838457e0eb819fff",
+      "requirement_type": "FORMAT",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "You’re given `packets.pcap` (subset of DAPT2020 traffic). Compute the stats and fill in only the `value` column in `/root/network_stats.csv`. Lines starting with `#` are comments—leave them.\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_80f4f11e6cf508049600",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "- `protocol_tcp`, `protocol_udp`, `protocol_icmp`, `protocol_arp`: packet counts by protocol\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_93ce1cbc5edd7762daca",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 6,
+        "exact_text": "- `protocol_ip_total`: packets that contain an IP layer\n\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_d8ce2e7456f7a96e60c4",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "- `duration_seconds`: last_timestamp − first_timestamp (seconds)\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_4d71d568d6cef7dc2ba0",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 10,
+        "exact_text": "- `packets_per_minute_avg/max/min`: count packets per 60s bucket (by timestamp), then take avg/max/min across buckets\n\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_732e88873b35cb039463",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 12,
+        "line_end": 12,
+        "exact_text": "- `total_bytes`: sum of packet lengths (bytes)\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_fdf72823f939f573ffe3",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 14,
+        "exact_text": "- `avg_packet_size`, `min_packet_size`, `max_packet_size`: stats over packet lengths\n\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_2f86f24347be428a7f2c",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 15,
+        "line_end": 16,
+        "exact_text": "Entropy (Shannon)\nCompute Shannon entropy over the observed frequency distribution (skip missing values):\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_cf521a9aec6117b6c741",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 17,
+        "line_end": 17,
+        "exact_text": "- `src_ip_entropy`, `dst_ip_entropy`: entropy of src/dst IPs\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_dc16594849f0a7da4ecc",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 19,
+        "exact_text": "- `src_port_entropy`, `dst_port_entropy`: entropy of src/dst ports\nAlso:\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_bd4532e522f0c954ba49",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 20,
+        "line_end": 21,
+        "exact_text": "- `unique_src_ports`, `unique_dst_ports`: number of distinct src/dst ports\n\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_91e393a3441990515c90",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 24,
+        "line_end": 24,
+        "exact_text": "- `num_nodes`: distinct IPs (src or dst)\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6362f7d9ace7992de9ee",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 25,
+        "line_end": 25,
+        "exact_text": "- `num_edges`: distinct directed (src,dst) pairs\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_9753201d735655979f1e",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 26,
+        "line_end": 26,
+        "exact_text": "- `network_density`: `num_edges / (num_nodes * (num_nodes - 1))` (use 0 if `num_nodes < 2`)\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_5976d8202dd10e77eafe",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 27,
+        "line_end": 27,
+        "exact_text": "- `max_outdegree`: max distinct destinations contacted by any single source IP\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6e949a1182e177d065bf",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 28,
+        "line_end": 29,
+        "exact_text": "- `max_indegree`: max distinct sources contacting any single destination IP\n\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_9552b17e1e992cac35dc",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 32,
+        "line_end": 35,
+        "exact_text": "- `iat_*`: inter-arrival times between consecutive packets (seconds)\n  - `iat_mean`, `iat_variance`\n  - `iat_cv`: std/mean (use 0 if mean=0)\nProducer/Consumer Ratio (PCR) per IP:\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_9706685e50ca280e4148",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 33,
+        "line_end": 33,
+        "exact_text": "  - `iat_mean`, `iat_variance`\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_b8cd9c107efda89c3a91",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 34,
+        "line_end": 35,
+        "exact_text": "  - `iat_cv`: std/mean (use 0 if mean=0)\nProducer/Consumer Ratio (PCR) per IP:\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_b10c3f0365d08db5bb9a",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 36,
+        "line_end": 36,
+        "exact_text": "- bytes_sent = total bytes where IP is src; bytes_recv = total bytes where IP is dst\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3cfb9f8979504b47e866",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 37,
+        "line_end": 37,
+        "exact_text": "- `PCR = (sent - recv) / (sent + recv)` (skip if sent+recv=0)\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_62f53e7d0407505324a2",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 38,
+        "line_end": 38,
+        "exact_text": "- `num_producers`: IPs with PCR > 0.2\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_605b9606131adeca85b6",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 39,
+        "line_end": 40,
+        "exact_text": "- `num_consumers`: IPs with PCR < -0.2\n\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3c547defaaa5372f5dbb",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 43,
+        "line_end": 43,
+        "exact_text": "- `unique_flows`: number of distinct keys\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_50d2e0d52152820c812d",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 44,
+        "line_end": 44,
+        "exact_text": "- `tcp_flows`, `udp_flows`: distinct keys where protocol is TCP / UDP\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_136aebfcc27079148a9a",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 45,
+        "line_end": 46,
+        "exact_text": "- `bidirectional_flows`: count of flows whose reverse key (dst,src,dst_port,src_port,protocol) also exists\n\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_c5ec8285a7759c22c5fc",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 48,
+        "line_end": 48,
+        "exact_text": "- `is_traffic_benign`: nothing clearly malicious\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3141037e16802bc9a78a",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 49,
+        "line_end": 49,
+        "exact_text": "- `has_port_scan`: mallicious port scanning\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_4e7ec9a1bc22745777cf",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 50,
+        "line_end": 50,
+        "exact_text": "- `has_dos_pattern`: extreme traffic spike / flood-like rate\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_d030a66c0781e5583544",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/dapt-intrusion-detection/instruction.md",
+        "source_type": "instruction",
+        "line_start": 51,
+        "line_end": 51,
+        "exact_text": "- `has_beaconing`: periodic communication (low IAT variance, repeatable intervals)\n",
+        "source_sha256": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "pcap-analysis",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pcap-triage-tshark",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "power-flow-data",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "threat-detection",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "azure-bgp",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "parallel-processing",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-media-info",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "erlang-distribution",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "suricata-offline-evejson",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "mhc-algorithm",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "object_counter",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "mpc-horizon-tuning",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "cvss-score-extraction",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "search-driving-distance",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_012"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "speaker-clustering",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "dc-power-flow",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_23517a8bc8db387e6e19",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_1af9ccbadb67f368c086",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_2ebfe148e3f7a1efcc90",
+        "prov_97d8b4bbc14650127c16",
+        "prov_f15ce784feaa17838b8a",
+        "req_d030a66c0781e5583544"
+      ],
+      "requirement_ids": [
+        "req_d030a66c0781e5583544"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_d4ab2c351463c40ad825",
+        "sui_e1fc7f344312c0f79b46",
+        "sui_ebaf38d2dabb993371a9"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_1f53d02e5d75acab835a",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_25d70354ac9b4406e9b7",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1686c529c51b30fada33",
+        "prov_6af984135ae0750f852b",
+        "req_b10c3f0365d08db5bb9a"
+      ],
+      "requirement_ids": [
+        "req_b10c3f0365d08db5bb9a"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_53866435e1ebc1c49af4",
+        "sui_5f12ac372166fa5bf5f1"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_c5340e64b378c2d03d0c",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_27f4ea9ccee0672c113f",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1686c529c51b30fada33",
+        "prov_c8b5e99c61a79340f2c1",
+        "req_93ce1cbc5edd7762daca"
+      ],
+      "requirement_ids": [
+        "req_93ce1cbc5edd7762daca"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_098b4f99c279a3d91ad9",
+        "sui_5f12ac372166fa5bf5f1"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_f1ad3f706883550ae43d",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_70e4fc3603be4fa4bdd8",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_a840e92e4ff85168aa09",
+        "req_732e88873b35cb039463"
+      ],
+      "requirement_ids": [
+        "req_732e88873b35cb039463"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_998185bb7c241a55c66d"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_c5340e64b378c2d03d0c",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_7ad4d2dff58d615a59cd",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1686c529c51b30fada33",
+        "prov_c8b5e99c61a79340f2c1",
+        "req_6e949a1182e177d065bf"
+      ],
+      "requirement_ids": [
+        "req_6e949a1182e177d065bf"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_098b4f99c279a3d91ad9",
+        "sui_5f12ac372166fa5bf5f1"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_c5340e64b378c2d03d0c",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_89dcddd75df0b0250cee",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1686c529c51b30fada33",
+        "prov_c8b5e99c61a79340f2c1",
+        "req_5976d8202dd10e77eafe"
+      ],
+      "requirement_ids": [
+        "req_5976d8202dd10e77eafe"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_098b4f99c279a3d91ad9",
+        "sui_5f12ac372166fa5bf5f1"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_294a59f1539f06e254ca",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_d29785b0291f90e288ae",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1d4d52a154bfd6f34c6a",
+        "req_80f4f11e6cf508049600"
+      ],
+      "requirement_ids": [
+        "req_80f4f11e6cf508049600"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_2a2b0073739aca437cc7"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_294a59f1539f06e254ca",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_d444063db9335a3a0c80",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1d4d52a154bfd6f34c6a",
+        "req_50d2e0d52152820c812d"
+      ],
+      "requirement_ids": [
+        "req_50d2e0d52152820c812d"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_2a2b0073739aca437cc7"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_294a59f1539f06e254ca",
+      "community_ids": [
+        "l2_003"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "pcap-analysis"
+      ],
+      "path_id": "path_repair_f53e31b7bcbca0dc7339",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_1d4d52a154bfd6f34c6a",
+        "req_136aebfcc27079148a9a"
+      ],
+      "requirement_ids": [
+        "req_136aebfcc27079148a9a"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_2a2b0073739aca437cc7"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/dapt-intrusion-detection/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [
+    "path_repair_1af9ccbadb67f368c086",
+    "path_repair_d29785b0291f90e288ae"
+  ],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_d29785b0291f90e288ae",
+      "requirement": {
+        "requirement_id": "req_80f4f11e6cf508049600"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_27f4ea9ccee0672c113f",
+      "requirement": {
+        "requirement_id": "req_93ce1cbc5edd7762daca"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_70e4fc3603be4fa4bdd8",
+      "requirement": {
+        "requirement_id": "req_732e88873b35cb039463"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_89dcddd75df0b0250cee",
+      "requirement": {
+        "requirement_id": "req_5976d8202dd10e77eafe"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_7ad4d2dff58d615a59cd",
+      "requirement": {
+        "requirement_id": "req_6e949a1182e177d065bf"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_25d70354ac9b4406e9b7",
+      "requirement": {
+        "requirement_id": "req_b10c3f0365d08db5bb9a"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_d444063db9335a3a0c80",
+      "requirement": {
+        "requirement_id": "req_50d2e0d52152820c812d"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_f53e31b7bcbca0dc7339",
+      "requirement": {
+        "requirement_id": "req_136aebfcc27079148a9a"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    },
+    {
+      "path_id": "path_repair_1af9ccbadb67f368c086",
+      "requirement": {
+        "requirement_id": "req_d030a66c0781e5583544"
+      },
+      "capability_unit": {
+        "skill_id": "pcap-analysis"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "9fcf8faa14614c1f027cc57125d10bf7840e33bb372bc658a8f246282e9e206e",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "569faf67fc4c02d6c1bbc63ce0d243ac7687cb85a4668a0d780e4d1da3bf4861"
+  }
+}

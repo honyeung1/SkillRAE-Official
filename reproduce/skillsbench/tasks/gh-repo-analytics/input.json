@@ -1,0 +1,272 @@
+{
+  "task_id": "gh-repo-analytics",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_2cf089d48bebaf0a8b77",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gh-repo-analytics/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "- I want you to count how many PRs were created during the month.\n",
+        "source_sha256": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_7cf506df94f9051a67c2",
+      "requirement_type": "ARTIFACT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gh-repo-analytics/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "- I want you to report, as of today, how many of those PRs have been merged and how many have been closed.\n",
+        "source_sha256": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_30bf06982d003b6aa43d",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/gh-repo-analytics/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 9,
+        "exact_text": "- I want you to compute the average time-to-merge (in days) across all merged PRs, measured from PR creation time to merge time, rounded to one decimal place.\n",
+        "source_sha256": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_45f864d951438e1d423e",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gh-repo-analytics/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 11,
+        "exact_text": "- I want you to identify the person who opened the most PRs during the month.\n\n",
+        "source_sha256": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_60bf47a0574c04ad83fa",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gh-repo-analytics/instruction.md",
+        "source_type": "instruction",
+        "line_start": 14,
+        "line_end": 14,
+        "exact_text": "- I want you to count how many issues were created during the month.\n",
+        "source_sha256": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_3ab0c0505f0ed3fe38a2",
+      "requirement_type": "ARTIFACT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gh-repo-analytics/instruction.md",
+        "source_type": "instruction",
+        "line_start": 15,
+        "line_end": 15,
+        "exact_text": "- I want you to count how many of those issues are bug reports. I define a bug report as any issue where at least one label contains the substring `bug` (e.g., `bug`, `type: bug`, `kind/bug`, etc.).\n",
+        "source_sha256": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_c2450116060afe7b212c",
+      "requirement_type": "ARTIFACT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/gh-repo-analytics/instruction.md",
+        "source_type": "instruction",
+        "line_start": 16,
+        "line_end": 17,
+        "exact_text": "- I want you to count how many bug report issues were closed during the month.\n\n",
+        "source_sha256": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_5d2ed5c13b7cac14f8b8",
+      "requirement_type": "FORMAT",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/gh-repo-analytics/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 18,
+        "exact_text": "I want you to compile everything into a `report.json` file and place it in the `/app/` directory. The JSON must use this exact structure:\n",
+        "source_sha256": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "gh-cli",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_browser-testing",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "vulnerability-csv-reporting",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "browser-testing",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "reflow-profile-compliance-toolkit",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "find-bugs",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "report-generator",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "speaker-clustering",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pubchem-database",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "analyze-ci",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "cvss-score-extraction",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "syzkaller-build-loop",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "skillsbench",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_002"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/gh-repo-analytics/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "4c1ddb12ad634fc351c26bbc7ac36118bb8978acbb1dfe125cbe11d713869e0d",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "aef24de44072e31cecbf81c7b020b4780331ba54c27a9734cb3fd3655c420343"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "selected_skill_ids": [
+    "image-ocr",
+    "xlsx",
+    "powerlifting-coef-calc_xlsx",
+    "sales-pivot-analysis_xlsx",
+    "gpt-multimodal"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_4ca3ff5445b6bc97ff45",
+    "req_684821fb7d69a4a99e6d",
+    "req_9f30402b15c91a2ded0d"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

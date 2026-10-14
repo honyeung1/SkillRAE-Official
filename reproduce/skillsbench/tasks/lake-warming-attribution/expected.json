@@ -1,0 +1,16 @@
+{
+  "selected_skill_ids": [
+    "glm-output",
+    "meteorology-driver-classification",
+    "trend-analysis",
+    "nws-flood-thresholds",
+    "flood-detection"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_2590e5ce177dfafb2b02",
+    "req_576b89e9277ca12ad0f5"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

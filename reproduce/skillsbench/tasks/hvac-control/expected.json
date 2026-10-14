@@ -1,0 +1,15 @@
+{
+  "selected_skill_ids": [
+    "reflow-profile-compliance-toolkit",
+    "imc-tuning-rules",
+    "glm-calibration",
+    "reflow_machine_maintenance_guidance",
+    "simulation-metrics"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_5c4b9f24dec8a9784e87"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

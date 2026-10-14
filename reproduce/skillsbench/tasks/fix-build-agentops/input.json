@@ -1,0 +1,216 @@
+{
+  "task_id": "fix-build-agentops",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_03371cb900ccbeaf9684",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/fix-build-agentops/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 2,
+        "exact_text": "You need to fix errors in a Python codebase.\nThe repository is located in `/home/github/build/failed/<repo>/<id>`.\n",
+        "source_sha256": "a9dc72f2853443edf042edfd9a1a6278ee1802b760663d4a85fa152e66cae999",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_d0ee5caca2c476356314",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/fix-build-agentops/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 7,
+        "exact_text": "Step 1: Analyze the repository to identify the errors causing the build to fail.\nIdentify if the errors are within the code or build configuration.\nWrite your analysis and plan in `/home/github/build/failed/failed_reasons.txt`.\nThis file is for you to use in the next step.\n",
+        "source_sha256": "a9dc72f2853443edf042edfd9a1a6278ee1802b760663d4a85fa152e66cae999",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_450fc8f1ca0162d5a51d",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/fix-build-agentops/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 13,
+        "exact_text": "Step 2: Use your notes written in `/home/github/build/failed/failed_reasons.txt`\nto fix the errors.\nFirst, write the changes you proposed in diff files,\nWrite your changes in files with path`/home/github/build/failed/<repo>/<id>/patch_{i}.diff`.\nPlease write them in standard diff format that is used by `git` and GNU `diffutils`.\n",
+        "source_sha256": "a9dc72f2853443edf042edfd9a1a6278ee1802b760663d4a85fa152e66cae999",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_3d63c62fc0c02fe250ee",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/fix-build-agentops/instruction.md",
+        "source_type": "instruction",
+        "line_start": 16,
+        "line_end": 16,
+        "exact_text": "Step 3: Apply your changes (your diff files) to the repository to fix the build errors.\n",
+        "source_sha256": "a9dc72f2853443edf042edfd9a1a6278ee1802b760663d4a85fa152e66cae999",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "nlp-research-repo-package-installment",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "citation-management",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "find-bugs",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pymatgen",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "gh-cli",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "uv-package-manager",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "memory-optimization",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_react-best-practices",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "trivy-offline-vulnerability-scanning",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "manufacturing-failure-reason-codebook-normalization",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "testing-python",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "syzkaller-build-loop",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "analyze-ci",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "python-scala-libraries",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_011"
+      ]
+    },
+    {
+      "skill_id": "fuzzing-python",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "restclient-migration",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_browser-testing",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "python-scala-idioms",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_011"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_006"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/fix-build-agentops/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "ee47c40db5115d15f4647fd9af4b3267a41df7acf83b445151a2039ce7fe6d88",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "a9dc72f2853443edf042edfd9a1a6278ee1802b760663d4a85fa152e66cae999"
+  }
+}

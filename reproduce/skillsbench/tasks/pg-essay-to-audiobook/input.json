@@ -1,0 +1,360 @@
+{
+  "task_id": "pg-essay-to-audiobook",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_5121e4eb538f00f8d63b",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/pg-essay-to-audiobook/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "- Do Things that don't scale\n",
+        "source_sha256": "a62e8d9e66e0068c6ce9a40b68a180b4a62dfc9330b786581f0d241d45c80a5c",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_c444223101fdd1b5212a",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/pg-essay-to-audiobook/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 6,
+        "exact_text": "- Founder mode\n\n",
+        "source_sha256": "a62e8d9e66e0068c6ce9a40b68a180b4a62dfc9330b786581f0d241d45c80a5c",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_8a743773de4c5c636179",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/pg-essay-to-audiobook/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "You should find them online and convert to audio using elevenlabs or openai TTS (api-keys are in the env), if these online services are not avilable to you, you should try some local TTS service.\n",
+        "source_sha256": "a62e8d9e66e0068c6ce9a40b68a180b4a62dfc9330b786581f0d241d45c80a5c",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_89948ef24b15a47bb51f",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/pg-essay-to-audiobook/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 9,
+        "exact_text": "Save the output to `/root/audiobook.mp3`.\n",
+        "source_sha256": "a62e8d9e66e0068c6ce9a40b68a180b4a62dfc9330b786581f0d241d45c80a5c",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "audiobook",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "elevenlabs-tts",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "openai-tts",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "audio-extractor",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "text-to-speech",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "automatic-speech-recognition",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "voice-activity-detection",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "gtts",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "energy-calculator",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "docs-to-skill",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pause-detector",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "dialogue_graph",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "citation-management",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "powerlifting-coef-calc_xlsx",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "filler-word-processing",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_004"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_a4b4615541b9fd3999d7",
+      "community_ids": [
+        "l2_008"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "elevenlabs-tts"
+      ],
+      "path_id": "path_repair_1707e9d38e588f6d1d23",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_05604892a7a18c7d8068",
+        "prov_fcb87a83d0c3d9d936cb",
+        "req_8a743773de4c5c636179"
+      ],
+      "requirement_ids": [
+        "req_8a743773de4c5c636179"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_18c3ddc7664eb6bdd0be",
+        "sui_e73d853c8adba242b3c5"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3369ee19e0602567e4f9",
+      "community_ids": [
+        "l2_004"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "openai-tts"
+      ],
+      "path_id": "path_repair_1747c566d4321ca1520c",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_59273c415cf050854887",
+        "req_8a743773de4c5c636179"
+      ],
+      "requirement_ids": [
+        "req_8a743773de4c5c636179"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_ce04efd01960dd1bd791"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_f22cc1e232a682d67cbf",
+      "community_ids": [
+        "l2_004"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "openai-tts"
+      ],
+      "path_id": "path_repair_5da435af90a411675db1",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_253e169b5fd7ad55cfe3",
+        "req_8a743773de4c5c636179"
+      ],
+      "requirement_ids": [
+        "req_8a743773de4c5c636179"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_9f9609e03a32d7a35a9a"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_b53b23b78b0debd2cc67",
+      "community_ids": [
+        "l2_010"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "audiobook"
+      ],
+      "path_id": "path_repair_b3f085b110f7d9c37457",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_d9e9c4ba6ed45ad571f4",
+        "req_8a743773de4c5c636179"
+      ],
+      "requirement_ids": [
+        "req_8a743773de4c5c636179"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_7e6c48fc56cff9deda8e"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/pg-essay-to-audiobook/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_b3f085b110f7d9c37457",
+      "requirement": {
+        "requirement_id": "req_8a743773de4c5c636179"
+      },
+      "capability_unit": {
+        "skill_id": "audiobook"
+      }
+    },
+    {
+      "path_id": "path_repair_5da435af90a411675db1",
+      "requirement": {
+        "requirement_id": "req_8a743773de4c5c636179"
+      },
+      "capability_unit": {
+        "skill_id": "openai-tts"
+      }
+    },
+    {
+      "path_id": "path_repair_1747c566d4321ca1520c",
+      "requirement": {
+        "requirement_id": "req_8a743773de4c5c636179"
+      },
+      "capability_unit": {
+        "skill_id": "openai-tts"
+      }
+    },
+    {
+      "path_id": "path_repair_1707e9d38e588f6d1d23",
+      "requirement": {
+        "requirement_id": "req_8a743773de4c5c636179"
+      },
+      "capability_unit": {
+        "skill_id": "elevenlabs-tts"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "ce36e615d1383028b750ec1f04920301e45436fc9d99a9988bdbdd354cdf90c2",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "a62e8d9e66e0068c6ce9a40b68a180b4a62dfc9330b786581f0d241d45c80a5c"
+  }
+}

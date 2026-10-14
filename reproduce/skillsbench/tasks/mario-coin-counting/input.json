@@ -1,0 +1,276 @@
+{
+  "task_id": "mario-coin-counting",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_123f0c80271a58f2d45d",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/mario-coin-counting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "In this task, you are given a clip of screen recording of a player playing the game Super Mario. Your goal is to analyze the key frames in this video and count how many coins / enemies / turtles ever showing up in each frame and write the results into a CSV file located in `/root/counting_results.csv`.\n",
+        "source_sha256": "2d91230d2ebbb8332fc2ac6991f4e99979bcb6129b829f7a9f633db2dbadbc1f",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_662077a996144fd2f2b6",
+      "requirement_type": "ARTIFACT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/mario-coin-counting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Step 1. The video file for this problem is located in `/root/super-mario.mp4`. You need to use video frame extraction skill to convert the MP4 video file into several key frames and store them into `/root` folder.\n",
+        "source_sha256": "2d91230d2ebbb8332fc2ac6991f4e99979bcb6129b829f7a9f633db2dbadbc1f",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_953b48dcb1acf563917c",
+      "requirement_type": "FORMAT",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/mario-coin-counting/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 13,
+        "exact_text": "Step 6. Generate a CSV file summarizing all statistics with 4 columns called \"frame_id\", \"coins\", \"enemies\", and \"turtles\". Frame id column indicates keyframe file location `/root/keyframes_001.png`, `/root/keyframes_002.png`, and so on (every frame id should be in the format of `/root/keyframes_%03d.png`, up to the total number of keyframes extracted, sorted in timeline order in the video). The rest 3 columns are counting results per key frame.\n",
+        "source_sha256": "2d91230d2ebbb8332fc2ac6991f4e99979bcb6129b829f7a9f633db2dbadbc1f",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "video-frame-extraction",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "gemini-count-in-video",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "gemini-video-understanding",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "object_counter",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-video-editing",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-media-info",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "video-processor",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "sampling-and-indexing",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-video-filters",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "report-generator",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "dyn-object-masks",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "openai-vision",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "speech-to-text",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "video-filler-word-remover_ffmpeg-video-editing",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "gpt-multimodal",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "segment-combiner",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "mesh-analysis",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "ffmpeg-format-conversion",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_008"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_ebfaa31a94d71172f101",
+      "community_ids": [
+        "l2_008"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "video-frame-extraction"
+      ],
+      "path_id": "path_repair_7540cdd61e0bb066e677",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_053ed32970ffa2e8fd98",
+        "req_662077a996144fd2f2b6"
+      ],
+      "requirement_ids": [
+        "req_662077a996144fd2f2b6"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_c1c347fd3a7c8caf03a4"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_268d68cb230fb32818ed",
+      "community_ids": [
+        "l2_008"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "ffmpeg-video-filters"
+      ],
+      "path_id": "path_repair_a05f851af469faacd1d1",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_ba929a66cf4f1da08df9",
+        "prov_d6ff78f5d494c096d216",
+        "req_662077a996144fd2f2b6"
+      ],
+      "requirement_ids": [
+        "req_662077a996144fd2f2b6"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_0589fc768d7854b95a54",
+        "sui_69242944de844d8bca02"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/mario-coin-counting/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_7540cdd61e0bb066e677",
+      "requirement": {
+        "requirement_id": "req_662077a996144fd2f2b6"
+      },
+      "capability_unit": {
+        "skill_id": "video-frame-extraction"
+      }
+    },
+    {
+      "path_id": "path_repair_a05f851af469faacd1d1",
+      "requirement": {
+        "requirement_id": "req_662077a996144fd2f2b6"
+      },
+      "capability_unit": {
+        "skill_id": "ffmpeg-video-filters"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "c260d787cd269033f9bcf5958a250d37ca97b3e0c20ef9a268f0afe63ca3315a",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "2d91230d2ebbb8332fc2ac6991f4e99979bcb6129b829f7a9f633db2dbadbc1f"
+  }
+}

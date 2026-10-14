@@ -1,0 +1,17 @@
+{
+  "selected_skill_ids": [
+    "audiobook",
+    "whisper-transcription",
+    "gtts",
+    "automatic-speech-recognition",
+    "report-generator"
+  ],
+  "selected_path_ids": [
+    "path_repair_406939d55f19a2cad634"
+  ],
+  "closed_requirement_ids": [
+    "req_eca32e0759212304d0d8"
+  ],
+  "guide_sha256": "73cbfe48f99e9aa8b983920e579a11d45936fb27f8a7a3ae83a1b2b8c1e2ae67",
+  "guide_tokens": 132
+}

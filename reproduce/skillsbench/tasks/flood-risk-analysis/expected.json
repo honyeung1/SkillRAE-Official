@@ -1,0 +1,15 @@
+{
+  "selected_skill_ids": [
+    "nws-flood-thresholds",
+    "flood-detection",
+    "usgs-data-download",
+    "glm-output",
+    "obspy-data-api"
+  ],
+  "selected_path_ids": [],
+  "closed_requirement_ids": [
+    "req_69078c38542a4346fae9"
+  ],
+  "guide_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "guide_tokens": 0
+}

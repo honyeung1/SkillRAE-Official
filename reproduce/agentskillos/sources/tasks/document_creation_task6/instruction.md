@@ -1,0 +1,3 @@
+I am a university lecturer, and I'm preparing teaching materials on "Quantum Computing Fundamentals" for my undergraduate class. Please generate 3 illustrations: qubit.png showing a Bloch sphere visualization, gates.png showing Hadamard & CNOT gate operations, and circuit.png showing a simple quantum circuit diagram.
+
+Create presentation.pdf with at least 8 pages covering: title page, classical vs quantum computing, qubits & superposition, quantum gates, quantum circuits, entanglement, applications, and summary with key takeaways.

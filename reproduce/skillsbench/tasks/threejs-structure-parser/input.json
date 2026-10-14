@@ -1,0 +1,188 @@
+{
+  "task_id": "threejs-structure-parser",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_e36c3937959eef604d08",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/threejs-structure-parser/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Your task is to parse this Three.js file to find the part-level structure of the defined 3D object. Then, you need to find each individual mesh defined directly by primitive functions as well as the part meshes defined by THREE.Group. Finally, please save them to the folder `/root/output/part_meshes` and `/root/output/links`.\n",
+        "source_sha256": "852dcd9c9433a1290cf1e769e10898b1936eefebea30a0d568d4de216a92a0fc",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_2ec9c4c1241cbc2f871a",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/threejs-structure-parser/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 20,
+        "exact_text": "  /root/output/\n  ├── part_meshes/\n  │   ├── <part_name_1>/\n  │   │   ├── <mesh_name1>.obj\n  │   │   ├── <mesh_name2>.obj\n  │   │   └── ...\n  │   ├── <part_name_2>/\n  │   │   ├── <mesh_name_3>.obj\n  │   └── ...\n  └── links/\n      ├── <part_name_1>.obj\n      ├── <part_name_2>.obj\n      ├── <part_name_3>.obj\n      └── ...\n",
+        "source_sha256": "852dcd9c9433a1290cf1e769e10898b1936eefebea30a0d568d4de216a92a0fc",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "obj-exporter",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "threejs-to-obj_obj-exporter",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_011"
+      ]
+    },
+    {
+      "skill_id": "d3-visualization",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "mesh-analysis",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "exoplanet-workflows",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_react-best-practices",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "react-best-practices",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "hex-grid-spatial",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "pymatgen",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "marker",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "obspy-datacenter-client",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "powerlifting-coef-calc_xlsx",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "pdf",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_009"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/threejs-structure-parser/instruction.md",
+  "units_file": "capabilities/b3e3b0ae73fbd01f.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "6b5f0bd622bfc125d13c68cd1b170a28e418e440f647c2f34cbb0a6f27ea3ce5",
+    "units": "76ee766641df300b787a2eaa320d3f7f6416d3fca3d5e8433b1fa86848693646",
+    "instruction": "852dcd9c9433a1290cf1e769e10898b1936eefebea30a0d568d4de216a92a0fc"
+  }
+}

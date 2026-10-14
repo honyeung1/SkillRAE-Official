@@ -1,0 +1,20 @@
+{
+  "selected_skill_ids": [
+    "manufacturing-failure-reason-codebook-normalization",
+    "feature_engineering",
+    "discover-important-function",
+    "reflow-profile-compliance-toolkit",
+    "fuzzy-match"
+  ],
+  "selected_path_ids": [
+    "path_repair_22c1d7d9237bf3f26174",
+    "path_repair_fa3584a7cbcc92f45d8b"
+  ],
+  "closed_requirement_ids": [
+    "req_3ac66c56039ba5e9e591",
+    "req_430c04a7b8ed62172a03",
+    "req_7aa12023efc23ddf2351"
+  ],
+  "guide_sha256": "01d3e5d8490b718433ce4279f0697ad0dfb855a8dc438547aff8f9cee76d3a92",
+  "guide_tokens": 148
+}

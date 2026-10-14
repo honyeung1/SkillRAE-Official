@@ -1,0 +1,241 @@
+{
+  "task_id": "dialogue-parser",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_546ecffe2af461dd6d02",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/dialogue-parser/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "You will implement a dialogue parser that converts a given text file into a structured JSON graph. You will be given a text file `/app/script.txt`, and output a validated JSON graph `/app/dialogue.json` and visualization `/app/dialogue.dot`. You should implement a function `def parse_script(text: str)` in your parser `solution.py` that takes the script content as input and returns the parsed graph (as a dictionary or object with nodes/edges). This is required for validation. Your parser should process basic structure such as graph, node, and edge, so a given dialogue with the following input format can be parsed:\n",
+        "source_sha256": "b006f8f260e4030c8cdef5a3b71720362788a90e52390d551adeee74c504ed56",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_f7bb89499f18f3362990",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/dialogue-parser/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 13,
+        "exact_text": "into the graph with node type \"line\" and \"choice\", which has \"id\", \"text\", \"speaker\", \"type\" and edge format {\"from\":\"\",\"to\":\"\",\"text\":\"\"}, you are going to output a json file in the format of {\"nodes\":[{\"id\":\"\",\"text\":\"\",\"speaker\":\"\",\"type\":\"\"}],\"edges\":[{\"from\":\"\",\"to\":\"\",\"text\":\"\"}]}, and achieve a visualization in the .dot format.\n",
+        "source_sha256": "b006f8f260e4030c8cdef5a3b71720362788a90e52390d551adeee74c504ed56",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_c76604b796288b5bc7b9",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/dialogue-parser/instruction.md",
+        "source_type": "instruction",
+        "line_start": 15,
+        "line_end": 15,
+        "exact_text": "The constraints are: (1) All nodes must be reachable from the first node; (2) All edge targets must exist except the last node; (3) multiple paths can lead to the node \"End\". Some specific tests will also be conducted based on this input script, so please parse it.\n",
+        "source_sha256": "b006f8f260e4030c8cdef5a3b71720362788a90e52390d551adeee74c504ed56",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "dialogue_graph",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "sqlite-map-parser",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "audiobook",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "openai-tts",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "nodemedic-demo_artifact-evaluation",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "vulnerability-csv-reporting",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_009"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "pddl-skills",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "nlp-research-repo-package-installment",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_010"
+      ]
+    },
+    {
+      "skill_id": "sales-pivot-analysis_pdf",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "pdf-reading",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "python-scala-syntax-mapping",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_011"
+      ]
+    },
+    {
+      "skill_id": "constraint-parser",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "gtts",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "d3-visualization",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "rdkit",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "offer-letter-generator_docx",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_006"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_a304505568509eb3f04f",
+      "community_ids": [
+        "l2_002"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "dialogue_graph"
+      ],
+      "path_id": "path_repair_7c436a58b585336c9397",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_55c97ffe741b98d13da9",
+        "prov_95d7bba50eb4df204faf",
+        "req_f7bb89499f18f3362990"
+      ],
+      "requirement_ids": [
+        "req_f7bb89499f18f3362990"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_8e0614432eb953058b29",
+        "sui_fd62c6fc86196498c121"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/dialogue-parser/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_7c436a58b585336c9397",
+      "requirement": {
+        "requirement_id": "req_f7bb89499f18f3362990"
+      },
+      "capability_unit": {
+        "skill_id": "dialogue_graph"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "ecb6248cef9d22fec50456df36deb69c286035726cd3abb32a2c2105bbfaefd4",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "b006f8f260e4030c8cdef5a3b71720362788a90e52390d551adeee74c504ed56"
+  }
+}

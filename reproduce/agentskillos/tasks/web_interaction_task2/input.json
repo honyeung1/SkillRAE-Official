@@ -1,0 +1,216 @@
+{
+  "task_id": "web_interaction_task2",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_833611f9f9724481db7c",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 6,
+        "line_end": 6,
+        "exact_text": "- Newsletter title and date\n",
+        "source_sha256": "c667135acc569bafafd9b86e60fc1809649b7bd4d9d4f88a289d9513cf4ae64e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_2d983525169c47a5aaef",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "- Editor's note: a brief overview of this week's AI landscape (100-200 words)\n",
+        "source_sha256": "c667135acc569bafafd9b86e60fc1809649b7bd4d9d4f88a289d9513cf4ae64e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_c4b73cbc818e0f68caac",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 8,
+        "exact_text": "- Article entries: for each article include the title, source URL, a summary (50-100 words), and reference the corresponding screenshot\n",
+        "source_sha256": "c667135acc569bafafd9b86e60fc1809649b7bd4d9d4f88a289d9513cf4ae64e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_118b715db56cef52dd16",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/web_interaction_task2/instruction.md",
+        "source_type": "instruction",
+        "line_start": 9,
+        "line_end": 9,
+        "exact_text": "- Weekly trend summary: synthesize the common themes across the curated articles",
+        "source_sha256": "c667135acc569bafafd9b86e60fc1809649b7bd4d9d4f88a289d9513cf4ae64e",
+        "extraction_rule": "commonmark_list_item"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "latex-posters",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "data-storytelling",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "scientific-slides",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "meme-factory",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "citation-management",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pptx",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "dialogue_graph",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "openai-tts",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "docx",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "generate-image",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lean4-memories",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "audiobook",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "filler-word-processing",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_008"
+      ]
+    },
+    {
+      "skill_id": "dev-browser",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scroll-experience",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scientific-visualization",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "frontend-design",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/web_interaction_task2/instruction.md",
+  "units_file": "capabilities/b62d14b1e5c9417b.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 252,
+  "relative_executor_mount": true,
+  "source_hashes": {
+    "support": "7434a5cdaddd2954c3accf00a197247dc3edddfaebc9aa4f07d7a28ca771c770",
+    "units": "161a0f13b468979e31e17b2fe1b24612042cf93b2b744883731054deac636c3b",
+    "instruction": "c667135acc569bafafd9b86e60fc1809649b7bd4d9d4f88a289d9513cf4ae64e"
+  }
+}

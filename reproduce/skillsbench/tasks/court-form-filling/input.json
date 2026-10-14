@@ -1,0 +1,174 @@
+{
+  "task_id": "court-form-filling",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_2337fce1ea30d3758cf4",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/court-form-filling/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "Fill the California Small Claims Court form at `/root/sc100-blank.pdf` based on the case description below, and save the filled one to `/root/sc100-filled.pdf`. Only fill in the necessary fields and leave the court-filled, optional fields or fields not mentioned in the case description below empty. Use this date format: xxxx-xx-xx.\n",
+        "source_sha256": "0a86df0a33025e2a5cbc138dfd9be8bbe951ba98eacb2a3f971ee95e93ef1d1f",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "spring-security-6",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_005"
+      ]
+    },
+    {
+      "skill_id": "lean4-theorem-proving",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "manufacturing-failure-reason-codebook-normalization",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "powerlifting",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "gemini-count-in-video",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "pubchem-database",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "fix-visual-stability_react-best-practices",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_013"
+      ]
+    },
+    {
+      "skill_id": "fuzzy-match",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "nws-flood-thresholds",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "suricata-rules-basics",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "whisper-transcription",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "automatic-speech-recognition",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "matched-filtering",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "reflow-profile-compliance-toolkit",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "fuzzy-name-search",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "silence-detector",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/court-form-filling/instruction.md",
+  "units_file": "capabilities/b3e3b0ae73fbd01f.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "fa6537144c46c9c897c5a18a6a1899df9c419fa409f843f501fa4b157973ffbe",
+    "units": "76ee766641df300b787a2eaa320d3f7f6416d3fca3d5e8433b1fa86848693646",
+    "instruction": "0a86df0a33025e2a5cbc138dfd9be8bbe951ba98eacb2a3f971ee95e93ef1d1f"
+  }
+}

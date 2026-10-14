@@ -1,0 +1,876 @@
+{
+  "task_id": "shock-analysis-supply",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_023979fb422e5936d7ac",
+      "requirement_type": "PRESERVATION",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "This task is to estimate an investment spending shock to a small open economy (Georgia) using Cobb-Douglas production function to estimate the potential GDP. The investment will last 8 years beginning from 2026, which worths 6.5 billion USD. You are going to collect the relevant data from multiple online sources, populate data in test file, and run the model in excel. You should ONLY use excel for this task (no python, no hardcoded numbers for the cells that needs calculation). Keep all the formulas in the test file you did.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_420d47ab2aaf4de06daf",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 4,
+        "line_end": 4,
+        "exact_text": "- Get the PWT database from https://www.rug.nl/ggdc/productivity/pwt/?lang=en and fill the relevant data in column B and C in sheet \"PWT\". HINT: read the PWT metadata sheet to understand the meaning of each variable.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_02c56ee57f2d760db9b8",
+      "requirement_type": "PRESERVATION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 5,
+        "line_end": 5,
+        "exact_text": "- Use Playwright MCP. Go to IMF WEO database and get the real GDP level, real GDP growth rate from 2000 to 2027. Populate the data into the relevant rows of the sheet \"WEO_Data\". Assume the 2027 real GDP growth rate stay unchanged until 2043 to fill the column. Calculate the relevant real GDP projection based on the extended growth rate.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_255e2f529082dca880d1",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 6,
+        "line_end": 6,
+        "exact_text": "- Get Consumption of fixed capital data (annual) from ECB for Georgia https://data.ecb.europa.eu/data/geographical-areas/georgia?reference_area_name%5B0%5D=Georgia and fill Column C in sheet \"CFC data\". Link the capital stock data from \"PWT\", and calculate the depreciation rate using column C&D.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a699f9064593a6a2e51f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 8,
+        "exact_text": "- In the sheet \"Production\", we assume the annual depreciation rate = average depreciation rate of most recent 8 years. Use formula to calculate the number and fill cell B3.\n\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_bec6fc3f2dfeba13a684",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "- Link the relevant data from other sheets to D6:D27 and E6:E27 in \"Production\", and then use formula to calculate LnK and LnY.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6e9c0154ee979ac88f8f",
+      "requirement_type": "VALIDATION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 11,
+        "line_end": 12,
+        "exact_text": "- In HP Filter area, you should figure out using Solver in excel to get a smoothed line of LnZ. HINT: to begin with, link LnZ to Column F, duplicate the LnZ_HP column as place holder, calculate the second-order difference and LnA-Trend as a sanity check (which means the column N should be 0 to begin with). Calculate the objective in P5 and then start solver in excel to the min of objective by changing L6:L27.\n\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_f1a271b2c4236a30a340",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 14,
+        "line_end": 14,
+        "exact_text": "- Link K and Y from the relevant sheets - latest K is 2023 and latest Y is 2025. You already got the extended Y from \"WEO_Data\". Calculate K/Y from 2002 to 2023. Extend K by applying a fixed anchor (average K/Y of the most recent 9 yrs).\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_6b458805628d15fcb4b6",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 15,
+        "line_end": 15,
+        "exact_text": "- Link the HP filtered LnZ trend to fill G36:G57. Use excel formula TREND to extend LnZ trend to 2041. Calculate Ystar_base by using lnZ_trend, Y and capital's share.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_11c165b03ec133028be1",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 16,
+        "line_end": 16,
+        "exact_text": "- Link data from sheet \"Investment\" to fill in column I, calculate deltaK and K_With based on what you have.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_7cef72d98fa65a60dff4",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 17,
+        "line_end": 17,
+        "exact_text": "- Calculated Ystar_with by the new K_with you got earlier.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_9f9d78883c32c9ffafe1",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 19,
+        "exact_text": "- Fill in the rest of the table - you have all the data you need.\n\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_bf1d3f0ca400d13736cc",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/shock-analysis-supply/instruction.md",
+        "source_type": "instruction",
+        "line_start": 20,
+        "line_end": 20,
+        "exact_text": "Output answers in `test-supply.xlsx`.\n",
+        "source_sha256": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "timeseries-detrending",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "economic-dispatch",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "trend-analysis",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "contribution-analysis",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "13f-analyzer",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "xlsx",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "time_series_anomaly_detection",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "glm-output",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_006"
+      ]
+    },
+    {
+      "skill_id": "glm-calibration",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "geospatial-analysis",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pca-decomposition",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "map-optimization-strategy",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "scipy-curve-fit",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "glm-basics",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "did_causal_analysis",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "sales-pivot-analysis_xlsx",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_006"
+      ]
+    }
+  ],
+  "support_paths": [
+    {
+      "capability_unit_id": "ocu_d220e9fef081d1875414",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_0045af6fa6bcdc3a8623",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_8fe9f94f39566c497277",
+        "prov_e4e0f5f2206e0d8a55b7",
+        "req_a699f9064593a6a2e51f"
+      ],
+      "requirement_ids": [
+        "req_a699f9064593a6a2e51f"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_73b346e2e1d89c474dae",
+        "sui_e71dee1958ed04c62d16"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_ad3abadd4ae55f7368ff",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_0709ed6d69ed0b2184a5",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_4f9b39bd78a2645ca79d",
+        "prov_8a64812aed250bbd71b0",
+        "prov_b52d662b7039cb936744",
+        "prov_be1def9f845aee2bb988",
+        "req_bf1d3f0ca400d13736cc"
+      ],
+      "requirement_ids": [
+        "req_bf1d3f0ca400d13736cc"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_6aa45f464921371d9f26",
+        "sui_b477f09d502108d810e8",
+        "sui_bbfc9fe79c7f18b05d5c",
+        "sui_ec0e4a43cab59923da5f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3875646c95f81b8681ec",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_24da49923787ba43300f",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_280094eae767f6758717",
+        "prov_78ca1a20134ae18055fa",
+        "req_7cef72d98fa65a60dff4"
+      ],
+      "requirement_ids": [
+        "req_7cef72d98fa65a60dff4"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_c815e11c6211581a7512",
+        "sui_fdefe1cd8abde64056ef"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3875646c95f81b8681ec",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_55785f45353f244cdfa9",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_280094eae767f6758717",
+        "prov_78ca1a20134ae18055fa",
+        "req_420d47ab2aaf4de06daf"
+      ],
+      "requirement_ids": [
+        "req_420d47ab2aaf4de06daf"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_c815e11c6211581a7512",
+        "sui_fdefe1cd8abde64056ef"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_edaaafe71efc26635271",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_6a2f4983788569047961",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_8613759ee41b4fd1899f",
+        "prov_eef9f63d72fe7be673a4",
+        "req_bec6fc3f2dfeba13a684"
+      ],
+      "requirement_ids": [
+        "req_bec6fc3f2dfeba13a684"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_25637c18419bc8cc9c41",
+        "sui_ee8bbe5b399a0dc0a33f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_04ead629b61425c028de",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "sales-pivot-analysis_xlsx"
+      ],
+      "path_id": "path_repair_6f1d73ef1469672542ff",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_46b87ab37e8cb2715fae",
+        "prov_60ed0639c6a8165b2892",
+        "prov_80b60f6a016654360c2f",
+        "req_02c56ee57f2d760db9b8"
+      ],
+      "requirement_ids": [
+        "req_02c56ee57f2d760db9b8"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_25ce7533cc8941d5f683",
+        "sui_96d4b9132c0814d2c7e2",
+        "sui_adabd9b7cd32ea0543c8"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_d220e9fef081d1875414",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_7ed8f6f692140bf43ec6",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_8fe9f94f39566c497277",
+        "prov_e4e0f5f2206e0d8a55b7",
+        "req_420d47ab2aaf4de06daf"
+      ],
+      "requirement_ids": [
+        "req_420d47ab2aaf4de06daf"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_73b346e2e1d89c474dae",
+        "sui_e71dee1958ed04c62d16"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_d220e9fef081d1875414",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_9f5a0c7b583b3d882c11",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_8fe9f94f39566c497277",
+        "prov_e4e0f5f2206e0d8a55b7",
+        "req_02c56ee57f2d760db9b8"
+      ],
+      "requirement_ids": [
+        "req_02c56ee57f2d760db9b8"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_73b346e2e1d89c474dae",
+        "sui_e71dee1958ed04c62d16"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_ad3abadd4ae55f7368ff",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_aa5d793aba897d86a512",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_4f9b39bd78a2645ca79d",
+        "prov_8a64812aed250bbd71b0",
+        "prov_b52d662b7039cb936744",
+        "prov_be1def9f845aee2bb988",
+        "req_6b458805628d15fcb4b6"
+      ],
+      "requirement_ids": [
+        "req_6b458805628d15fcb4b6"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_6aa45f464921371d9f26",
+        "sui_b477f09d502108d810e8",
+        "sui_bbfc9fe79c7f18b05d5c",
+        "sui_ec0e4a43cab59923da5f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_913d4f74166df496a64c",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_b5cffa1ba19916311655",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_419e0989205ffe420530",
+        "prov_d7ca06e840abb99b1190",
+        "req_6b458805628d15fcb4b6"
+      ],
+      "requirement_ids": [
+        "req_6b458805628d15fcb4b6"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_276c8644ed183ac9ec0d",
+        "sui_79c05f21495cd850bd66"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_913d4f74166df496a64c",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_b8782f398b2582462667",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_419e0989205ffe420530",
+        "prov_d7ca06e840abb99b1190",
+        "req_02c56ee57f2d760db9b8"
+      ],
+      "requirement_ids": [
+        "req_02c56ee57f2d760db9b8"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_276c8644ed183ac9ec0d",
+        "sui_79c05f21495cd850bd66"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_3875646c95f81b8681ec",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_c2b7006bbe119d8b4f75",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_280094eae767f6758717",
+        "prov_78ca1a20134ae18055fa",
+        "req_bf1d3f0ca400d13736cc"
+      ],
+      "requirement_ids": [
+        "req_bf1d3f0ca400d13736cc"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_c815e11c6211581a7512",
+        "sui_fdefe1cd8abde64056ef"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_500c8dd0265b628f8379",
+      "community_ids": [
+        "l2_001"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "first-order-model-fitting"
+      ],
+      "path_id": "path_repair_cba39ded6a351e30579b",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_42fbbc3474a421853ee6",
+        "prov_b30bcea317da9bc71eee",
+        "req_bec6fc3f2dfeba13a684"
+      ],
+      "requirement_ids": [
+        "req_bec6fc3f2dfeba13a684"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_6f15c755062aa0765de8",
+        "sui_acfbc10d2be536d8b869"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    },
+    {
+      "capability_unit_id": "ocu_ad3abadd4ae55f7368ff",
+      "community_ids": [
+        "l2_006"
+      ],
+      "conflict_ids": [],
+      "contradicted": false,
+      "parent_skill_ids": [
+        "xlsx"
+      ],
+      "path_id": "path_repair_f88d63710137b8148b98",
+      "prerequisite_path_ids": [],
+      "provenance_ids": [
+        "prov_4f9b39bd78a2645ca79d",
+        "prov_8a64812aed250bbd71b0",
+        "prov_b52d662b7039cb936744",
+        "prov_be1def9f845aee2bb988",
+        "req_bec6fc3f2dfeba13a684"
+      ],
+      "requirement_ids": [
+        "req_bec6fc3f2dfeba13a684"
+      ],
+      "status": "CERTIFIED",
+      "subunit_ids": [
+        "sui_6aa45f464921371d9f26",
+        "sui_b477f09d502108d810e8",
+        "sui_bbfc9fe79c7f18b05d5c",
+        "sui_ec0e4a43cab59923da5f"
+      ],
+      "unresolved_dependencies": [],
+      "validation_present": true
+    }
+  ],
+  "instruction_source": "tasks/shock-analysis-supply/instruction.md",
+  "units_file": "capabilities/b56fb05ceb7fbb8d.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [
+    {
+      "path_id": "path_repair_7ed8f6f692140bf43ec6",
+      "requirement": {
+        "requirement_id": "req_420d47ab2aaf4de06daf"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_55785f45353f244cdfa9",
+      "requirement": {
+        "requirement_id": "req_420d47ab2aaf4de06daf"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_b8782f398b2582462667",
+      "requirement": {
+        "requirement_id": "req_02c56ee57f2d760db9b8"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_9f5a0c7b583b3d882c11",
+      "requirement": {
+        "requirement_id": "req_02c56ee57f2d760db9b8"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_6f1d73ef1469672542ff",
+      "requirement": {
+        "requirement_id": "req_02c56ee57f2d760db9b8"
+      },
+      "capability_unit": {
+        "skill_id": "sales-pivot-analysis_xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_0045af6fa6bcdc3a8623",
+      "requirement": {
+        "requirement_id": "req_a699f9064593a6a2e51f"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_f88d63710137b8148b98",
+      "requirement": {
+        "requirement_id": "req_bec6fc3f2dfeba13a684"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_6a2f4983788569047961",
+      "requirement": {
+        "requirement_id": "req_bec6fc3f2dfeba13a684"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_cba39ded6a351e30579b",
+      "requirement": {
+        "requirement_id": "req_bec6fc3f2dfeba13a684"
+      },
+      "capability_unit": {
+        "skill_id": "first-order-model-fitting"
+      }
+    },
+    {
+      "path_id": "path_repair_b5cffa1ba19916311655",
+      "requirement": {
+        "requirement_id": "req_6b458805628d15fcb4b6"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_aa5d793aba897d86a512",
+      "requirement": {
+        "requirement_id": "req_6b458805628d15fcb4b6"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_24da49923787ba43300f",
+      "requirement": {
+        "requirement_id": "req_7cef72d98fa65a60dff4"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_c2b7006bbe119d8b4f75",
+      "requirement": {
+        "requirement_id": "req_bf1d3f0ca400d13736cc"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    },
+    {
+      "path_id": "path_repair_0709ed6d69ed0b2184a5",
+      "requirement": {
+        "requirement_id": "req_bf1d3f0ca400d13736cc"
+      },
+      "capability_unit": {
+        "skill_id": "xlsx"
+      }
+    }
+  ],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "f3b52bb527f6b1ebd022c6838ab0ffab2f6f5b5f9559e6bb1c09fe448b721917",
+    "units": "8dad3b35d4e8be62b58cdb25e422cd8f03067b58e4854f4735dcf3ae22499df2",
+    "instruction": "2a2730fffe52db4d9595cdc3d3a7a5108c50c64ee0a6615c571be7d351625af4"
+  }
+}

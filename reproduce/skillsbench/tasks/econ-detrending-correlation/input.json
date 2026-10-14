@@ -1,0 +1,398 @@
+{
+  "task_id": "econ-detrending-correlation",
+  "top_k": 5,
+  "requirements": [
+    {
+      "requirement_id": "req_ab5a75f0d4751e7bfbf0",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "In macroeconomics, understanding business cycle dynamics requires separating the trend component (long-term growth) from the cyclical component (short-term fluctuations) of economic time series. This task involves applying standard detrending techniques to analyze how consumption and investment move together over the business cycle.\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_bf4caf0ba53f1f00a2ea",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Goal: Calculate the Pearson correlation coefficient between the detrended real personal consumption expenditures (PCE) and the detrended real private fixed investment (PFI) for the years 1973 to 2024 (inclusive).\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_7cca629aacd33d5e9280",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 6,
+        "line_end": 6,
+        "exact_text": "- `ERP-2025-table10.xls` Personal Consumption Expenditures (Nominal)\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_215044a6edd215e56f33",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 7,
+        "line_end": 7,
+        "exact_text": "- `ERP-2025-table12.xls` Private Fixed Investment (Nominal)\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_143e8a3a521345dc8f4a",
+      "requirement_type": "FORMAT",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 8,
+        "line_end": 9,
+        "exact_text": "- `CPI.xlsx` Consumer Price Index (for deflation)\n\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_033ba0c8f667048dec52",
+      "requirement_type": "ARTIFACT",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 10,
+        "line_end": 10,
+        "exact_text": "Note: The ERP (Economic Report of the President) tables contain annual data with quarterly breakdowns at the end. For 2024, only partial quarterly data is available—use the average of available quarters as the annual value.\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_d7076556fe98bac683ec",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 13,
+        "line_end": 13,
+        "exact_text": "1. Extract the data for Personal Consumption Expenditures (Total, column 1) and Private Fixed Investment (Total, column 1) from the ERP tables.\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_a3a49216c2e61c181d23",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 14,
+        "line_end": 14,
+        "exact_text": "2. Convert to real values by deflating the nominal series using the CPI.\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_981c1145a145ec0e603f",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 15,
+        "line_end": 17,
+        "exact_text": "3. Apply the Hodrick-Prescott filter to extract the cyclical component:\n   - Use the natural logarithm of the real series before filtering\n   - Use $\\lambda$ = 100 (the standard smoothing parameter for annual data)\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_ab3844b652892ff159ba",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 16,
+        "line_end": 16,
+        "exact_text": "   - Use the natural logarithm of the real series before filtering\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_1f708d1af19d87df0796",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 17,
+        "line_end": 17,
+        "exact_text": "   - Use $\\lambda$ = 100 (the standard smoothing parameter for annual data)\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_b6e068c34376ad59cfb6",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 18,
+        "line_end": 18,
+        "exact_text": "4. Compute the Pearson correlation between the two cyclical components.\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_9cfbbe76301c27b1784a",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 19,
+        "line_end": 22,
+        "exact_text": "5. Write the result to `/root/answer.txt`:\n   - Output only the correlation coefficient as a single number\n   - Round to 5 decimal places\n\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_afe6b6f5f1338c675e0b",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 20,
+        "line_end": 20,
+        "exact_text": "   - Output only the correlation coefficient as a single number\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_788bd0bf61863b6f7a47",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "SUPPORT",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 21,
+        "line_end": 22,
+        "exact_text": "   - Round to 5 decimal places\n\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "commonmark_list_item"
+      }
+    },
+    {
+      "requirement_id": "req_1346935b74cf84432f7b",
+      "requirement_type": "OUTPUT_PATH",
+      "criticality": "HARD",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 23,
+        "line_end": 23,
+        "exact_text": "Example Output:\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "actionable_paragraph"
+      }
+    },
+    {
+      "requirement_id": "req_b523e8705ddd27b243fb",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "tasks/econ-detrending-correlation/instruction.md",
+        "source_type": "instruction",
+        "line_start": 25,
+        "line_end": 25,
+        "exact_text": "If the correlation is 0.72345678, your `answer.txt` should contain:\n",
+        "source_sha256": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db",
+        "extraction_rule": "actionable_paragraph"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "timeseries-detrending",
+      "c0_rank": 1,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "contribution-analysis",
+      "c0_rank": 2,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "did_causal_analysis",
+      "c0_rank": 3,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "trend-analysis",
+      "c0_rank": 4,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pca-decomposition",
+      "c0_rank": 5,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "time_series_anomaly_detection",
+      "c0_rank": 6,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "locational-marginal-prices",
+      "c0_rank": 7,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "box-least-squares",
+      "c0_rank": 8,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "gamma-phase-associator",
+      "c0_rank": 9,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "pcap-analysis",
+      "c0_rank": 10,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "meteorology-driver-classification",
+      "c0_rank": 11,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "light-curve-preprocessing",
+      "c0_rank": 12,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "13f-analyzer",
+      "c0_rank": 13,
+      "community_ids": [
+        "l2_007"
+      ]
+    },
+    {
+      "skill_id": "first-order-model-fitting",
+      "c0_rank": 14,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "obspy-data-api",
+      "c0_rank": 15,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "enterprise-artifact-search",
+      "c0_rank": 16,
+      "community_ids": [
+        "l2_002"
+      ]
+    },
+    {
+      "skill_id": "casadi-ipopt-nlp",
+      "c0_rank": 17,
+      "community_ids": [
+        "l2_001"
+      ]
+    },
+    {
+      "skill_id": "lomb-scargle-periodogram",
+      "c0_rank": 18,
+      "community_ids": [
+        "l2_004"
+      ]
+    },
+    {
+      "skill_id": "seisbench-model-api",
+      "c0_rank": 19,
+      "community_ids": [
+        "l2_003"
+      ]
+    },
+    {
+      "skill_id": "transit-least-squares",
+      "c0_rank": 20,
+      "community_ids": [
+        "l2_001"
+      ]
+    }
+  ],
+  "support_paths": [],
+  "instruction_source": "tasks/econ-detrending-correlation/instruction.md",
+  "units_file": "capabilities/b3e3b0ae73fbd01f.json",
+  "baseline_path_ids": [],
+  "accepted_bindings": [],
+  "guide_compilation_budget": 256,
+  "relative_executor_mount": false,
+  "source_hashes": {
+    "support": "cb4d9eecc9150e796868c57e396aaa7125c5bb2202abe4f7455b0dd51e18ea9a",
+    "units": "76ee766641df300b787a2eaa320d3f7f6416d3fca3d5e8433b1fa86848693646",
+    "instruction": "1fe2602584cfb22f85357185f41a215f090deacc3fe7e730d15c5db4fc4496db"
+  }
+}

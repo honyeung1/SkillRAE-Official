@@ -1,0 +1,161 @@
+{
+  "task_id": "constructed-selection-example",
+  "top_k": 2,
+  "requirements": [
+    {
+      "requirement_id": "r1",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "examples/fixture.md",
+        "source_type": "selected_skill",
+        "line_start": 1,
+        "line_end": 1,
+        "exact_text": "Diagnose fault",
+        "source_sha256": "13104677fc8b697dba2e072024c1dc9a391a13c7a078204b3fc4e5936c8d59ae",
+        "extraction_rule": "constructed_example"
+      }
+    },
+    {
+      "requirement_id": "r2",
+      "requirement_type": "DOMAIN_ACTION",
+      "criticality": "CORE",
+      "provenance": {
+        "source_file": "examples/fixture.md",
+        "source_type": "selected_skill",
+        "line_start": 2,
+        "line_end": 2,
+        "exact_text": "Verify resolution",
+        "source_sha256": "13104677fc8b697dba2e072024c1dc9a391a13c7a078204b3fc4e5936c8d59ae",
+        "extraction_rule": "constructed_example"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "skill_id": "s1",
+      "c0_rank": 1,
+      "community_ids": [
+        "g1"
+      ]
+    },
+    {
+      "skill_id": "s2",
+      "c0_rank": 2,
+      "community_ids": [
+        "g1"
+      ]
+    },
+    {
+      "skill_id": "s3",
+      "c0_rank": 3,
+      "community_ids": [
+        "g2"
+      ]
+    }
+  ],
+  "subunits": [
+    {
+      "subunit_id": "u1",
+      "skill_id": "s1",
+      "role": "PROCEDURE",
+      "heading_path": [],
+      "provenance": {
+        "source_file": "examples/fixture.md",
+        "source_type": "selected_skill",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Example procedure",
+        "source_sha256": "13104677fc8b697dba2e072024c1dc9a391a13c7a078204b3fc4e5936c8d59ae",
+        "extraction_rule": "constructed_example"
+      },
+      "executable": true
+    },
+    {
+      "subunit_id": "u2",
+      "skill_id": "s2",
+      "role": "PROCEDURE",
+      "heading_path": [],
+      "provenance": {
+        "source_file": "examples/fixture.md",
+        "source_type": "selected_skill",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Example procedure",
+        "source_sha256": "13104677fc8b697dba2e072024c1dc9a391a13c7a078204b3fc4e5936c8d59ae",
+        "extraction_rule": "constructed_example"
+      },
+      "executable": true
+    },
+    {
+      "subunit_id": "u3",
+      "skill_id": "s3",
+      "role": "PROCEDURE",
+      "heading_path": [],
+      "provenance": {
+        "source_file": "examples/fixture.md",
+        "source_type": "selected_skill",
+        "line_start": 3,
+        "line_end": 3,
+        "exact_text": "Example procedure",
+        "source_sha256": "13104677fc8b697dba2e072024c1dc9a391a13c7a078204b3fc4e5936c8d59ae",
+        "extraction_rule": "constructed_example"
+      },
+      "executable": true
+    }
+  ],
+  "support_paths": [
+    {
+      "path_id": "p1",
+      "requirement_ids": [
+        "r1"
+      ],
+      "parent_skill_ids": [
+        "s1"
+      ],
+      "subunit_ids": [
+        "u1"
+      ],
+      "community_ids": [
+        "g1"
+      ],
+      "status": "CERTIFIED",
+      "validation_present": true
+    },
+    {
+      "path_id": "p2",
+      "requirement_ids": [
+        "r1"
+      ],
+      "parent_skill_ids": [
+        "s2"
+      ],
+      "subunit_ids": [
+        "u2"
+      ],
+      "community_ids": [
+        "g1"
+      ],
+      "status": "CERTIFIED",
+      "validation_present": true
+    },
+    {
+      "path_id": "p3",
+      "requirement_ids": [
+        "r2"
+      ],
+      "parent_skill_ids": [
+        "s3"
+      ],
+      "subunit_ids": [
+        "u3"
+      ],
+      "community_ids": [
+        "g2"
+      ],
+      "status": "CERTIFIED",
+      "validation_present": true
+    }
+  ],
+  "communities": []
+}
