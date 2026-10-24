@@ -22,10 +22,12 @@ AgentSkillOS tasks with a 200-skill library. The evaluated configuration retriev
 tokens and two entries. Execution settings are Codex CLI/GPT-5.5 and
 Grok Build CLI/Grok-4.6.
 
-Recorded-input replay uses the original construction and binding identities in
-the [SkillsBench manifest](../reproduce/skillsbench/manifest.json) and
-[AgentSkillOS manifest](../reproduce/agentskillos/manifest.json). Current run
-presets do not change those recorded inputs or their model provenance.
+The bundled recorded-input replay covers 30 AgentSkillOS tasks. Its construction
+and binding models are recorded in the
+[AgentSkillOS manifest](../reproduce/agentskillos/manifest.json). SkillsBench
+recorded inputs are not distributed in this release; the SkillsBench preset
+remains available for new runs. Current run presets do not change stored input
+provenance.
 
 ## Component comparisons
 

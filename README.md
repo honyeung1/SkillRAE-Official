@@ -46,12 +46,12 @@ and adds support for another requirement using the same two skill slots.
 For a real task with recorded retrieval and semantic inputs:
 
 ```bash
-skillrae replay reproduce/skillsbench --output ./replay-output
+skillrae replay reproduce/agentskillos --output ./replay-output
 ```
 
-This recomputes selection and execution guidance for `adaptive-cruise-control`.
-The five selected skill packages are included. The [reproduction guide](docs/REPRODUCING.md)
-also covers all 87 SkillsBench and 30 AgentSkillOS tasks.
+This recomputes selection and execution guidance for `data_computation_task1`.
+The [reproduction guide](docs/REPRODUCING.md) covers the 30 bundled AgentSkillOS
+tasks. SkillsBench recorded-input replay is not included in this release.
 
 ## Use SkillRAE with your inputs
 

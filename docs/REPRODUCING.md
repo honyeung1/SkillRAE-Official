@@ -1,9 +1,10 @@
 # Reproducing selection and execution guidance
 
 The release includes candidate rankings, accepted support, OCU records, task
-instructions, and reference outputs for **87 SkillsBench tasks and 30 AgentSkillOS
-tasks**. Replay recomputes joint selection and source-linked guidance from these
-recorded inputs. Agent execution and official scoring use the benchmark environments.
+instructions, and reference outputs for **30 AgentSkillOS tasks**. Replay
+recomputes joint selection and source-linked guidance from these recorded inputs.
+SkillsBench recorded inputs are not included in this release. Agent execution
+and official scoring use the benchmark environments.
 
 ## Run a real task
 
@@ -11,14 +12,15 @@ From the repository root or extracted code package:
 
 ```bash
 python -m pip install -e . -c requirements-replay.txt
-skillrae replay reproduce/skillsbench --output ./replay-output
+skillrae replay reproduce/agentskillos --output ./replay-output
 ```
 
-The default task is `adaptive-cruise-control`. The selector replaces
-`simulation-metrics` with `yaml-config`, retains five packages, and compiles a
-two-route, 210-token guide. All five selected packages are included.
+The default task is `data_computation_task1`. Replay checks the selected skills
+and generated guidance against this task's recorded reference outputs.
+The output identifies which selected packages are included and which require
+separate acquisition.
 
-Inspect `replay-output/adaptive-cruise-control/`:
+Inspect `replay-output/data_computation_task1/`:
 
 - `selection.json`: selected skills, support paths, requirements, and package locations.
 - `PROCEDURAL_SLICE_GUIDE.md`: execution guidance.
@@ -27,10 +29,9 @@ Inspect `replay-output/adaptive-cruise-control/`:
 The command re-extracts requirements from the instruction and checks the
 computed selections, support paths, coverage, and guide against reference outputs.
 
-## Check both benchmarks
+## Check all bundled tasks
 
 ```bash
-skillrae replay reproduce/skillsbench --task all
 skillrae replay reproduce/agentskillos --task all
 ```
 
@@ -62,7 +63,6 @@ ID; every listed file has a verified source location and SHA-256 identity.
 Verify a full skill library against its recorded file identities:
 
 ```bash
-skillrae check-pool reproduce/skillsbench /data/skillsbench-pool
 skillrae check-pool reproduce/agentskillos /data/agentskillos-pool
 ```
 
@@ -81,4 +81,4 @@ Benchmark environments and scoring tools are maintained upstream:
 
 Full score reproduction requires the corresponding benchmark version, complete
 selected packages, executor configuration, and scoring environment. The bundled
-inputs cover the Codex-side selection and guidance computations.
+inputs cover the Codex-side selection and guidance computations for AgentSkillOS.
