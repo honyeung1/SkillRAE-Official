@@ -1,6 +1,4 @@
-# SkillRAE: Support-Aware Skill Selection for Retrieval-Augmented Execution
-
-[Paper](paper/SkillRAE.pdf) · [arXiv](https://arxiv.org/abs/2605.10114)
+# SkillRAE: Agent Skill-Based Context Compilation for Retrieval-Augmented Execution
 
 SkillRAE retrieves candidate skills, matches task requirements to documented
 capabilities, and jointly selects complete packages under a fixed skill budget.
@@ -8,26 +6,9 @@ Source-linked guidance connects the selected capabilities to execution.
 
 ## Method overview
 
-[![SkillRAE method: offline hierarchy and capability construction; online retrieval, joint skill selection, and execution guidance.](assets/figures/method_overview.png)](assets/figures/method_overview.png)
-
 Offline construction prepares a retrieval hierarchy and source-linked capabilities.
 Online, task requirements guide joint selection that preserves and extends support
 under a fixed skill budget. Complete selected packages and their guidance reach the executor.
-
-<details>
-<summary>Why support-aware selection? — Figure 1</summary>
-
-<p align="center">
-<img src="assets/figures/motivation.png" width="620" alt="Illustrative inverter task: replacing redundant diagnosis guidance with verification support preserves existing support under the same three-skill budget.">
-</p>
-
-Relevant skills can provide overlapping guidance while leaving a task requirement
-unsupported. This illustrative example adds verification support while preserving
-diagnosis and maintenance support under the same budget.
-
-</details>
-
-[Figure credits](assets/figures/CREDITS.md).
 
 ## Install and try
 

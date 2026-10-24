@@ -5,19 +5,7 @@
   },
   {
     "file": "README.md",
-    "sha256": "0b8e52bca99d3e3f03cf3b0160b6628d7ac0713bcf36f5007a19071ff08d3ae1"
-  },
-  {
-    "file": "assets/figures/CREDITS.md",
-    "sha256": "5743ecc5e8ef6be1977683baeab39c6c9870952329e6d18cc6baae72b8e5267d"
-  },
-  {
-    "file": "assets/figures/method_overview.png",
-    "sha256": "45a1303b181ec39746fbff0777acc658e6276776fb8d071ed7ad04401fce207b"
-  },
-  {
-    "file": "assets/figures/motivation.png",
-    "sha256": "9ed645f9daf803bf0a3fa6502fc0cfa913785937e4a555ae2f084313436326ee"
+    "sha256": "334a1fd8f6c94f491a3c9e209d269bbf2eb2bc537a80cfd4e86b4a22ad7ee0be"
   },
   {
     "file": "docs/EVALUATION.md",
