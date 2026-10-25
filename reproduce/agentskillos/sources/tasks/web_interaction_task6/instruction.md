@@ -1,5 +1,0 @@
-I am a market researcher, and I want to analyze pricing trends in the online book market. Please collect book data from https://books.toscrape.com, covering the first 2 pages with at least 30 books. For each book, I need: title, price as numeric without the £ symbol, rating on a 1-5 scale, and availability.
-
-Create books_report.xlsx with 3 sheets: 'Raw Data' containing all books, 'Statistics' with calculated metrics including total_books, average_price, max_price, min_price, and in_stock_count using spreadsheet formulas so values update automatically, and 'Market Insights' showing price tier segmentation — Budget under 20, Mid-range 20-40, and Premium over 40 — with count and average rating per tier.
-
-Also save stats.json with: total_books, average_price, max_price, min_price, in_stock_count, price_tiers as an object with budget/midrange/premium counts, and market_insight as a 1-2 sentence string describing the relationship between price and rating you observed.

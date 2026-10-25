@@ -1,3 +1,0 @@
-I am an art director, and I'm organizing a digital art exhibition called "FutureScape". I need a promotional website to showcase the exhibition online. Please generate 6 artwork images: cyberpunk.png, biomechanical.png, interstellar.png, deep_sea.png, quantum_garden.png, time_corridor.png. Create smaller preview versions around 400×300: cyberpunk_thumb.png, biomechanical_thumb.png, interstellar_thumb.png, deep_sea_thumb.png, quantum_garden_thumb.png, time_corridor_thumb.png. Combine all 6 artworks into a wide banner image as banner.jpg.
-
-Build index.html with: a hero section featuring the banner, 6 artwork showcase sections, a thumbnail gallery grid, dark theme with neon accents in cyan/magenta/purple, and responsive design.

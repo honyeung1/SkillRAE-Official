@@ -33,26 +33,12 @@ def main():
     ocu.add_argument('pool',type=Path);ocu.add_argument('profiles',type=Path)
     ocu.add_argument('--root',type=Path,required=True)
     ocu.add_argument('--skills',nargs='+',help='Skill IDs to include; default: all parsed skills')
-    replay=subs.add_parser('replay',help='Verify a frozen method snapshot against recorded selections and guides')
-    replay.add_argument('snapshot',type=Path)
-    replay.add_argument('--task',help='Task ID, or all; default is the documented example')
-    replay.add_argument('--output',type=Path,help='Optional output directory outside the snapshot')
-    poolcheck=subs.add_parser('check-pool',help='Verify a supplied skill library against the evaluation snapshot')
-    poolcheck.add_argument('snapshot',type=Path);poolcheck.add_argument('pool',type=Path)
     args=parser.parse_args()
     if args.preset:
         os.environ['SKILLRAE_MODEL_PRESET']=args.preset
     if args.command=='models':
         from .model_config import model_config
         print(json.dumps(model_config().payload(),indent=2))
-        return
-    if args.command=='check-pool':
-        from .replay import check_pool
-        check_pool(args.snapshot,args.pool)
-        return
-    if args.command=='replay':
-        from .replay import run
-        run(args.snapshot,args.task,args.output)
         return
     if args.command=='select':
         from .mechanism_policies_v2 import select_hq_community_exact

@@ -14,7 +14,7 @@ preset. These settings govern new semantic calls:
 Choose a preset before starting the process, as described in [Models](../README.md#models).
 Environment overrides take precedence; `skillrae models` shows the active values.
 
-## Benchmark settings and recorded inputs
+## Benchmark settings
 
 The paper evaluates 87 SkillsBench tasks with a 207-skill library and 30
 AgentSkillOS tasks with a 200-skill library. The evaluated configuration retrieves
@@ -22,12 +22,9 @@ AgentSkillOS tasks with a 200-skill library. The evaluated configuration retriev
 tokens and two entries. Execution settings are Codex CLI/GPT-5.5 and
 Grok Build CLI/Grok-4.6.
 
-The bundled recorded-input replay covers 30 AgentSkillOS tasks. Its construction
-and binding models are recorded in the
-[AgentSkillOS manifest](../reproduce/agentskillos/manifest.json). SkillsBench
-recorded inputs are not distributed in this release; the SkillsBench preset
-remains available for new runs. Current run presets do not change stored input
-provenance.
+This release distributes the implementation, model configuration, and a synthetic
+selection example. Frozen benchmark inputs and execution logs are not bundled.
+Model presets configure new semantic calls.
 
 ## Component comparisons
 
@@ -40,5 +37,5 @@ provenance.
 
 `hierarchy_representation_controls.py` and `whole_skill_runtime_guide.py` provide
 component-comparison utilities. Each comparison uses its corresponding input
-representation. See [Reproducing](REPRODUCING.md) for the available method inputs
-and the benchmark execution requirements.
+representation. See [Setup and usage](REPRODUCING.md) for input preparation and benchmark execution
+requirements.

@@ -1,7 +1,7 @@
 # Pipeline interfaces
 
 The CLI exposes source parsing, requirement extraction, OCU candidate construction,
-joint selection, and recorded-input replay. The Python interfaces below cover
+and joint selection. The Python interfaces below cover
 the intervening retrieval and semantic steps.
 
 ## Offline representations
@@ -88,5 +88,5 @@ memberships. It returns the bounded guide and its source references.
 
 Provide the complete selected package trees to the executor. The default guide
 uses `/root/.agents/skills` as the package mount location. The
-[reproduction command](REPRODUCING.md) demonstrates selection-to-guide assembly
-and reports package locations for a real task.
+[usage guide](REPRODUCING.md) describes setup and a synthetic selection example.
+For a new task, use the returned guide and selected packages with your executor.

@@ -17,22 +17,12 @@ Use Python 3.12 or newer:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install -e . -c requirements-replay.txt
+python -m pip install -e . -c constraints.txt
 skillrae select examples/selection.json
 ```
 
-The example selects `s1` and `s3`: it preserves the original critical support
+The synthetic example selects `s1` and `s3`: it preserves the original critical support
 and adds support for another requirement using the same two skill slots.
-
-For a real task with recorded retrieval and semantic inputs:
-
-```bash
-skillrae replay reproduce/agentskillos --output ./replay-output
-```
-
-This recomputes selection and execution guidance for `data_computation_task1`.
-The [reproduction guide](docs/REPRODUCING.md) covers the 30 bundled AgentSkillOS
-tasks. SkillsBench recorded-input replay is not included in this release.
 
 ## Use SkillRAE with your inputs
 
@@ -83,15 +73,14 @@ The current run presets use **`gpt-5.5` for both capability construction and req
 | `agentskillos` | `gpt-5.5` | `gpt-5.5` |
 
 `SKILLRAE_CONSTRUCTION_MODEL` and `SKILLRAE_BINDING_MODEL` override individual
-settings. Without a preset, the `default` row applies. Recorded-input replay
-uses its stored inputs and original model metadata.
+settings. Without a preset, the `default` row applies.
 Retrieval embeddings use the optional dependency `pip install -e '.[retrieval]'`.
-Selection and recorded-input replay require no API credentials.
+Selection from a supplied accepted-support input requires no API credentials.
 
 ## Further reading
 
 - [Pipeline interfaces and input schema](docs/PIPELINE.md)
-- [Reproduction and resources](docs/REPRODUCING.md)
+- [Setup and usage](docs/REPRODUCING.md)
 - [Evaluation settings](docs/EVALUATION.md)
 
 Run local checks with `python -m unittest discover -s tests -v`.
