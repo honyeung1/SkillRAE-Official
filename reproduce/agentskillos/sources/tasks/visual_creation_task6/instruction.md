@@ -1,3 +1,0 @@
-I am a science museum curator, and I want to build an immersive online exhibit for our "History of Human Space Exploration" display. Please create a scrolling web page with 5 illustrated chapters. Generate illustrations for each milestone: chapter_1.png for Sputnik 1957, chapter_2.png for Apollo moon landing 1969, chapter_3.png for the Space Shuttle era, chapter_4.png for the ISS, and chapter_5.png for a Mars colonization concept.
-
-Create index.html with full-screen sections for each chapter, smooth scrolling with layered depth effects, text animations that reveal content as you scroll, a progress indicator bar, and responsive design for different screen sizes.
